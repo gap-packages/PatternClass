@@ -1,0 +1,542 @@
+<Chapter><Heading>Pattern Classes</Heading>
+
+Permutation pattern classes can be determined using their corresponding basis.
+The basis of a pattern class is the anti-chain of the class, 
+under the order of containment. A permutation <M>\pi</M> contains another
+permutation <M>\sigma</M> (of shorter length) if there is a subsequence
+in <M>\pi</M>, which is isomorphic to <M>\sigma</M>. <P/>
+With the rational language of the rank encoded class, it is also possible 
+to find the rational language of the basis and vice versa.
+Several specific kinds of transducers are used in this process.
+<Cite Key="RegCloSetPerms"/>
+
+<Section><Heading>Transducers</Heading>
+
+<ManSection>
+  <Func Name="Transducer" Arg="states,init,transitions,accepting"/>
+  <Returns>A record that represents a transducer.</Returns>
+  <Description>
+    A transducer is essentially an automaton, where running through the process does not
+    determine whether the input is accepted, but the input is translated to another language,
+    over a different alphabet. <P/>
+    Formally a transducer is a six-tuple with:
+    <M>Q</M> being the set of states, <M>S</M> the input alphabet, <M>G</M> the output alphabet,
+    <M>I \in Q</M> the start state, <M>A \subseteq Q</M> the set of accept states, and with the transition function
+    <M>f: Q \times (S \cup \{e\}) \rightarrow Q \times (G \cup \{e\})</M>, where <M>e</M> is the empty word. <P/>
+    In this function the transducer is stored by defining how many states there are, which one (by index) is the start
+    or initial state, the transitions are of the form <C>[inputletter,outputletter,fromstate,tostate]</C> and
+    a list of accept states. The input and output alphabet are determined by the input and output letters on
+    the transitions.
+<Example><![CDATA[
+gap> trans:=Transducer(3,1,[[1,2,1,2],[1,2,2,2],[2,2,1,3],[2,2,2,3],
+> [1,1,3,3],[2,2,3,3]],[2]);
+rec( accepting := [ 2 ], initial := 1, states := 3, 
+  transitions := [ [ 1, 2, 1, 2 ], [ 1, 2, 2, 2 ], [ 2, 2, 1, 3 ], 
+      [ 2, 2, 2, 3 ], [ 1, 1, 3, 3 ], [ 2, 2, 3, 3 ] ] )
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      This transducer can be visualised as the following graph:
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/trans.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      This transducer can be visualised as the following graph:
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/trans.jpg&#34; WIDTH=241 HEIGHT=296 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="DeletionTransducer" Arg="k"/>
+  <Returns>A transducer over <C>k</C>+1 states.</Returns>
+  <Description>
+    A deletion transducer is a transducer that deletes one letter of a rank encoded permutation
+    and returns the correct rank encoding of the new permutation. The deletion transducer over <C>k</C>
+    deletes letters over the set of all rank encoded permutations with highest rank <C>k</C>.
+    Specifically, running through a deletion transducer with a rank encoded permutation, of highest rank <C>k</C>,
+    will lead to the set of all rank encoded permutations that have one letter of the initial permutation removed.
+    It is important to note that computing these shorter permutations with the transducer, is done by reading the
+    input permutation from right to left.
+    For example the deletion transducer with <C>k</C>=3, looks as follows:
+<Example><![CDATA[
+gap> DeletionTransducer(3);
+rec( accepting := [ 1 .. 3 ], initial := 4, states := 4, 
+  transitions := [ [ 1, 1, 4, 4 ], [ 1, 0, 4, 1 ], [ 2, 1, 1, 1 ], 
+      [ 1, 1, 1, 2 ], [ 3, 2, 1, 1 ], [ 1, 1, 2, 3 ], [ 1, 1, 3, 3 ], 
+      [ 2, 2, 4, 4 ], [ 2, 0, 4, 2 ], [ 3, 2, 2, 2 ], [ 2, 2, 2, 3 ], 
+      [ 2, 2, 3, 3 ], [ 3, 3, 4, 4 ], [ 3, 0, 4, 3 ], [ 3, 3, 3, 3 ] ] )
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/dt3.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/dt3.jpg&#34; WIDTH=288 HEIGHT=317 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="TransposedTransducer" Arg="t"/>
+  <Returns>A new transducer with interchanged input and output letters on each transition.</Returns>
+  <Description>
+    A transducer is transposed when all origins and destinations of transitions are left the same as before
+    but the input and output letters on each transition are interchanged.
+    Taking the deletion transducer from above, its transpose looks as follows:
+<Example><![CDATA[
+gap> TransposedTransducer(DeletionTransducer(3));
+rec( accepting := [ 1 .. 3 ], initial := 4, states := 4, 
+  transitions := [ [ 1, 1, 4, 4 ], [ 0, 1, 4, 1 ], [ 1, 2, 1, 1 ], 
+      [ 1, 1, 1, 2 ], [ 2, 3, 1, 1 ], [ 1, 1, 2, 3 ], [ 1, 1, 3, 3 ], 
+      [ 2, 2, 4, 4 ], [ 0, 2, 4, 2 ], [ 2, 3, 2, 2 ], [ 2, 2, 2, 3 ], 
+      [ 2, 2, 3, 3 ], [ 3, 3, 4, 4 ], [ 0, 3, 4, 3 ], [ 3, 3, 3, 3 ] ] )
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/dtt3.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/dtt3.jpg&#34; WIDTH=293 HEIGHT=319 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="InvolvementTransducer" Arg="k"/>
+  <Returns>A transducer over <C>k</C>+1 states, with a <C>k</C> sized alphabet.</Returns>
+  <Description>
+    An involvement transducer is a transducer over <C>k</C>+1 states, and deletes
+    any number of letters in a rank encoded permutation, of rank at most <C>k</C>.
+<Example><![CDATA[
+gap> InvolvementTransducer(3);
+rec( accepting := [ 1 .. 4 ], initial := 4, states := 4, 
+  transitions := [ [ 1, 1, 1, 2 ], [ 1, 0, 1, 3 ], [ 2, 1, 1, 1 ], 
+      [ 2, 0, 1, 3 ], [ 3, 2, 1, 1 ], [ 3, 0, 1, 1 ], [ 1, 1, 2, 4 ], 
+      [ 1, 0, 2, 1 ], [ 2, 2, 2, 4 ], [ 2, 0, 2, 2 ], [ 3, 2, 2, 2 ], 
+      [ 3, 0, 2, 2 ], [ 1, 1, 3, 2 ], [ 1, 0, 3, 3 ], [ 2, 1, 3, 1 ], 
+      [ 2, 0, 3, 3 ], [ 3, 1, 3, 3 ], [ 3, 0, 3, 3 ], [ 1, 1, 4, 4 ], 
+      [ 1, 0, 4, 1 ], [ 2, 2, 4, 4 ], [ 2, 0, 4, 2 ], [ 3, 3, 4, 4 ], 
+      [ 3, 0, 4, 4 ] ] )
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/it3.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/it3.jpg&#34; WIDTH=318 HEIGHT=331 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+
+
+<ManSection>
+  <Func Name="CombineAutTransducer" Arg="aut,trans"/>
+  <Returns>An automaton consisting of a combination of <C>aut</C> and <C>trans</C>.</Returns>
+  <Description>
+    Combining automata and transducers is done over the natural "translation" of the by the automaton accepted language 
+    through the transducer and then building a new automaton that accepts the new language. The function 
+    <C>CombineAutTransducer</C> does this process and returns the new non-deterministic automaton.
+<Example><![CDATA[
+gap> a:=Automaton("det",1,1,[[1]],[1],[1]);
+< deterministic automaton on 1 letters with 1 states >
+gap> AutToRatExp(a);
+a*
+gap> t:=Transducer(2,1,[[1,2,1,2],[2,1,1,2],
+> [1,1,2,1],[2,2,2,1]],[1]);
+rec( accepting := [ 1 ], initial := 1, states := 2, 
+  transitions := [ [ 1, 2, 1, 2 ], [ 2, 1, 1, 2 ], [ 1, 1, 2, 1 ], 
+      [ 2, 2, 2, 1 ] ] )
+gap> res:=CombineAutTransducer(a,t);
+< non deterministic automaton on 2 letters with 2 states >
+gap> AutToRatExp(res);
+(ba)*
+gap> Display(res);
+   |  1       2
+-------------------
+ a |         [ 1 ]   
+ b | [ 2 ]           
+Initial state:   [ 1 ]
+Accepting state: [ 1 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+</Section>
+
+
+
+<Section><Heading>From Class to Basis and vice versa</Heading>
+<ManSection>
+  <Func Name="BasisAutomaton" Arg="a"/>
+  <Returns>An automaton that accepts the rank encoded permutations of the basis 
+  of the input automaton <C>a</C>.</Returns>
+  <Description>
+    Every pattern class has a basis that consists of the smallest set of permutations which do not 
+    belong to the class. Using 
+    <Display Mode="M">B(L)=(L^{r} D^{t})^{r} \cap L^{c}</Display> 
+    it is possible using the deletion transducer <M>D</M> and the language of rank encoded permutations <M>L</M>
+    to find the language of the rank encoded permutations of the basis <M>B(L)</M>, and thus the basis.
+<Example><![CDATA[
+gap> x:=Parstacks(2,2);
+[ [ 2, 4 ], [ 3, 6 ], [ 2 ], [ 5, 6 ], [ 4 ], [  ] ]
+gap> xa:=GraphToAut(x,1,6);
+< epsilon automaton on 5 letters with 66 states >
+gap> ma:=MinimalAutomaton(xa);
+< deterministic automaton on 4 letters with 9 states >
+gap> Display(ma);
+   |  1  2  3  4  5  6  7  8  9  
+--------------------------------
+ a |  1  2  1  3  2  2  6  6  3  
+ b |  3  2  3  3  4  3  6  9  3  
+ c |  9  2  9  4  6  6  4  9  9  
+ d |  8  2  8  7  5  5  7  8  8  
+Initial state:   [ 1 ]
+Accepting state: [ 1 ]
+gap> ba:=BasisAutomaton(ma);
+< deterministic automaton on 4 letters with 9 states >
+gap> Display(ba);
+   |  1  2  3  4  5  6  7  8  9  
+--------------------------------
+ a |  2  2  1  3  4  2  2  2  2  
+ b |  2  2  2  2  2  4  1  2  8  
+ c |  2  2  2  2  2  2  1  2  2  
+ d |  2  2  2  9  2  2  5  6  2  
+Initial state:    [ 7 ]
+Accepting states: [ 1, 5 ]
+gap> AutToRatExp(ba);
+d(a(dbdb)*aaU@)UbUc
+gap> ]]></Example>
+    Ignoring the trailing <C>UbUc</C> which essentially are noise, the basis of the pattern class indicates which
+    permutations are avoided in this particular class. The shortest permutation in the basis, looking at the rational expression,
+    is <M>daaa</M>, which can be translated to 4111 and decoded to the permutation 4123.
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="ClassAutomaton" Arg="a"/>
+  <Returns>The automaton that accepts permutations of the class in their rank encoding.</Returns>
+  <Description>
+    The function <C>ClassAutomaton</C> does the reverse process of <C>BasisAutomaton</C>. Namely it
+    takes the automaton that represents the language of the rank encoded basis of a permutation class,
+    and using the formula
+    <Display Mode="M">L=B_{k} \cap ((B(L)^{r} I^{t})^{c} )^{r}</Display>
+    returns the automaton that accepts the rank encoded permutations of the class.
+    In the formula, <M>B_{k}</M> is the automaton that accepts all permutations of any length with
+    highest rank <M>k</M>, <M>B(L)</M> is the automaton that represents the basis and <M>I</M> is
+    the involement transducer.
+<Example><![CDATA[
+gap> xa:=Automaton("det",9,4,[[2,2,1,3,4,2,2,2,2],[2,2,2,2,2,4,1,2,8],
+> [2,2,2,2,2,2,1,2,2],[2,2,2,9,2,2,5,6,2]],[7],[1,5]); 
+< deterministic automaton on 4 letters with 9 states >
+gap> ca:=ClassAutomaton(xa); 
+< deterministic automaton on 4 letters with 9 states >
+gap> Display(ca);
+   |  1  2  3  4  5  6  7  8  9  
+--------------------------------
+ a |  1  2  1  3  2  2  6  6  3  
+ b |  3  2  3  3  4  3  6  9  3  
+ c |  9  2  9  4  6  6  4  9  9  
+ d |  8  2  8  7  5  5  7  8  8  
+Initial state:   [ 1 ]
+Accepting state: [ 1 ]
+gap> IsPossibleGraphAut(ca);
+true
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="BoundedClassAutomaton" Arg="k"/>
+  <Returns>An automaton that accepts all rank encoded permutations, with highest rank being <C>k</C>.</Returns>
+  <Description>
+    The bounded class automaton, is an automaton that accepts all rank encoded permutations, of any length, with
+    highest rank <C>k</C>.
+<Example><![CDATA[
+gap> BoundedClassAutomaton(3);
+< deterministic automaton on 3 letters with 3 states >
+gap> Display(last);
+   |  1  2  3  
+--------------
+ a |  1  1  2  
+ b |  2  2  2  
+ c |  3  3  3  
+Initial state:   [ 1 ]
+Accepting state: [ 1 ]
+gap> ]]></Example>    
+  </Description>
+</ManSection>
+
+
+
+
+
+<ManSection>
+  <Func Name="ClassAutFromBaseEncoding" Arg="base,k"/>
+  <Returns>The class automaton from a list of rank encoded basis permutations.</Returns>
+  <Description>
+    Given the permutations in the basis, in their rank encoded form, and the bound of the rank
+    of the permutations of the class, <C>ClassAutFromBaseEncoding</C> builds the automaton that
+    accepts rank encoded permutations of the class.
+<Example><![CDATA[
+gap> ClassAutFromBaseEncoding([[4,1,1,1]],4); 
+< deterministic automaton on 4 letters with 7 states >
+gap> Display(last);
+   |  1  2  3  4  5  6  7  
+--------------------------
+ a |  1  2  1  3  2  2  6  
+ b |  3  2  3  3  4  3  4  
+ c |  4  2  4  4  6  6  4  
+ d |  7  2  7  7  5  5  7  
+Initial state:   [ 1 ]
+Accepting state: [ 1 ]
+gap> ]]></Example> 
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="ClassAutFromBase" Arg="perms,k"/>
+  <Returns>The class automaton from a list of permutations of the basis.</Returns>
+  <Description>
+    Taking <C>perms</C> which is the list of permutations in the basis and <C>k</C> an
+    integer which indicates the highest rank in the encoded permutations of the class, 
+    <C>ClassAutFromBase</C> constructs the automaton that accepts the language
+    of rank encoded permutations of the class.
+
+<!--    Given the permutations of the basis and the highest rank of the encoded permutations
+    of the class, <C>ClassAutFromBase</C> constructs the automaton that accepts the language
+    of rank encoded permutations of the class. -->
+<Example><![CDATA[
+gap> ClassAutFromBase([[4,1,2,3]],4);
+< deterministic automaton on 4 letters with 7 states >
+gap> Display(last);
+   |  1  2  3  4  5  6  7  
+--------------------------
+ a |  1  2  1  3  2  2  6  
+ b |  3  2  3  3  4  3  4  
+ c |  4  2  4  4  6  6  4  
+ d |  7  2  7  7  5  5  7  
+Initial state:   [ 1 ]
+Accepting state: [ 1 ]
+gap> ]]></Example>    
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="ExpandAlphabet" Arg="a,newAlphabet"/>
+  <Returns>The automaton <C>a</C>, over the alphabet of size <C>newAlphabet</C>.</Returns>
+  <Description>
+    Given an automaton and the size of the new alphabet, which has to be bigger than the size of
+    the alphabet in <C>a</C> , <C>ExpandAlphabet</C> changes the automaton <C>a</C> to contain
+    an alphabet of size <C>newAlphabet</C>. The new letters have no transitions within the
+    automaton.
+<Example><![CDATA[
+gap> aut:=Automaton("det",3,2,[[2,2,3],[3,3,3]],[1],[3]);
+< deterministic automaton on 2 letters with 3 states >
+gap> Display(aut);
+   |  1  2  3  
+--------------
+ a |  2  2  3  
+ b |  3  3  3  
+Initial state:   [ 1 ]
+Accepting state: [ 3 ]
+gap> ExpandAlphabet(aut,4);
+< deterministic automaton on 4 letters with 3 states >
+gap> Display(last);
+   |  1  2  3  
+--------------
+ a |  2  2  3  
+ b |  3  3  3  
+ c |           
+ d |           
+Initial state:   [ 1 ]
+Accepting state: [ 3 ]
+gap> ]]></Example>    
+  </Description>
+</ManSection>
+
+
+
+</Section>
+
+
+
+<Section><Heading>Direct Sum of Regular Classes</Heading>
+
+It is obvious that the direct sum of two rational pattern classes is also rational. But the skew sum of two rational 
+pattern classes does not imply that the resulting pattern class is rational, because if the second class in the
+sum has infinitely many permutations, the alphabet of the skew sum class will be infinite and thusly the resulting 
+class will not be rational.
+
+<ManSection>
+  <Func Name="ClassDirectSum" Arg="aut1,aut2"/>
+  <Returns>An automaton that corresponds to the direct sum of <C>aut1</C> with <C>aut2</C>.</Returns>
+  <Description>
+    <C>ClassDirectSum</C> builds the concatenation automaton of <C>aut1</C> with <C>aut2</C>, which corresponds
+    to the pattern class <C>aut1</C> <M>\oplus</M> <C>aut2</C>.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> a:=BasisAutomaton(GraphToAut(Parstacks(2,2),1,6));  
+< deterministic automaton on 4 letters with 9 states >
+gap> AutToRatExp(a);                                     
+d(a(dbdb)*aaU@)UbUc
+gap> b:=MinimalAutomaton(GraphToAut(Seqstacks(2,2),1,6));
+< deterministic automaton on 3 letters with 3 states >
+gap> AutToRatExp(b);                                     
+((cc*(aUb)Ub)(cc*(aUb)Ub)*aUa)*
+gap> ab:=ClassDirectSum(a,b);                            
+< deterministic automaton on 4 letters with 11 states >
+gap> AutToRatExp(ab);                                    
+((d(acUc)c*(aUb)Ud(abUb))(cc*(aUb)Ub)*aUda(d(bdbd)*bdbaaUa)UbUc)((cc*(aUb)U\
+b)(cc*(aUb)Ub)*aUa)*Ud(aU@)
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+</Section>
+
+
+
+
+
+<Section><Heading>Statistical Inspections</Heading>
+It is of interest to see what permutations and how many of different length are accepted by the class, 
+respectively the basis. <P/>
+In this section, the examples will be inspecting the basis automaton of the token passing network 
+containing 2 stacks of capacity 2, which are situated in parallel to each other.
+<Example><![CDATA[
+gap> x:=Parstacks(2,2);
+[ [ 2, 4 ], [ 3, 6 ], [ 2 ], [ 5, 6 ], [ 4 ], [  ] ]
+gap> xa:=GraphToAut(x,1,6);
+< epsilon automaton on 5 letters with 66 states >
+gap> ma:=MinimalAutomaton(xa);
+< deterministic automaton on 4 letters with 9 states >
+gap> ba:=BasisAutomaton(ma);
+< deterministic automaton on 4 letters with 9 states >
+gap> AutToRatExp(ba);
+d(a(dbdb)*aaU@)UbUc
+gap> ]]></Example>
+  
+
+
+<ManSection>
+  <Func Name="Spectrum" Arg="aut [, int]"/>
+  <Returns>A list indicating how many words of each length from 1 to 
+    <C>int</C> or 15 (default) are accepted by the automaton.</Returns>
+  <Description>
+    Each entry in the returned list indicates how many words of length the index of the entry
+    are accepted by the automaton <C>aut</C>. The length of the list is 
+    by default 15, but if this is too much or too little the second optional argument 
+    regulates the length of the list.
+<Example><![CDATA[
+gap> Spectrum(ba);
+[ 3, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ]
+gap> Spectrum(ba,20);
+[ 3, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 ]
+gap> ]]></Example> 
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="NumberAcceptedWords" Arg="aut,len"/>
+  <Returns>The number of words of length <C>len</C> accepted by the automaton <C>aut</C>.</Returns>
+  <Description>
+    Given the automaton <C>aut</C> and the integer <C>len</C>, <C>NumberAcceptedWords</C> determines
+    how many words of length <C>len</C> are accepted by the automaton.
+<Example><![CDATA[
+gap> NumberAcceptedWords(ba,1);
+3
+gap> NumberAcceptedWords(ba,16);
+1
+gap> ]]></Example> 
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="AutStateTransitionMatrix" Arg="aut"/>
+  <Returns>A matrix containing the number of transitions between states of the automaton <C>aut</C>.</Returns>
+  <Description>
+    In the matrix computed by <C>AutStateTransitionMatrix</C> the rows are indexed by the state the transitions
+    are originating from, the columnns are indexed by the states the transitions are ending at. Each entry 
+    <M>a_{i,j}</M> of the matrix represents the number of transitions from the state <M>i</M> to the state <M>j</M>.
+<Example><![CDATA[
+gap> AutStateTransitionMatrix(ba);
+[ [ 0, 4, 0, 0, 0, 0, 0, 0, 0 ], [ 0, 4, 0, 0, 0, 0, 0, 0, 0 ], 
+  [ 1, 3, 0, 0, 0, 0, 0, 0, 0 ], [ 0, 2, 1, 0, 0, 0, 0, 0, 1 ], 
+  [ 0, 3, 0, 1, 0, 0, 0, 0, 0 ], [ 0, 3, 0, 1, 0, 0, 0, 0, 0 ], 
+  [ 2, 1, 0, 0, 1, 0, 0, 0, 0 ], [ 0, 3, 0, 0, 0, 1, 0, 0, 0 ], 
+  [ 0, 3, 0, 0, 0, 0, 0, 1, 0 ] ]
+gap> ]]></Example> 
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="AcceptedWords" Arg="aut,int"/>
+  <Returns>All words of length <C>int</C> that are accepted by the automaton <C>aut</C>.</Returns>
+  <Description>
+    <C>AcceptedWords</C> outputs all permutations accepted by the automaton <C>aut</C>, which have length
+    <C>int</C>, in a list. The permutations are output in their rank encoding.
+<Example><![CDATA[
+gap> AcceptedWords(ba,1);
+[ [ 2 ], [ 3 ], [ 4 ] ]
+gap> AcceptedWords(ba,16);
+[ [ 4, 1, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 1, 1 ] ]
+gap> ]]></Example> 
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="AcceptedWordsR" Arg="aut,int1 [,int2]"/>
+  <Func Name="AcceptedWordsReversed" Arg="aut,int1 [,int2]"/>
+  <Returns>The list of all by the automaton accepted words of length <C>int1</C>, 
+  where each word is written in reverse.</Returns>
+  <Description>
+    The functions <C>AcceptedWordsR</C> and <C>AcceptedWordsReversed</C> are synonymous and take the following
+    arguments; an automaton <C>aut</C>, an integer <C>int1</C> which indicates the length of the words that are 
+    accepted by the <C>aut</C> and another integer <C>int2</C> which is optional and represents the initial state 
+    of <C>aut</C>. The return value of these functions is the list containing all permutations of length <C>int1</C>
+    that are accepted by <C>aut</C>. The permutations are rank encoded and written in reverse.
+<Example><![CDATA[
+gap> AcceptedWordsR(ba,1);
+[ [ 2 ], [ 3 ], [ 4 ] ]
+gap> AcceptedWordsReversed(ba,16); 
+[ [ 1, 1, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 2, 4, 1, 4 ] ]
+gap> ]]></Example> 
+  </Description>
+</ManSection>
+
+
+</Section>
+
+</Chapter>

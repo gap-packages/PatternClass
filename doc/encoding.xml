@@ -1,0 +1,145 @@
+<Chapter><Heading>Permutation Encoding</Heading>
+
+A permutation <M>\pi=\pi_{1} \ldots \pi_{n}</M> has rank encoding
+<M>p_{1} \ldots p_{n}</M> where <M> p_{i}= |\{j : j \geq i, \pi_{j} \leq \pi_{i} \} | </M>.
+In other words the rank encoded permutation is a sequence of <M>p_{i}</M> with <M>1\leq i\leq n</M>, where <M>p_{i}</M>
+is the rank of <M>\pi_{i}</M> in <M>\{\pi_{i},\pi_{i+1},\ldots ,\pi_{n}\}</M>.
+<Cite Key="RegCloSetPerms" />
+<P/>
+The encoding of the permutation 3 2 5 1 6 7 4 8 9 is done as follows:
+
+<Table Align="c|c|c">
+  <Row> 
+    <Item>Permutation</Item><Item>Encoding</Item><Item>Assisting list</Item>
+  </Row>
+  <Row> 
+    <Item>325167489</Item><Item><M>\emptyset</M></Item><Item>123456789</Item>
+  </Row>  
+  <Row> 
+    <Item>25167489</Item><Item>3</Item><Item>12456789</Item>
+  </Row> 
+  <Row> 
+    <Item>5167489</Item><Item>32</Item><Item>1456789</Item>
+  </Row> 
+  <Row> 
+    <Item>167489</Item><Item>323</Item><Item>146789</Item>
+  </Row>
+  <Row> 
+    <Item>67489</Item><Item>3231</Item><Item>46789</Item>
+  </Row>
+  <Row> 
+    <Item>7489</Item><Item>32312</Item><Item>4789</Item>
+  </Row>
+  <Row> 
+    <Item>489</Item><Item>323122</Item><Item>489</Item>
+  </Row>
+  <Row> 
+    <Item>89</Item><Item>3231221</Item><Item>89</Item>
+  </Row> 
+  <Row> 
+    <Item>9</Item><Item>32312211</Item><Item>9</Item>
+  </Row> 
+  <Row> 
+    <Item><M>\emptyset</M></Item><Item>323122111</Item><Item><M>\emptyset</M></Item>
+  </Row>  
+</Table>
+
+Decoding a permutation is done in a similar fashion, taking the sequence <M>p_{1} \ldots p_{n}</M>
+and using the reverse process will lead to the permutation <M>\pi=\pi_{1} \ldots \pi_{n}</M>,
+where <M>\pi_{i}</M> is determined by finding the number that has rank <M>p_{i}</M> in 
+<M>\{\pi_{i}, \pi_{i+1}, \ldots , \pi_{n}\}</M>.
+<P/>
+The sequence 3 2 3 1 2 2 1 1 1 is decoded as:
+
+<Table Align="c|c|c">
+  <Row> 
+    <Item>Encoding</Item><Item>Permutation</Item><Item>Assisting list</Item>
+  </Row>
+  <Row> 
+    <Item>323122111</Item><Item><M>\emptyset</M></Item><Item>123456789</Item>
+  </Row>  
+  <Row> 
+    <Item>23122111</Item><Item>3</Item><Item>12456789</Item>
+  </Row> 
+  <Row> 
+    <Item>3122111</Item><Item>32</Item><Item>1456789</Item>
+  </Row> 
+  <Row> 
+    <Item>122111</Item><Item>325</Item><Item>146789</Item>
+  </Row>
+  <Row> 
+    <Item>22111</Item><Item>3251</Item><Item>46789</Item>
+  </Row>
+  <Row> 
+    <Item>2111</Item><Item>32516</Item><Item>4789</Item>
+  </Row>
+  <Row> 
+    <Item>111</Item><Item>325167</Item><Item>489</Item>
+  </Row>
+  <Row> 
+    <Item>11</Item><Item>3251674</Item><Item>89</Item>
+  </Row> 
+  <Row> 
+    <Item>1</Item><Item>32516748</Item><Item>9</Item>
+  </Row> 
+  <Row> 
+    <Item><M>\emptyset</M></Item><Item>325167489</Item><Item><M>\emptyset</M></Item>
+  </Row>  
+</Table>
+<Section><Heading> Encoding and Decoding </Heading>
+
+<ManSection>
+  <Func Name="RankEncoding" Arg="p"/>
+  <Returns>A list that represents the rank encoding of the permutation <C>p</C>. </Returns>
+  <Description>
+    Using the algorithm above <C>RankEncoding</C> turns the permutation <C>p</C> into a list
+    of integers.
+<Example><![CDATA[
+gap> RankEncoding([3, 2, 5, 1, 6, 7, 4, 8, 9]);
+[ 3, 2, 3, 1, 2, 2, 1, 1, 1 ]
+gap> RankEncoding([ 4, 2, 3, 5, 1 ]);                 
+[ 4, 2, 2, 2, 1 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="RankDecoding" Arg="e"/>
+  <Returns>A permutation in list form.</Returns>
+  <Description>
+    A rank encoded permutation is decoded by using the reversed process from encoding,
+    which is also explained above.
+    
+<Example><![CDATA[
+gap> RankDecoding([ 3, 2, 3, 1, 2, 2, 1, 1, 1 ]);
+[ 3, 2, 5, 1, 6, 7, 4, 8, 9 ]
+gap> RankDecoding([ 4, 2, 2, 2, 1 ]);
+[ 4, 2, 3, 5, 1 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="SequencesToRatExp" Arg="list"/>
+  <Returns>A rational expression that describes all the words in <C>list</C>.</Returns>
+  <Description>
+    A list of sequences is turned into a rational expression by concatenating each sequence
+    and unifying all of them.
+<Example><![CDATA[
+gap> SequencesToRatExp([[ 1, 1, 1, 1, 1 ],[ 2, 1, 2, 2, 1 ],[ 3, 2, 1, 2, 1 ],
+> [ 4, 2, 3, 2, 1 ]]);
+11111U21221U32121U42321
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+</Section>
+</Chapter>

@@ -1,0 +1,307 @@
+<Chapter><Heading>Properties of Permutations </Heading> 
+It has been of interest to the authors to compute different properties of permutations. Inspections include plus- and minus-decomposable permutations, block-decompositions of permutations, as well as the computation of the direct and skew sum of permutations.
+First a couple of definitions on which some of the properties are based on:<P/>
+An interval of a permutation <M>\sigma</M> is a set of contiguous values which in <M>\sigma</M> have consecutive indices. <P/>
+A permutation of length <M>n</M> is called simple if it only contains the intervals of length 0, 
+1 and <M>n</M>. <P/>
+
+<Section><Heading> Intervals in Permutations </Heading>
+As mentioned above, an interval of a permutation <M>\sigma</M> is a set of contiguous 
+numbers which in <M>\sigma</M> have consecutive indices.
+For example in <M>\sigma = 4 6 8 7 1 5 2 3 </M> the following is an interval <M>\sigma(2)\sigma(3)\sigma(4)=6 8 7</M>
+whereas <M>\sigma(4)\sigma(5)\sigma(6)=7 1 5</M> is not.
+
+<ManSection>
+  <Func Name="IsInterval" Arg="list"/>
+  <Returns> <C>true</C>, if <C>list</C> is an interval. </Returns>
+  <Description>
+    IsInterval takes in any list with unique elements, which can be ordered lexicographically and checkes 
+    whether it is an interval.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> IsInterval([3,6,9,2]);
+false
+gap> IsInterval([2,6,5,3,4]);
+true
+gap>  ]]></Example>
+
+  </Description>
+</ManSection>
+</Section>
+
+<Section><Heading> Simplicity </Heading>
+As mentioned above a permutation is said to be simple if it only contains intervals of length 0, 1 or
+the length of the permutation. 
+
+<ManSection>
+  <Func Name="IsSimplePerm" Arg="perm"/>
+  <Returns><C>true</C> if <C>perm</C> is simple.</Returns>
+  <Description>
+    To check whether <C>perm</C> (length of <C>perm</C> = <M>n</M>) is a simple permutation 
+    <C>IsSimplePerm</C> uses the basic algorithm proposed by Uno and Yagiura in 
+    <Cite Key="FAlgsEnumAllCommIntsof2Perms"/> to compare the <C>perm</C> against the identity
+    permutation of the same length.
+    <!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[ 
+gap> IsSimplePerm([2,3,4,5,1,1,1,1]);
+true
+gap> IsSimplePerm([2,4,6,8,1,3,5,7]);
+true
+gap> IsSimplePerm([3,2,8,6,7,1,5,4]);
+false
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+</Section>
+
+
+<Section><Heading> Point Deletion in Simple Permutations </Heading>
+In <Cite Key="SimpPermsPoset"/> it is shown how one can get chains of permutations by starting with a simple permutation and then removing either a single point or two points and the resulting permutation would still be simple. We have applied this theory to create functions such that the set of simple permutations of shorter length, by one deletion, can be found.
+
+<ManSection>
+  <Func Name="OnePointDelete" Arg="perm"/>
+  <Returns>A list of simple permutations with one point less than <C>perm</C>.</Returns>
+  <Description>
+    <C>OnePointDelete</C> removes single points in the simple permutation and returns a list of the resulting simple permutations, in their rank encoding.
+    <!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[ 
+gap> OnePointDelete([5,2,3,1,2,1]);
+[ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
+gap> OnePointDelete([5,2,4,1,6,3]);
+[ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="TwoPointDelete" Arg="perm"/>
+  <Returns>The exceptional permutation with two point less than <C>perm</C>.</Returns>
+  <Description>
+    <C>TwoPointDelete</C> removes two points of the input exceptional permutation and
+    returns the list of the unique resulting permutation, in its rank encoding.
+    <!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[ 
+gap> TwoPointDelete([2,4,6,8,1,3,5,7]);
+[ [ 2, 3, 4, 1, 1, 1 ] ]
+gap> TwoPointDelete([2,3,4,5,1,1,1,1]);
+[ [ 2, 3, 4, 1, 1, 1 ] ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="PointDeletion" Arg="perm"/>
+  <Returns>A list of simple permutations with of shorter length than <C>perm</C>.</Returns>
+  <Description>
+    <C>PointDeletion</C> takes any simple permutation does not matter whether exceptional 
+    or not and removes the right number of points.
+    <!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[ 
+gap> PointDeletion([5,2,3,1,2,1]);
+[ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
+gap> PointDeletion([5,2,4,1,6,3]);
+[ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
+gap> PointDeletion([2,4,6,8,1,3,5,7]);
+[ [ 2, 3, 4, 1, 1, 1 ] ]
+gap> PointDeletion([2,3,4,5,1,1,1,1]);
+[ [ 2, 3, 4, 1, 1, 1 ] ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+</Section>
+
+<Section><Heading> Block-Decomposition </Heading>
+Given a permutation <M>\pi</M> of length <M>m</M> and nonempty permutations <M>\alpha_{1},\ldots,\alpha_{m}</M>
+ the inflation of <M>\pi</M> by <M>\alpha_{1},\ldots,\alpha_{m}</M>, written as <M>\pi[\alpha_{1},\ldots,\alpha_{m}]</M>,
+is the permutation obtained by replacing each entry <M>\pi(i)</M> by an interval that is order isomorphic 
+to <M>\alpha_{i}</M> <Cite Key="SimpSurv"/>. Conversely a block-decomposition of <M>\sigma</M> is any expression of 
+<M>\sigma</M> as an inflation <M>\sigma=\pi[\alpha_{1},\ldots,\alpha_{m}]</M>. 
+
+The block decomposition of a permutation is unique if and only if <M>\sigma,\pi,\alpha_{1},\ldots,\alpha_{n}</M>
+all are in the same pattern class and <M>\pi</M> is simple and <M>\pi\neq 1 2,\ 2 1</M> <Cite Key="SimpAndPRestrPerms"/>.
+<P/>
+For example the inflation of <M>25413[21,1,1,1,2413]=3 2 8 9 1 5 7 4 6</M>, written in &GAP; this is 
+<C>[[2,5,4,1,3],[2,1],[1],[1],[1],[2,4,1,3]]</C>. This decomposition of <M>3 2 8 9 1 5 7 4 6</M> is not 
+unique. The unique block-decomposition, as described above, for <M>3 2 8 9 1 5 7 4 6=2413[21,12,1,2413]</M> or in
+&GAP; notation <C>[3,2,8,9,1,5,7,4,6]=[[2,4,1,3],[2,1],[1,2],[1],[2,4,1,3]]</C>.
+<ManSection>
+  <Func Name="Inflation" Arg="list_of_perms"/>
+  <Returns>A permutation that represents the inflation of the list of permutations, taking the first permutation to be
+  <M>\pi</M>, as described in the definition of inflation.</Returns>
+  <Description>
+    Inflation takes the list of permutations that stand for a box decomposition
+    of a permutation, and calculates that permutation by replacing each
+    entry <M>i</M> in the first permutation by an interval order isomorphic to the 
+    permutation in index <M>i+1</M>.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> Inflation([[3,2,1],[1],[1,2],[1,2,3]]);
+[ 6, 4, 5, 1, 2, 3 ]
+gap> Inflation([[1,2],[1],[4,2,1,3]]);
+[ 1, 5, 3, 2, 4 ]
+gap> Inflation([[2,4,1,3],[2,1],[3,1,2],[1],[2,4,1,3]]);
+[ 3, 2, 10, 8, 9, 1, 5, 7, 4, 6 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="BlockDecomposition" Arg="perm"/>
+  <Returns>A list of permutations, representing the block-decomposition of <C>perm</C>. In the list
+  the first permutation is <M>\pi</M>, as described in the definiton of block-decomposition above.</Returns>
+  <Description>
+    <C>BlockDecomposition</C> takes a plus- and minus-indecomposable permutation and 
+    decomposes it into its maximal maximal intervals, which are preceded by the
+    simple permutation that represents the positions of the intervals.
+    If a plus- or minus-decomposable permutation is input, then the decomposition
+    will not be the unique decomposition, by the definition of plus- or minus-
+    decomposable permutations, see below.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> BlockDecomposition([3,2,10,8,9,1,5,7,4,6]);
+[ [ 2, 4, 1, 3 ], [ 2, 1 ], [ 3, 1, 2 ], [ 1 ], [ 2, 4, 1, 3 ] ]
+gap> BlockDecomposition([1,2,3,4,5]);                      
+[ [ 1, 2 ], [ 1, 2, 3, 4 ], [ 1 ] ]
+gap> BlockDecomposition([5,4,3,2,1]);
+[ [ 2, 1 ], [ 4, 3, 2, 1 ], [ 1 ] ]
+gap>  ]]></Example>
+
+  </Description>
+</ManSection>
+</Section>
+
+
+<Section><Heading> Plus-Decomposability </Heading>
+A permutation <M>\sigma</M> is said to be plus-decomposable if it can be written uniquely in the following 
+form,
+<Display Mode="M">\sigma = 12 [\alpha_{1},\alpha_{2}] </Display>
+where <M>\alpha_{1}</M> is not plus-decomposable. <P/>
+The subset of a rational class, containing all permutations that are plus-decomposable and in the class,
+has been found to be also rational under the rank encoding.
+<ManSection>
+  <Func Name="IsPlusDecomposable" Arg="perm"/>
+  <Returns><C>true</C> if <C>perm</C> is plus-decomposable.</Returns>
+  <Description>
+    To check whether <C>perm</C> is a plus-decomposable permutation <C>IsPlusDecomposable</C> uses the 
+    fact that there has to be an interval <M>1..x</M> where <M>x &lt;n</M> (<M>n</M> = length of the 
+    <C>perm</C>) in the rank encoded permutation that is a valid rank encoding.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[ 
+gap> IsPlusDecomposable([3,3,2,3,2,2,1,1]);
+true
+gap> IsPlusDecomposable([3,4,2,6,5,7,1,8]);
+true
+gap> IsPlusDecomposable([3,2,8,6,7,1,5,4]);
+false
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+</Section>
+
+
+
+<Section><Heading> Minus-Decomposability </Heading>
+Minus-decomposability is essentially the same as plus-decomposability, the difference is that if
+a permutation <M>\sigma</M> is minus-decomposable, it can be written uniquely in the following 
+form,
+<Display Mode="M">\sigma = 21 [\alpha_{1},\alpha_{2}] </Display>
+where <M>\alpha_{1}</M> is not minus-decomposable. <P/>
+Here also, the subset of a rational class, containing all permutations that are minus-decomposable 
+and in the class, has been found to be rational under the rank encoding.
+<ManSection>
+  <Func Name="IsMinusDecomposable" Arg="perm"/>
+  <Returns><C>true</C> if <C>perm</C> is minus-decomposable.</Returns>
+  <Description>
+    To check whether <C>perm</C> (length of <C>perm</C> = <M>n</M>) is a minus-decomposable permutation 
+    <C>IsMinusDecomposable</C> uses the fact that the first <M>n-x</M>, where <M>x&lt;n</M>, letters in 
+    the rank encoding of <C>perm</C> have to be <M>&gt;x</M> and that the letters from position <M>x+1</M>
+    until the last one have to be <M>\leq x</M>.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[ 
+gap> IsMinusDecomposable([3,3,3,3,3,3,2,1]);
+true
+gap> IsMinusDecomposable([3,4,5,6,7,8,2,1]);
+true
+gap> IsMinusDecomposable([3,2,8,6,7,1,5,4]);
+false
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+</Section>
+
+
+
+
+
+
+
+
+<Section><Heading> Sums of Permutations </Heading>
+The direct sum of two permutations <M>\sigma=\sigma_{1} \ldots \sigma_{k}</M> and <M>\tau=\tau_{1}\ldots\tau_{l}</M> is defined as,
+<Display Mode="M">\sigma \oplus \tau = \sigma_{1}\ \ \sigma_{2}\ldots\sigma_{k}\ \ \tau_{1}+k\ \ \tau_{2}+k\ldots\tau_{l}+k\ .</Display>
+In a similar fashion the skew sum of <M>\sigma, \tau</M> is 
+<Display Mode="M">\sigma \ominus \tau = \sigma_{1}+l\ \ \sigma_{2}+l\ldots\sigma_{k}+l\ \ \tau_{1}\  \tau_{2}\ldots\tau_{l}\ .</Display>
+The calculation of the direct and skew sums of permutations using the rank encoding is also straight forward and is used in the 
+functions described below. The direct sum of two permutations <M>\sigma,\tau</M> represented as their rank encoded sequences is the 
+permutation which has the rank encoding that is the concatention of the rank encoding of <M>\sigma</M> and <M>\tau</M>. 
+The skew sum of two permutations <M>\sigma,\tau</M> encoded by the rank encoding is the concatenation of the rank encodings of 
+<M>\sigma</M> and <M>\tau</M> where in the sequence corresponding to <M>\sigma</M> under the rank encoding each element has been 
+increased by <M>l</M>, with <M>l</M> being the length of <M>\tau</M>. 
+
+<ManSection>
+  <Func Name="PermDirectSum" Arg="perm1,perm2"/>
+  <Returns>A permutation resulting from <C>perm1</C> <M>\oplus</M> <C>perm2</C>.</Returns>
+  <Description>
+    <C>PermDirectSum</C> returns the permutation corresponding to <C>perm1</C> <M>\oplus</M> <C>perm2</C> if <C>perm1</C> and <C>perm2</C>
+    are both not rank encoded. If both <C>perm1</C> and <C>perm2</C> are rank encoded, then <C>PermDirectSum</C> returns a rank
+    encoded sequence.
+<Example><![CDATA[
+gap> PermDirectSum([2,4,1,3],[2,5,4,1,3]);
+[ 2, 4, 1, 3, 6, 9, 8, 5, 7 ]
+gap> PermDirectSum([2,3,1,1],[2,4,3,1,1]);
+[ 2, 3, 1, 1, 2, 4, 3, 1, 1 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="PermSkewSum" Arg="perm1,perm2"/>
+  <Returns>A permutation resulting from <C>perm1</C> <M>\ominus</M> <C>perm2</C>.</Returns>
+  <Description>
+    <C>PermSkewSum</C> returns the permutation corresponding to <C>perm1</C> <M>\ominus</M> <C>perm2</C> if <C>perm1</C> and <C>perm2</C>
+    are both not rank encoded. If both <C>perm1</C> and <C>perm2</C> are rank encoded, then <C>PermSkewSum</C> returns a rank
+    encoded sequence.
+<Example><![CDATA[
+gap> PermSkewSum([2,4,1,3],[2,5,4,1,3]);
+[ 7, 9, 6, 8, 2, 5, 4, 1, 3 ]
+gap> PermSkewSum([2,3,1,1],[2,4,3,1,1]);
+[ 7, 8, 6, 6, 2, 4, 3, 1, 1 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+
+
+
+</Section>
+
+
+
+
+
+
+
+
+
+</Chapter>

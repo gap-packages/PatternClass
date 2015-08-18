@@ -1,0 +1,60 @@
+<Chapter><Heading>Some Permutation Essentials</Heading>
+In this chapter we mention a couple functions that are fairly basic but useful tools to 
+work with.
+
+<Section><Heading> Complement </Heading> 
+
+<ManSection>
+  <Func Name="PermComplement" Arg="perm"/>
+  <Returns>The permutation that is the complement of <C>perm</C>.</Returns>
+  <Description>
+    The complement of a permutation <M>\tau=\tau_{1}\ldots\tau_{n}</M> is the permutation 
+    <Display Mode="M">\tau^{C}=(n+1)-\tau_{1}\ \ (n+1)-\tau_{2}\ldots (n+1)-\tau_{n}</Display>.
+<Example><![CDATA[
+gap> PermComplement([3,2,8,6,7,1,5,4]);
+[ 6, 7, 1, 3, 2, 8, 4, 5 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+</Section>
+
+<Section><Heading> Rank Encoding </Heading> 
+<ManSection>
+  <Func Name="IsRankEncoding" Arg="perm"/>
+  <Returns><C>true</C> if <C>perm</C> is a valid rank encoding of a permutation.</Returns>
+  <Description>
+    <C>IsRankEncoding</C> checkes whether the input list <C>perm</C> is a valid rank encoding
+    by checking whether it is accepted by the bounded class automaton, with the highest rank
+    being set by the highest element in <C>perm</C>.
+<Example><![CDATA[
+gap> IsRankEncoding([3,2,6,4,4,1,2,1]);
+true
+gap> IsRankEncoding([3,2,6,4,5,1,2,1]);
+false
+gap> ]]></Example>
+  </Description>
+</ManSection>
+</Section>
+
+<!--<Section><Heading> Acceptance </Heading> -->
+<!--<ManSection> -->
+<!--  <Func Name="IsAcceptedWord" Arg="aut,perm"/> -->
+<!--  <Returns><C>true</C> if <C>perm</C> is accepted by <C>aut</C>.</Returns> -->
+<!--  <Description> -->
+<!--    <C>IsAcceptedWord</C> checkes whether the input rank encoded <C>perm</C> is an accepted -->
+<!--    permutation of <C>aut</C>. What makes <C>IsAcceptedWord</C> special is that it -->
+<!--    translates the input list into a rational expression in terms of the appropriate alphabet -->
+<!--    for the automata used in <C>PatternClass</C>. -->
+<!--<Example><![CDATA[ -->
+<!--gap> a:=MinimalAutomaton(GraphToAut(Seqstacks(2,2),1,6));        -->
+<!--< deterministic automaton on 3 letters with 3 states > -->
+<!--gap> IsAcceptedWord(a,[ 3, 3, 3, 1, 3, 1, 2, 1 ]);               -->
+<!--true -->
+<!--gap> ]]></Example> -->
+<!--  </Description> -->
+<!--</ManSection> -->
+<!--</Section> -->
+
+
+
+</Chapter>

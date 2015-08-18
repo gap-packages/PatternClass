@@ -1,0 +1,76 @@
+<Chapter><Heading> Miscellaneous functions </Heading>
+
+This temporary chapter is dedicated to miscellaneous functions that are relevant to some
+specific ongoing research questions.
+
+<Section><Heading> Automaton Manipulation </Heading>
+
+<ManSection>
+  <Func Name="LoopFreeAut" Arg="aut"/>
+  <Returns>An automaton without any loops of length 1.</Returns>
+  <Description>
+    <C>LoopFreeAut</C> builds the subautomaton of <C>aut</C> that does not contain any loops of length 1, except for the sink state.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> a:=Automaton("det",4,3,[[2,4,3,3],[4,4,1,4],[3,1,2,4]],[1],[2]);
+< deterministic automaton on 3 letters with 4 states >
+gap> Display(a);                                                     
+   |  1  2  3  4  
+-----------------
+ a |  2  4  3  3  
+ b |  4  4  1  4  
+ c |  3  1  2  4  
+Initial state:   [ 1 ]
+Accepting state: [ 2 ]
+gap> b:=LoopFreeAut(a);                                              
+< deterministic automaton on 3 letters with 5 states >
+gap> Display(b);                                                     
+   |  1  2  3  4  5  
+--------------------
+ a |  2  4  5  3  5  
+ b |  4  4  1  5  5  
+ c |  3  1  2  5  5  
+Initial state:   [ 1 ]
+Accepting state: [ 2 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="LoopVertexFreeAut" Arg="aut"/>
+  <Returns>An automaton without any vertices that had loops of length 1.</Returns>
+  <Description>
+    <C>LoopVertexFreeAut</C> builds the subautomaton that does not contain the vertices and transitions
+    of vertices in <C>aut</C> that have loops of length 1. The function minimalises and determinises the 
+    automaton before returning it, which might change the numbering on the vertices, but the returned automaton
+    is isomorphic to the subautomaton of <C>aut</C>.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> a:=Automaton("det",4,3,[[2,4,3,3],[4,4,1,4],[3,1,2,4]],[1],[2]);
+< deterministic automaton on 3 letters with 4 states >
+gap> Display(a);                                                     
+   |  1  2  3  4  
+-----------------
+ a |  2  4  3  3  
+ b |  4  4  1  4  
+ c |  3  1  2  4  
+Initial state:   [ 1 ]
+Accepting state: [ 2 ]
+gap> b:=LoopVertexFreeAut(a);                                        
+< deterministic automaton on 3 letters with 3 states >
+gap> Display(b);                                                     
+   |  1  2  3  
+--------------
+ a |  2  2  1  
+ b |  2  2  2  
+ c |  3  2  2  
+Initial state:   [ 3 ]
+Accepting state: [ 1 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+</Section>
+
+</Chapter>

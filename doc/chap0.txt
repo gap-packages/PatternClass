@@ -1,0 +1,146 @@
+  
+  
+                                  [1XPatternClass[101X
+  
+  
+                          [1XPermutation Pattern Classes[101X
+  
+  
+                                Version 1.12358
+  
+  
+                                 February 2015
+  
+  
+                                 Michael Albert
+  
+                                  Steve Linton
+  
+                                 Ruth Hoffmann
+  
+  
+  
+  Michael Albert
+      Email:    [7Xmailto:malbert at cs.otago.ac.nz[107X
+  Steve Linton
+      Email:    [7Xmailto:sl4 at st-andrews.ac.uk[107X
+  Ruth Hoffmann
+      Email:    [7Xmailto:rh347 at st-andrews.ac.uk[107X
+  
+  -------------------------------------------------------
+  [1XAbstract[101X
+  [33X[0;0YThe  [10XPatternClass[110X  package  is  build  on the idea of token passing networks
+  building  permutation  pattern classes. Those classes are best determined by
+  their  basis.  Both sets can be encoded by rank encoding their permutations.
+  Each,  the  class  and  its  basis,  in  their encoded form build a rational
+  language  [AAR03].  Rational  languages  can  be  easily  computed  by using
+  automata,  which  also can be build directly from the token passing networks
+  [ALTd.]. Both ways will build the same language, i.e. the same automaton.[133X
+  
+  
+  -------------------------------------------------------
+  [1XCopyright[101X
+  [33X[0;0Y© 2011 by Michael Albert, Steve Linton and Ruth Hoffmann[133X
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (PatternClass)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+  2 [33X[0;0YToken Passing Networks[133X
+    2.1 [33X[0;0YSpecific TPN[133X
+      2.1-1 Parstacks
+      2.1-2 Seqstacks
+      2.1-3 BufferAndStack
+  3 [33X[0;0YPermutation Encoding[133X
+    3.1 [33X[0;0YEncoding and Decoding[133X
+      3.1-1 RankEncoding
+      3.1-2 RankDecoding
+      3.1-3 SequencesToRatExp
+  4 [33X[0;0YFrom Networks to Automata[133X
+    4.1 [33X[0;0YFunctions[133X
+      4.1-1 GraphToAut
+      4.1-2 ConstrainedGraphToAut
+  5 [33X[0;0YFrom Automata to Networks[133X
+    5.1 [33X[0;0YFunctions[133X
+      5.1-1 IsStarClosed
+      5.1-2 Is2StarReplaceable
+      5.1-3 IsStratified
+      5.1-4 IsPossibleGraphAut
+  6 [33X[0;0YPattern Classes[133X
+    6.1 [33X[0;0YTransducers[133X
+      6.1-1 Transducer
+      6.1-2 DeletionTransducer
+      6.1-3 TransposedTransducer
+      6.1-4 InvolvementTransducer
+      6.1-5 CombineAutTransducer
+    6.2 [33X[0;0YFrom Class to Basis and vice versa[133X
+      6.2-1 BasisAutomaton
+      6.2-2 ClassAutomaton
+      6.2-3 BoundedClassAutomaton
+      6.2-4 ClassAutFromBaseEncoding
+      6.2-5 ClassAutFromBase
+      6.2-6 ExpandAlphabet
+    6.3 [33X[0;0YDirect Sum of Regular Classes[133X
+      6.3-1 ClassDirectSum
+    6.4 [33X[0;0YStatistical Inspections[133X
+      6.4-1 Spectrum
+      6.4-2 NumberAcceptedWords
+      6.4-3 AutStateTransitionMatrix
+      6.4-4 AcceptedWords
+      6.4-5 AcceptedWordsR
+  7 [33X[0;0YSome Permutation Essentials[133X
+    7.1 [33X[0;0YComplement[133X
+      7.1-1 PermComplement
+    7.2 [33X[0;0YRank Encoding[133X
+      7.2-1 IsRankEncoding
+  8 [33X[0;0YProperties of Permutations[133X
+    8.1 [33X[0;0YIntervals in Permutations[133X
+      8.1-1 IsInterval
+    8.2 [33X[0;0YSimplicity[133X
+      8.2-1 IsSimplePerm
+    8.3 [33X[0;0YPoint Deletion in Simple Permutations[133X
+      8.3-1 OnePointDelete
+      8.3-2 TwoPointDelete
+      8.3-3 PointDeletion
+    8.4 [33X[0;0YBlock-Decomposition[133X
+      8.4-1 Inflation
+      8.4-2 BlockDecomposition
+    8.5 [33X[0;0YPlus-Decomposability[133X
+      8.5-1 IsPlusDecomposable
+    8.6 [33X[0;0YMinus-Decomposability[133X
+      8.6-1 IsMinusDecomposable
+    8.7 [33X[0;0YSums of Permutations[133X
+      8.7-1 PermDirectSum
+      8.7-2 PermSkewSum
+  9 [33X[0;0YRegular Languages of Sets of Permutations[133X
+    9.1 [33X[0;0YInversions in Permutations[133X
+      9.1-1 InversionAut
+      9.1-2 InversionAutOfClass
+    9.2 [33X[0;0YPlus- and Minus-(In)Decomposablilty[133X
+      9.2-1 PlusDecomposableAut
+      9.2-2 PlusIndecomposableAut
+      9.2-3 MinusDecomposableAut
+      9.2-4 MinusIndecomposableAut
+    9.3 [33X[0;0YLanguage of all non-simple permutations[133X
+      9.3-1 LengthBoundAut
+      9.3-2 ShiftAut
+      9.3-3 NextGap
+      9.3-4 GapAut
+      9.3-5 SumAut
+      9.3-6 GapSumAut
+      9.3-7 NonSimpleAut
+    9.4 [33X[0;0YSimplicity[133X
+      9.4-1 SimplePermAut
+    9.5 [33X[0;0YExceptionality[133X
+      9.5-1 IsExceptionalPerm
+      9.5-2 ExceptionalBoundedAutomaton
+  10 [33X[0;0YMiscellaneous functions[133X
+    10.1 [33X[0;0YAutomaton Manipulation[133X
+      10.1-1 LoopFreeAut
+      10.1-2 LoopVertexFreeAut
+  
+  
+  [32X

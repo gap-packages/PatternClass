@@ -1,0 +1,6 @@
+The grid folder
+---------------
+
+This folder contains code looking at grid classes and the geometric grid class encoding. Most of the code is experimental as there is currently no constructive way of obtaining the geometric grid encoding of the basis from the language of the class under the same encoding. Most of the code concentrates on the changes in the matrix as described in the proof of the paper "Geometric grid classes of permutations" by Michael Albert et al. (2011). 
+
+The code is NOT loaded with the package as it's highly experimental and can cause testing to fail. If you do want to load it, see read.g and init.g in the root folder of this pkg.
