@@ -12,7 +12,7 @@ patched functions are located in lib/aux.* .
 Introduction
 ------------
 
-This is version 1.12358132134 of the 'PatternClass' package.
+This is version 1.1235813213455 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
@@ -28,7 +28,7 @@ If there are any problems with the package please do not hesitate to contact us.
 
 Michael Albert	 <malbert@cs.otago.ac.nz>
 Steve Linton 	 <sl4@st-andrews.ac.uk>
-Ruth Hoffmann	 <rh347@st-andrews.ac.uk> (Current maintainer)
+Ruth Hoffmann	 <rh347@icloud.com> (Current maintainer)
 
 
 Contents
@@ -52,12 +52,12 @@ If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
 in the gap4r4 folder where GAP is installed on your computer.
 To uncompress the .tar.gz file on UNIX use the following command
 
-   tar xzf PatternClass1.12358132134.tar.gz
+   tar xzf PatternClass1.1235813213455.tar.gz
 
 If your version of tar does not support the z option use
 
-   gunzip PatternClass1.12358132134.tar.gz
-   tar xf PatternClass1.12358132134.tar
+   gunzip PatternClass1.1235813213455.tar.gz
+   tar xf PatternClass1.1235813213455.tar
 
 This will create the folder PatternClass in pkg/ and within that
 you will find the directories and files mentioned above.
@@ -66,7 +66,7 @@ To use the package within GAP, run GAP and type the following
 
 gap> LoadPackage("PatternClass");
 ----------------------------------------------------------------
-Loading  PatternClass 1.12358132134
+Loading  PatternClass 1.1235813213455
 For help, type: ?PatternClass: 
 ----------------------------------------------------------------
 true
@@ -80,7 +80,12 @@ online or within GAP help.
 
 Changes
 -------
-Changes from 1.123581321 to 1.12358132134:
+Changes from 1.12358132134 to 1.1235813213455:
+- Package is now being hosted on GitHub!
+- Updated maintainers details
+<<<>>><<<>>><<<>>><<<>>>
+
+Changes from 1.123581321 to 1.1235813213455:
 - Fixed up PackageInfo.g for submission to GAP distribution.
 <<<>>><<<>>><<<>>><<<>>>
 
