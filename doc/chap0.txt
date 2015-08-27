@@ -9,7 +9,7 @@
                                 Version 1.12358
   
   
-                                 February 2015
+                                  August 2015
   
   
                                  Michael Albert
@@ -25,7 +25,7 @@
   Steve Linton
       Email:    [7Xmailto:sl4 at st-andrews.ac.uk[107X
   Ruth Hoffmann
-      Email:    [7Xmailto:rh347 at st-andrews.ac.uk[107X
+      Email:    [7Xmailto:rh347 at icloud.com[107X
   
   -------------------------------------------------------
   [1XAbstract[101X

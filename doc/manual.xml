@@ -12,8 +12,8 @@
     <Version>Version 1.12358</Version> 
     <Author>Michael Albert <Email> malbert at cs.otago.ac.nz</Email></Author> 
     <Author>Steve Linton <Email> sl4 at st-andrews.ac.uk</Email></Author> 
-    <Author>Ruth Hoffmann <Email> rh347 at st-andrews.ac.uk</Email></Author> 
-    <Date>February 2015</Date>
+    <Author>Ruth Hoffmann <Email> rh347 at icloud.com</Email></Author> 
+    <Date>August 2015</Date>
     <Abstract>
       The <C>PatternClass</C> package is build on the idea of token passing networks building
       permutation pattern classes. Those classes are best determined by their basis.
