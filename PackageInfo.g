@@ -207,9 +207,9 @@ Status := "deposited",
 ##  and updating of the package in the GAP distribution.
 #
 README_URL := 
-  "https://github.com/ruthhoffmann/blob/master/PatternClass/README",
+  "http://ruthhoffmann.github.io/PatternClass/README",
 PackageInfoURL := 
-  "https://github.com/ruthhoffmann/blob/master/PatternClass/PackageInfo.g",
+  "http://ruthhoffmann.github.io/PatternClass/PackageInfo.g",
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
