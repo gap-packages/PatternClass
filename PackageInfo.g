@@ -53,7 +53,7 @@ Date := "20/08/2015",
 ##  example/init.g, ...    or  example-1.3/init.g, ...  )
 # 
 ArchiveURL := 
-          "https://github.com/ruthhoffmann/blob/master/PatternClass/PatternClass1.1235813213455",
+          "https://github.com/ruthhoffmann/PatternClass/PatternClass1.1235813213455",
 
 ##  All provided formats as list of file extensions, separated by white
 ##  space or commas.
@@ -207,9 +207,9 @@ Status := "deposited",
 ##  and updating of the package in the GAP distribution.
 #
 README_URL := 
-  "https://github.com/ruthhoffmann/blob/master/PatternClass/README",
+  "https://github.com/ruthhoffmann/PatternClass/README",
 PackageInfoURL := 
-  "https://github.com/ruthhoffmann/blob/master/PatternClass/PackageInfo.g",
+  "https://github.com/ruthhoffmann/PatternClass/PackageInfo.g",
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
@@ -261,7 +261,7 @@ PackageDoc := rec(
   BookName  := "PatternClass",
   # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
   Archive := 
-      "https://github.com/ruthhoffmann/blob/master/PatternClass/PatternClass1.1235813213455.tar.gz",
+      "https://github.com/ruthhoffmann/PatternClass/PatternClass1.1235813213455.tar.gz",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
