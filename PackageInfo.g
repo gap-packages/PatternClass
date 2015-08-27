@@ -38,7 +38,7 @@ Subtitle := "A permutation pattern class package",
 ##  See '?Extending: Version Numbers' in GAP help for an explanation
 ##  of valid version numbers. For an automatic package distribution update
 ##  you must provide a new version number even after small changes.
-Version := "1.1235813213455",
+Version := "2.0",
 
 ##  Release date of the current version in dd/mm/yyyy format.
 ##
@@ -53,7 +53,7 @@ Date := "27/08/2015",
 ##  example/init.g, ...    or  example-1.3/init.g, ...  )
 # 
 ArchiveURL := 
-          "https://github.com/ruthhoffmann/blob/master/PatternClass/PatternClass1.1235813213455",
+          "https://github.com/ruthhoffmann/PatternClass/releases/download/v2.0/PatternClass2.0",
 
 ##  All provided formats as list of file extensions, separated by white
 ##  space or commas.
@@ -261,7 +261,7 @@ PackageDoc := rec(
   BookName  := "PatternClass",
   # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
   Archive := 
-      "https://github.com/ruthhoffmann/blob/master/PatternClass/PatternClass1.1235813213455.tar.gz",
+          "https://github.com/ruthhoffmann/PatternClass/releases/download/v2.0/PatternClass2.0.tar.gz",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",

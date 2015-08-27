@@ -12,7 +12,7 @@ patched functions are located in lib/aux.* .
 Introduction
 ------------
 
-This is version 1.1235813213455 of the 'PatternClass' package.
+This is version 2.0 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
@@ -52,12 +52,12 @@ If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
 in the gap4r4 folder where GAP is installed on your computer.
 To uncompress the .tar.gz file on UNIX use the following command
 
-   tar xzf PatternClass1.1235813213455.tar.gz
+   tar xzf PatternClass2.0.tar.gz
 
 If your version of tar does not support the z option use
 
-   gunzip PatternClass1.1235813213455.tar.gz
-   tar xf PatternClass1.1235813213455.tar
+   gunzip PatternClass2.0.tar.gz
+   tar xf PatternClass2.0.tar
 
 This will create the folder PatternClass in pkg/ and within that
 you will find the directories and files mentioned above.
@@ -66,7 +66,7 @@ To use the package within GAP, run GAP and type the following
 
 gap> LoadPackage("PatternClass");
 ----------------------------------------------------------------
-Loading  PatternClass 1.1235813213455
+Loading  PatternClass 2.0
 For help, type: ?PatternClass: 
 ----------------------------------------------------------------
 true
@@ -80,9 +80,10 @@ online or within GAP help.
 
 Changes
 -------
-Changes from 1.12358132134 to 1.1235813213455:
+Changes from 1.12358132134 to 2.0:
 - Package is now being hosted on GitHub!
 - Updated maintainers details
+- Changed version numbering to a simpler system.
 <<<>>><<<>>><<<>>><<<>>>
 
 Changes from 1.123581321 to 1.1235813213455:

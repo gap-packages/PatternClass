@@ -6,7 +6,7 @@
                           [1XPermutation Pattern Classes[101X
   
   
-                            Version 1.1235813213455
+                                  Version 2.0
   
   
                                   August 2015
