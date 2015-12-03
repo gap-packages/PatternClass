@@ -5,21 +5,21 @@ The 'PatternClass' GAP 4 package
 !!!!!!!!!!!!!!
 ! Patch info !
 !!!!!!!!!!!!!!
-We had to patch the IntersectionAutomaton, UnionAutomata and ProductLanguage 
-from the Automata pkg (version 1.13) to improve performance testing. The 
+We had to patch the IntersectionAutomaton, UnionAutomata and ProductLanguage
+from the Automata pkg (version 1.13) to improve performance testing. The
 patched functions are located in lib/aux.* .
 
 Introduction
 ------------
 
-This is version 2.1 of the 'PatternClass' package.
+This is version 2.2 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
 Amongst other things, 'PatternClass' can compute the basis of a
 permutation pattern class et vice versa, rank encode and decode permutations,
 create automata from token passing networks and checking if the
-deterministic automaton is a possible representative of a 
+deterministic automaton is a possible representative of a
 token passing network.
 More details on what functions "PatternClass' contains, consult
 the manual in the doc folder.
@@ -52,12 +52,12 @@ If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
 in the gap4r4 folder where GAP is installed on your computer.
 To uncompress the .tar.gz file on UNIX use the following command
 
-   tar xzf PatternClass2.1.tar.gz
+   tar xzf PatternClass2.2.tar.gz
 
 If your version of tar does not support the z option use
 
-   gunzip PatternClass2.1.tar.gz
-   tar xf PatternClass2.1.tar
+   gunzip PatternClass2.2.tar.gz
+   tar xf PatternClass2.2.tar
 
 This will create the folder PatternClass in pkg/ and within that
 you will find the directories and files mentioned above.
@@ -66,20 +66,24 @@ To use the package within GAP, run GAP and type the following
 
 gap> LoadPackage("PatternClass");
 ----------------------------------------------------------------
-Loading  PatternClass 2.1
-For help, type: ?PatternClass: 
+Loading  PatternClass 2.2
+For help, type: ?PatternClass:
 ----------------------------------------------------------------
 true
-gap> 
+gap>
 
 Now you can use all functions of 'PatternClass' within this session
-of GAP. As described in the manual, found in the doc directory or 
+of GAP. As described in the manual, found in the doc directory or
 online or within GAP help.
 
 
 
 Changes
 -------
+Changes from 2.1 to 2.2:
+- Updated the way testing is being done in preparation for GAP4.8.
+<<<>>><<<>>><<<>>><<<>>>
+
 Changes from 2.0 to 2.1:
 - Removed all unnecessary files from the archive.
 - Fixed PackageInfo, such that no warnings are thrown.
@@ -106,17 +110,17 @@ Changes from 1.12358 to 1.1235813:
 <<<>>><<<>>><<<>>><<<>>>
 
 Changes from 1.1235 to 1.12358:
-- Fixed issues with the experimental code from lib/grid by not loading the code 
+- Fixed issues with the experimental code from lib/grid by not loading the code
 automatically. At their own discretion.
 <<<>>><<<>>><<<>>><<<>>>
 
 Changes from 1.123 to 1.1235:
 - The undocumented functions for chains of simple permutations are now documented.
-- The experimental code on grid classes is moved into a separate folder, these 
+- The experimental code on grid classes is moved into a separate folder, these
 functions are undocumented.
-- Patched code for Automata functions UnionAutomata, IntersectionAutomaton and 
+- Patched code for Automata functions UnionAutomata, IntersectionAutomaton and
 ProductOfLanguages has been added.
-- Some code has been changed to use the patched functions, and general code 
+- Some code has been changed to use the patched functions, and general code
 cleaning has been done in places.
 
 <<<>>><<<>>><<<>>><<<>>>
@@ -130,7 +134,7 @@ Changes from 1.12 to 1.123:
 
 Changes from 1.1 to 1.12:
 
-- The following functions have been added: 
+- The following functions have been added:
    * IsInterval - Checker whether the input sequence is an interval.
    * Inflation - Returns a permutation that is represented by the
       input list of permutations.
@@ -150,10 +154,10 @@ Changes from 1.0 to 1.1:
    * simple
 
 - Functions to build the rational subsets of a class accepting
-  all plus- (minus-) decomposable permutations (also indecomposable 
+  all plus- (minus-) decomposable permutations (also indecomposable
   permutations)
 
-- Functions to check whether the input list is 
+- Functions to check whether the input list is
    * a valid rank encoding
    * a rank encoding stemming from the input class
 
