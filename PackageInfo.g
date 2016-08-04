@@ -211,6 +211,12 @@ README_URL :=
 PackageInfoURL :=
   "http://ruthhoffmann.github.io/PatternClass/PackageInfo.g",
 
+SourceRepository := rec( 
+  Type := "git", 
+  URL := "https://github.com/ruthhoffmann/PatternClass"
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+
 ##  Here you  must provide a short abstract explaining the package content
 ##  in HTML format (used on the package overview Web page) and an URL
 ##  for a Webpage with more detailed information about the package
