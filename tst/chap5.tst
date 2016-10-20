@@ -3,11 +3,9 @@
 #A  chap5.tst            PatternClass package                 Ruth Hoffmann
 ##
 gap> START_TEST("PatternClass");
-
 gap> LoadPackage("patternclass",false);
 true
 gap> SetAssertionLevel(1);
-
 gap> x:=Automaton("det",4,2,[[3,4,2,4],[2,2,2,4]],[1],[2]);
 < deterministic automaton on 2 letters with 4 states >
 gap> IsStarClosed(x);
@@ -40,5 +38,4 @@ gap> x:=Automaton("det",2,2,[[1,2],[1,2]],[1],[1]);
 < deterministic automaton on 2 letters with 2 states >
 gap> IsPossibleGraphAut(x);
 false
-
 gap> STOP_TEST( "chap5.tst", 10000 );

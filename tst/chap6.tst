@@ -3,11 +3,9 @@
 #A  chap6.tst            PatternClass package                 Ruth Hoffmann
 ##
 gap> START_TEST("PatternClass");
-
 gap> LoadPackage("patternclass",false);
 true
 gap> SetAssertionLevel(1);
-
 gap> trans:=Transducer(3,1,[[1,2,1,2],[1,2,2,2],[2,2,1,3],[2,2,2,3],[1,1,3,3],[2,2,3,3]],[2]);
 rec( accepting := [ 2 ], initial := 1, states := 3,
   transitions := [ [ 1, 2, 1, 2 ], [ 1, 2, 2, 2 ], [ 2, 2, 1, 3 ],
@@ -51,7 +49,6 @@ rec( accepting := [ 1 ], initial := 1, states := 2,
       [ 2, 2, 2, 1 ] ] )
 gap> res:=CombineAutTransducer(a,t);
 < non deterministic automaton on 2 letters with 2 states >
-
 gap> x:=Parstacks(2,2);
 [ [ 2, 4 ], [ 3, 6 ], [ 2 ], [ 5, 6 ], [ 4 ], [  ] ]
 gap> xa:=GraphToAut(x,1,6);
@@ -99,12 +96,10 @@ gap> Display(last);
  d |
 Initial state:   [ 1 ]
 Accepting state: [ 3 ]
-
 gap> ClassDirectSum(BoundedClassAutomaton(4),BoundedClassAutomaton(3));
 < deterministic automaton on 4 letters with 4 states >
 gap> ClassDirectSum(BoundedClassAutomaton(3),BoundedClassAutomaton(6));
 < deterministic automaton on 6 letters with 6 states >
-
 gap> a:=BoundedClassAutomaton(5);
 < deterministic automaton on 5 letters with 5 states >
 gap> Spectrum(a);
@@ -129,5 +124,4 @@ gap> AcceptedWordsR(a,4);
   [ 1, 1, 1, 3 ], [ 1, 2, 1, 3 ], [ 1, 1, 2, 3 ], [ 1, 2, 2, 3 ],
   [ 1, 1, 3, 3 ], [ 1, 2, 3, 3 ], [ 1, 1, 1, 4 ], [ 1, 2, 1, 4 ],
   [ 1, 1, 2, 4 ], [ 1, 2, 2, 4 ], [ 1, 1, 3, 4 ], [ 1, 2, 3, 4 ] ]
-
 gap> STOP_TEST( "chap6.tst", 10000 );
