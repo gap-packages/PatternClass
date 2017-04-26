@@ -1,7 +1,7 @@
 #############################################################################
 ##
 #W    init.g               An attempt at the                    Ruth Hoffmann
-#W                        patternclass Package                
+#W                        patternclass Package
 ##
 
 #############################################################################
@@ -19,6 +19,7 @@ ReadPackage( "patternclass", "lib/decomp.gd" );
 ReadPackage( "patternclass", "lib/inversion.gd" );
 ReadPackage( "patternclass", "lib/simpleChains.gd" );
 ReadPackage( "patternclass", "lib/simpleAuts.gd" );
+ReadPackage( "patternclass", "lib/SubAut.gd" );
 
 ## This is highly experimental code on grid classes and not automatically loaded
 ## if you choose to load it, you are doing it so at your own risk.
