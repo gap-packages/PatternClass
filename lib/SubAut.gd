@@ -26,7 +26,7 @@ DeclareGlobalFunction( "SubPermAut" );
 ##  Returns an automaton accepting all encoded superpermutations involving perm
 ##  up to rank k and length n.
 ##
-DeclareGlobalFunction( "knSuperPermAutomaton" );
+DeclareGlobalFunction( "SuperPermknAutomaton" );
 
 #############################################################################
 ##

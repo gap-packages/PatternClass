@@ -52,7 +52,7 @@ end);
 ##  Returns an automaton accepting all encoded superpermutations involving perm
 ##  up to rank k and length n.
 ##
-InstallGlobalFunction(knSuperPermAutomaton, function(p,k,n) #n is max length
+InstallGlobalFunction(SuperPermknAutomaton, function(p,k,n) #n is max length
     local penc,paut,h,revpaut,subaut,wordlist,i,resaut;
 
     penc := RankEncoding(p);
@@ -84,13 +84,13 @@ end);
 ##  Returns an automaton accepting all encoded rpermutations between the
 ##  two parameters.
 ##
-DeclareGlobalFunction(InbetweenPermAutomaton,function(p,q)
+InstallGlobalFunction(InbetweenPermAutomaton,function(p,q)
 local pAut,qAut,k;
 
 k := Maximum(RankEncoding(p));
 
-pAut := AutOfAllSubPerms(p);
-qAut := AutOfknSuperPerms(q,k,Length(p));
+pAut := SubPermAut(p);
+qAut := SuperPermknAutomaton(q,k,Length(p));
 
 return MinimalAutomaton(IntersectionAutomaton(pAut,qAut));
 
