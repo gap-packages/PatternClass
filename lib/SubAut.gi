@@ -95,3 +95,37 @@ qAut := SuperPermknAutomaton(q,k,Length(p));
 return MinimalAutomaton(IntersectionAutomaton(pAut,qAut));
 
 end);
+
+#############################################################################
+##
+#F  IsSubPerm(perm,perm)
+##
+##  Checks whether the second input permutation is contained in the first
+##  by using the rank encoding deletion (involvement) transducer.
+##
+InstallGlobalFunction( IsSubPerm, function(p,q)
+local penc,qenc,paut,maxrank,h,revpaut,subaut,wordlist;
+
+penc := RankEncoding(p);
+qenc := RankEncoding(q);
+
+maxrank := Maximum(penc);
+
+penc := SequencesToRatExp([penc]);
+paut := RatExpToAut(penc);
+
+h := InvolvementTransducer(maxrank);
+
+revpaut := MinimalAutomaton(ReversedAutomaton(paut));
+
+subaut := MinimalAutomaton(CombineAutTransducer(revpaut,h));
+
+wordlist := AcceptedWordsReversed(subaut,Length(q));
+
+if qenc in wordlist then
+    return true;
+fi;
+
+return false;
+
+end);

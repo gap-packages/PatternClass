@@ -36,3 +36,12 @@ DeclareGlobalFunction( "SuperPermknAutomaton" );
 ##  two parameters.
 ##
 DeclareGlobalFunction( "InbetweenPermAutomaton" );
+
+#############################################################################
+##
+#F  IsSubPerm(perm,perm)
+##
+##  Checks whether the second input permutation is contained in the first
+##  by using the rank encoding deletion (involvement) transducer.
+##
+DeclareGlobalFunction( "IsSubPerm" );
