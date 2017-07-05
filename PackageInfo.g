@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.2",
-Date := "04/12/2015", # dd/mm/yyyy format
+Version := "2.3",
+Date := "05/07/2017", # dd/mm/yyyy format
 
 Persons := [
   rec(
@@ -19,9 +19,16 @@ Persons := [
     IsMaintainer := true,
     FirstNames := "Ruth",
     LastName := "Hoffmann",
-    WWWHome := "TODO",
+    WWWHome := "https://www.hoffmannandco.com",
     Email := "rh347@icloud.com",
-    PostalAddress := "TODO",
+    PostalAddress := Concatenation(
+               "School of Computer Science,\n",
+               "University of St. Andrews,\n",
+               "North Haugh,\n",
+               "St. Andrews,\n",
+               "Fife,\n",
+               "KY16 9SS,\n",
+               "SCOTLAND" ),
     Place := "Glasgow",
     Institution := "School of Computing Science, University of Glasgow",
   ),
@@ -115,5 +122,3 @@ TestFile := "tst/testall.g",
 #Keywords := [ "TODO" ],
 
 ));
-
-
