@@ -52,23 +52,30 @@ If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
 in the gap4r4 folder where GAP is installed on your computer.
 To uncompress the .tar.gz file on UNIX use the following command
 
-   tar xzf PatternClass2.2.tar.gz
+   tar xzf PatternClass2.3.tar.gz
 
 If your version of tar does not support the z option use
 
-   gunzip PatternClass2.2.tar.gz
-   tar xf PatternClass2.2.tar
+   gunzip PatternClass2.3.tar.gz
+   tar xf PatternClass2.3.tar
 
 This will create the folder PatternClass in pkg/ and within that
 you will find the directories and files mentioned above.
 
 To use the package within GAP, run GAP and type the following
 
-gap> LoadPackage("PatternClass");
+gap> LoadPackage("patternclass");
 ----------------------------------------------------------------
-Loading  PatternClass 2.2
-For help, type: ?PatternClass:
+Loading  Automata 1.13
+For help, type: ?Automata:
 ----------------------------------------------------------------
+─────────────────────────────────────────────────────────────────────────────
+Loading  PatternClass 2.3 (A permutation pattern class package)
+by Ruth Hoffmann (TODO),
+   Steve Linton (http://sal.host.cs.st-andrews.ac.uk/), and
+   Michael Albert (http://www.cs.otago.ac.nz/staff/michael.html).
+Homepage: https://RuthHoffmann.github.io/PatternClass/
+─────────────────────────────────────────────────────────────────────────────
 true
 gap>
 

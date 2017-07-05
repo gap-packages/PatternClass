@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<TitlePage>
+  <Title>
+    PatternClass
+  </Title>
+  <Subtitle>
+    A permutation pattern class package
+  </Subtitle>
+  <Version>
+    2.3
+  </Version>
+  <Author>
+    Ruth Hoffmann<Alt Only="LaTeX"><Br/></Alt>
+<Address>
+TODO<Br/>
+</Address>
+<Email>rh347@icloud.com</Email>
+<Homepage>TODO</Homepage>
+
+  </Author>
+  <Author>
+    Steve Linton<Alt Only="LaTeX"><Br/></Alt>
+<Address>
+Steve Linton<Br/>
+School of Computer Science,<Br/>
+University of St. Andrews,<Br/>
+North Haugh,<Br/>
+St. Andrews,<Br/>
+Fife,<Br/>
+KY16 9SS,<Br/>
+SCOTLAND<Br/>
+</Address>
+<Email>sl4@st-andrews.ac.uk</Email>
+<Homepage>http://sal.host.cs.st-andrews.ac.uk/</Homepage>
+
+  </Author>
+  <Author>
+    Michael Albert<Alt Only="LaTeX"><Br/></Alt>
+<Address>
+Michael Albert<Br/>
+Department of Computer Science,<Br/>
+University of Otago,<Br/>
+PO Box 56,<Br/>
+DUNEDIN 9054,<Br/>
+New Zealand,<Br/>
+</Address>
+<Email>malbert@cs.otago.ac.nz</Email>
+<Homepage>http://www.cs.otago.ac.nz/staff/michael.html</Homepage>
+
+  </Author>
+  <Date>
+    05/07/2017
+  </Date>
+  </TitlePage>

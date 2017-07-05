@@ -19,34 +19,54 @@
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Next Chapter]</a>&nbsp;  </div>
 
+<p id="mathjaxlink" class="pcenter"><a href="chap0_mj.html">[MathJax on]</a></p>
 <p><a id="X7D2C85EC87DD46E5" name="X7D2C85EC87DD46E5"></a></p>
 <div class="pcenter">
 
 <h1>PatternClass</h1>
 
 
-<h2>Permutation Pattern Classes</h2>
+<h2>A permutation pattern class package</h2>
 
-<p>Version 2.0</p>
+<p>
+    2.3</p>
 
-<p>August 2015</p>
+<p>
+    05/07/2017
+  </p>
 
 </div>
-<p><b>Michael Albert </b>
-<br />Email: <span class="URL"><a href="mailto: malbert at cs.otago.ac.nz"> malbert at cs.otago.ac.nz</a></span>
-</p><p><b>Steve Linton </b>
-<br />Email: <span class="URL"><a href="mailto: sl4 at st-andrews.ac.uk"> sl4 at st-andrews.ac.uk</a></span>
-</p><p><b>Ruth Hoffmann </b>
-<br />Email: <span class="URL"><a href="mailto: rh347 at icloud.com"> rh347 at icloud.com</a></span>
+<p><b>
+    Ruth Hoffmann
+
+
+
+
+  </b>
+<br />Email: <span class="URL"><a href="mailto:rh347@icloud.com">rh347@icloud.com</a></span>
+<br />Homepage: <span class="URL"><a href="TODO">TODO</a></span>
+<br />Address: <br />TODO<br />
+</p><p><b>
+    Steve Linton
+
+
+
+
+  </b>
+<br />Email: <span class="URL"><a href="mailto:sl4@st-andrews.ac.uk">sl4@st-andrews.ac.uk</a></span>
+<br />Homepage: <span class="URL"><a href="http://sal.host.cs.st-andrews.ac.uk/">http://sal.host.cs.st-andrews.ac.uk/</a></span>
+<br />Address: <br />Steve Linton<br /> School of Computer Science,<br /> University of St. Andrews,<br /> North Haugh,<br /> St. Andrews,<br /> Fife,<br /> KY16 9SS,<br /> SCOTLAND<br />
+</p><p><b>
+    Michael Albert
+
+
+
+
+  </b>
+<br />Email: <span class="URL"><a href="mailto:malbert@cs.otago.ac.nz">malbert@cs.otago.ac.nz</a></span>
+<br />Homepage: <span class="URL"><a href="http://www.cs.otago.ac.nz/staff/michael.html">http://www.cs.otago.ac.nz/staff/michael.html</a></span>
+<br />Address: <br />Michael Albert<br /> Department of Computer Science,<br /> University of Otago,<br /> PO Box 56,<br /> DUNEDIN 9054,<br /> New Zealand,<br />
 </p>
-
-<p><a id="X7AA6C5737B711C89" name="X7AA6C5737B711C89"></a></p>
-<h3>Abstract</h3>
-<p>The <code class="code">PatternClass</code> package is build on the idea of token passing networks building permutation pattern classes. Those classes are best determined by their basis. Both sets can be encoded by rank encoding their permutations. Each, the class and its basis, in their encoded form build a rational language <a href="chapBib.html#biBRegCloSetPerms">[AAR03]</a>. Rational languages can be easily computed by using automata, which also can be build directly from the token passing networks <a href="chapBib.html#biBPermGenTPGraph">[ALTd.]</a>. Both ways will build the same language, i.e. the same automaton.</p>
-
-<p><a id="X81488B807F2A1CF1" name="X81488B807F2A1CF1"></a></p>
-<h3>Copyright</h3>
-<p>© 2011 by Michael Albert, Steve Linton and Ruth Hoffmann</p>
 
 <p><a id="X8537FEB07AF2BEC8" name="X8537FEB07AF2BEC8"></a></p>
 
@@ -218,17 +238,25 @@
 </div></div>
 </div>
 <div class="ContChap"><a href="chap10.html#X8308D685809A4E2F">10 <span class="Heading"> Miscellaneous functions </span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X7A2B46957AB49125">10.1 <span class="Heading"> Automaton Manipulation </span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X81D407EF82C4B194">10.1 <span class="Heading"> Permutation Inclusion Set </span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85793D54837E38D5">10.1-1 LoopFreeAut</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8503A7707FA666C4">10.1-2 LoopVertexFreeAut</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7E83DB497CCB5CDC">10.1-1 InbetweenPermAutomaton</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X7A07B52779B59271">10.1-2 InbetweenPermSet</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap10.html#X7A2B46957AB49125">10.2 <span class="Heading"> Automaton Manipulation </span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X85793D54837E38D5">10.2-1 LoopFreeAut</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap10.html#X8503A7707FA666C4">10.2-2 LoopVertexFreeAut</a></span>
 </div></div>
 </div>
 <div class="ContChap"><a href="chapInd.html"><span class="Heading">Index</span></a></div>
 <div class="ContChap"><a href="chapBib.html"><span class="Heading">References</span></a></div>
 <br />
 </div>
+<p> </p>
+
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Next Chapter]</a>&nbsp;  </div>
 
