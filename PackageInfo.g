@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.2",
-Date := "04/12/2015", # dd/mm/yyyy format
+Version := "2.3",
+Date := "05/07/2017", # dd/mm/yyyy format
 
 Persons := [
   rec(
@@ -115,5 +115,3 @@ TestFile := "tst/testall.g",
 #Keywords := [ "TODO" ],
 
 ));
-
-
