@@ -1,0 +1,470 @@
+  
+  [1X9 [33X[0;0YRegular Languages of Sets of Permutations[133X[101X
+  
+  [33X[0;0YThis  chapter  is  dedicated  to the different sets of permutations with the
+  same properties.[133X
+  
+  
+  [1X9.1 [33X[0;0YInversions in Permutations[133X[101X
+  
+  [33X[0;0YAn  inversion in a permutation [22Xτ=τ_1...τ_n[122X is a pair [22X(i,j)[122X such that [22X1≤ i<j≤
+  n[122X and [22Xτ_i>τ_j[122X [CJS11].[133X
+  
+  [1X9.1-1 InversionAut[101X
+  
+  [29X[2XInversionAut[102X( [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn   automaton  that  accepts  all  permutations  with  exactly  [10Xk[110X
+            inversions.[133X
+  
+  [33X[0;0YThe  rational  language  of  all  permutations  with  a given number , [10Xk[110X, of
+  inversions is computed by [10XInversionAut[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=InversionAut(1);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XAutToRatExp(a);[127X[104X
+    [4X[28Xa*baa*[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);     [127X[104X
+    [4X[28X[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ][128X[104X
+    [4X[25Xgap>[125X [27Xb:=InversionAut(5);[127X[104X
+    [4X[28X< deterministic automaton on 6 letters with 14 states >[128X[104X
+    [4X[25Xgap>[125X [27XAutToRatExp(b);[127X[104X
+    [4X[28X((a*ba*bUa*c)a*bUa*ba*cUa*d)a*(ba*baa*Ucaaa*)U(a*ba*bUa*c)a*(ca*baa*Udaaaa*)U(\[128X[104X
+    [4X[28Xa*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(b);   [127X[104X
+    [4X[28X[ 0, 0, 0, 3, 22, 71, 169, 343, 628, 1068, 1717, 2640, 3914, 5629, 7889 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.1-2 InversionAutOfClass[101X
+  
+  [29X[2XInversionAutOfClass[102X( [3Xaut[103X, [3Xinv[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn  automaton  accepting  all  permutations  of  a  class with [10Xinv[110X
+            inversions.[133X
+  
+  [33X[0;0Y[10XInversionAutOfClass[110X  intersects the rational pattern class with the rational
+  language  containing  all  permutations  under  the  rank encoding that have
+  exactly [10Xinv[110X inversions.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=MinimalAutomaton(GraphToAut(Seqstacks(2,2),1,6));[127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 3 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);                                        [127X[104X
+    [4X[28X[ 1, 2, 6, 18, 54, 162, 486, 1458, 4374, 13122, 39366, 118098, 354294, [128X[104X
+    [4X[28X  1062882, 3188646 ][128X[104X
+    [4X[25Xgap>[125X [27Xb:=InversionAutOfClass(a,4);                        [127X[104X
+    [4X[28X< deterministic automaton on 5 letters with 23 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(b);                                        [127X[104X
+    [4X[28X[ 0, 0, 0, 3, 13, 35, 75, 140, 238, 378, 570, 825, 1155, 1573, 2093 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.2 [33X[0;0YPlus- and Minus-(In)Decomposablilty[133X[101X
+  
+  [1X9.2-1 PlusDecomposableAut[101X
+  
+  [29X[2XPlusDecomposableAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn  automaton  that accepts the subset of the class [10Xaut[110X containing
+            the plus-decomposable permutations of [10Xaut[110X.[133X
+  
+  [33X[0;0YThe    [10XPlusDecomposableAut[110X   automaton   accepts   the   language   of   all
+  plus-decomposable permutations of the encoded class accepted by [10Xaut[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xxa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 9 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(xa);[127X[104X
+    [4X[28X[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, [128X[104X
+    [4X[28X  17633432, 68368135 ][128X[104X
+    [4X[25Xgap>[125X [27Xa:=PlusDecomposableAut(xa);[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 16 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);[127X[104X
+    [4X[28X[ 0, 1, 3, 11, 47, 196, 808, 3306, 13433, 54265, 218145, 873303, 3483654, [128X[104X
+    [4X[28X  13853682, 54945158 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.2-2 PlusIndecomposableAut[101X
+  
+  [29X[2XPlusIndecomposableAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn  automaton  that  accepts  all permutations of [10Xaut[110X that are not
+            plus-decomposable.[133X
+  
+  [33X[0;0YThe  [10XPlusIndecomposableAutomaton[110X  automaton  accepts  the  language  of  all
+  plus-indecomposable  permutations  of  the encoded class accepted by aut, by
+  rejecting  every  rank  encoding  that  in the original automaton would have
+  entered  and  left  the  accept  state  before  the  last letter in the rank
+  encodedpermutation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xxa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 9 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(xa);[127X[104X
+    [4X[28X[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, [128X[104X
+    [4X[28X  17633432, 68368135 ][128X[104X
+    [4X[25Xgap>[125X [27Xa:=PlusIndecomposableAut(xa);[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 11 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);[127X[104X
+    [4X[28X[ 1, 1, 3, 12, 42, 149, 530, 1883, 6689, 23759, 84384, 299690, 1064319, [128X[104X
+    [4X[28X  3779750, 13422977 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.2-3 MinusDecomposableAut[101X
+  
+  [29X[2XMinusDecomposableAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn  automaton  that accepts the subset of the class [10Xaut[110X containing
+            the minus-decomposable permutations of [10Xaut[110X.[133X
+  
+  [33X[0;0YThe   [10XMinusDecomposableAut[110X   automaton   accepts   the   language   of   all
+  minus-decomposable permutations of the rank encoded class accepted by [10Xaut[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xxa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 9 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(xa);[127X[104X
+    [4X[28X[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, [128X[104X
+    [4X[28X  17633432, 68368135 ][128X[104X
+    [4X[25Xgap>[125X [27Xa:=MinusDecomposableAut(xa);                         [127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 12 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);                                         [127X[104X
+    [4X[28X[ 0, 1, 3, 10, 24, 64, 180, 520, 1524, 4504, 13380, 39880, 119124, 356344, [128X[104X
+    [4X[28X  1066980 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.2-4 MinusIndecomposableAut[101X
+  
+  [29X[2XMinusIndecomposableAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn  automaton  that  accepts  all permutations of [10Xaut[110X that are not
+            minus-decomposable.[133X
+  
+  [33X[0;0YThe   [10XMinusIndecomposableAut[110X   automaton   accepts   the   language  of  all
+  minus-indecomposable  permutations  of  the  encoded  class accepted by aut,
+  which  is  the  complement set of the set of minus-decomposable permutations
+  within the class.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xxa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 9 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(xa);[127X[104X
+    [4X[28X[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, [128X[104X
+    [4X[28X  17633432, 68368135 ][128X[104X
+    [4X[25Xgap>[125X [27Xa:=MinusIndecomposableAut(xa);[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 17 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);[127X[104X
+    [4X[28X[ 1, 1, 3, 13, 65, 281, 1158, 4669, 18598, 73520, 289149, 1133113, 4428849, [128X[104X
+    [4X[28X  17277088, 67301155 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.3 [33X[0;0YLanguage of all non-simple permutations[133X[101X
+  
+  [33X[0;0YThe  regular  language  of  all  non-simple  rank  encoded permutations with
+  highest rank [22Xk[122X is described by the following equation,[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YE(NS_k) = E(Ω_k) ∩ ( ⋃_l=1^k-1 P_l ⋃_m=l^k-1 E(hatΩ_k-m)^+m ∪
+        ⋃_j=1^k-1 E(hatΩ_k-j)^+j ∪[133X[124X[133X
+  
+  
+  
+        [33X[1;6Y[24X[33X[0;0Y∪ ⋃_a=2^k-1 ⋃_b=0^k-1-a Q_a,b ⋃_i=0^a-2 (E(hatΩ_k-(b+i))^+b+i)^(a-i) )
+        Σ^* ∪ E(mathcalD_P(Ω_k))[133X[124X[133X
+  
+  
+  [33X[0;0Ywhere [22XΣ[122X is the alphabet [22X{1,...,k}[122X, [22Xk∈N[122X, [22Xk ≥ 3[122X.[133X
+  
+  [33X[0;0Y[22XP_l[122X  is  the  language  of  prefixes of rank encoded permutations, where the
+  prefix ends with the total sum of gap sizes to be equal to [22Xl[122X.[133X
+  
+  [33X[0;0Y[22XQ_i,j[122X  is  the  language of prefixes of rank encoded permutations, where the
+  prefix  ends  with  a  gap  of size [22Xi[122X and the sum of the sizes of gaps below
+  equals to [22Xj[122X.[133X
+  
+  [33X[0;0Y[22XE(Ω_k-i)^+i[122X  is  the  language  of [22XE(Ω_k-i)[122X [22Xi ∈ N[122X, with the alphabet shifted
+  upwards by [22Xi[122X.[133X
+  
+  [33X[0;0Y[22XE(Ω_k)^(i)[122X  is the sublanguage of [22XE(Ω_k)[122X containing the words of length [22X≤ i[122X,
+  [22Xi ∈ N[122X.[133X
+  
+  [33X[0;0Y[22XE(hatΩ_k)[122X is the sublanguage of [22XE(Ω_k)[122X excluding the words of length [22X≤ 1[122X.[133X
+  
+  [33X[0;0Y[22XE(mathcalD_P(Ω_k))[122X  is the language of all plus-decomposable permutations as
+  described in [HL13].[133X
+  
+  [1X9.3-1 LengthBoundAut[101X
+  
+  [29X[2XLengthBoundAut[102X( [3Xaut[103X, [3Xmin[103X, [3Xi[103X, [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe subautomaton of [10Xaut[110X that accepts words between (and including)
+            the lengths [10Xmin[110X and [10Xi[110X.[133X
+  
+  [33X[0;0YWe  are taking the automaton [10Xaut[110X and it's alphabet [10Xk[110X, and find the automaton
+  that accepts all words of [10Xaut[110X of length between (and including) [10Xmin[110X and [10Xi[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=BoundedClassAutomaton(4); [127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(a);[127X[104X
+    [4X[28X[ 1, 2, 6, 24, 96, 384, 1536, 6144, 24576, 98304, 393216, 1572864, 6291456, [128X[104X
+    [4X[28X  25165824, 100663296 ][128X[104X
+    [4X[25Xgap>[125X [27XLengthBoundAut(a,4,8,4);[127X[104X
+    [4X[28X< deterministic automaton on 4 letters with 22 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(last);[127X[104X
+    [4X[28X[ 0, 0, 0, 24, 96, 384, 1536, 6144, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.3-2 ShiftAut[101X
+  
+  [29X[2XShiftAut[102X( [3Xi[103X, [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe automaton [22XΩ_k-i^+i[122X.[133X
+  
+  [33X[0;0YWe  are shifting the alphabet of [22XΩ_k-i[122X in their values by [22Xi[122X to expand to the
+  alphabet [22X{1,...,k}[122X, but keeping the automaton structure of [22XΩ_k-i[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XShiftAut(2,4);[127X[104X
+    [4X[28X< non deterministic automaton on 4 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last);[127X[104X
+    [4X[28X   |  1       2       3       4[128X[104X
+    [4X[28X-----------------------------------[128X[104X
+    [4X[28X a |                                 [128X[104X
+    [4X[28X b |                                 [128X[104X
+    [4X[28X c | [ 2 ]   [ 4 ]   [ 4 ]   [ 4 ]   [128X[104X
+    [4X[28X d | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28XInitial state:   [ 1 ][128X[104X
+    [4X[28XAccepting state: [ 4 ][128X[104X
+    [4X[25Xgap>[125X [27XShiftAut(1,4);[127X[104X
+    [4X[28X< non deterministic automaton on 4 letters with 5 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last);[127X[104X
+    [4X[28X   |  1       2       3       4       5[128X[104X
+    [4X[28X-------------------------------------------[128X[104X
+    [4X[28X a |                                         [128X[104X
+    [4X[28X b | [ 2 ]   [ 5 ]   [ 5 ]   [ 3 ]   [ 5 ]   [128X[104X
+    [4X[28X c | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X d | [ 4 ]   [ 4 ]   [ 4 ]   [ 4 ]   [ 4 ]   [128X[104X
+    [4X[28XInitial state:   [ 1 ][128X[104X
+    [4X[28XAccepting state: [ 5 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.3-3 NextGap[101X
+  
+  [29X[2XNextGap[102X( [3Xgap[103X, [3Xrank[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YA list of gap sizes.[133X
+  
+  [33X[0;0YKnowing  the  current  available  gap  sizes  [10Xgap[110X,  which  are the number of
+  available  spaces  in a permutation plot. These gaps are separated by blocks
+  where  there  are already points inserted. We determine where the next point
+  (known to us as its [10Xrank[110X) is being placed and what the next gap sizes are.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XNextGap([1,1],2);[127X[104X
+    [4X[28X[ 1 ][128X[104X
+    [4X[25Xgap>[125X [27XNextGap([1],3);[127X[104X
+    [4X[28X[ 1, 1 ][128X[104X
+    [4X[25Xgap>[125X [27XNextGap([2,1],4);[127X[104X
+    [4X[28X[ 2, 1 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.3-4 GapAut[101X
+  
+  [29X[2XGapAut[102X( [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe   non-deterministic   automaton  accepting  the  rank  encoded
+            language of [22XΩ_k[122X and the list of all possible gap sizes.[133X
+  
+  [33X[0;0YThe  automaton  accepts  the  rank  encoded  permutations  of  [22XΩ_k[122X,  but the
+  automaton  is slightly extended through having each state corresponding to a
+  gap  size  and  the  start  state  being  the  emptyset  of  gap  sizes. The
+  transitions  of  the  automaton  are determined through the knowledge of the
+  available  spaces  and  the rank. This is calculated in [10XNextGap[110X. Please note
+  that  the index of the gap sizes in the list corresponds to the state of the
+  automaton.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGapAut(3);[127X[104X
+    [4X[28X[ < non deterministic automaton on 3 letters with 5 states >, [128X[104X
+    [4X[28X  [ [  ], [ 0 ], [ 1 ], [ 2 ], [ 1, 1 ] ] ][128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last[1]);[127X[104X
+    [4X[28X   |  1       2       3       4       5[128X[104X
+    [4X[28X-------------------------------------------[128X[104X
+    [4X[28X a | [ 2 ]   [ 2 ]   [ 2 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X b | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X c | [ 4 ]   [ 4 ]   [ 5 ]   [ 4 ]   [ 5 ]   [128X[104X
+    [4X[28XInitial state:    [ 1 ][128X[104X
+    [4X[28XAccepting states: [ 1, 2 ][128X[104X
+    [4X[25Xgap>[125X [27X [127X[104X
+  [4X[32X[104X
+  
+  [1X9.3-5 SumAut[101X
+  
+  [29X[2XSumAut[102X( [3Xsum[103X, [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe automaton accepting the language [22XP_sum[122X.[133X
+  
+  [33X[0;0YThis  automaton is based on the [10XGapAut[110X where the accept states are chosen by
+  their gap sizes, namely if the total sum of gap sizes equal to [10Xsum[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSumAut(2,3);[127X[104X
+    [4X[28X< non deterministic automaton on 3 letters with 5 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last);[127X[104X
+    [4X[28X   |  1       2       3       4       5[128X[104X
+    [4X[28X-------------------------------------------[128X[104X
+    [4X[28X a | [ 2 ]   [ 2 ]   [ 2 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X b | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X c | [ 4 ]   [ 4 ]   [ 5 ]   [ 4 ]   [ 5 ]   [128X[104X
+    [4X[28XInitial state:    [ 1 ][128X[104X
+    [4X[28XAccepting states: [ 4, 5 ][128X[104X
+    [4X[25Xgap>[125X [27X [127X[104X
+  [4X[32X[104X
+  
+  [1X9.3-6 GapSumAut[101X
+  
+  [29X[2XGapSumAut[102X( [3Xgap[103X, [3Xsum[103X, [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe automaton accepting the language [22XQ_gap,sum[122X.[133X
+  
+  [33X[0;0YThis  automaton is based on the [10XGapAut[110X where the accept states are chosen by
+  their  gap sizes, namely if there is a gap size [10Xgap[110X and the gap sizes before
+  have a total sum of [10Xsum[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XGapSumAut(1,0,3);[127X[104X
+    [4X[28X< non deterministic automaton on 3 letters with 5 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last);   [127X[104X
+    [4X[28X   |  1       2       3       4       5[128X[104X
+    [4X[28X-------------------------------------------[128X[104X
+    [4X[28X a | [ 2 ]   [ 2 ]   [ 2 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X b | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [128X[104X
+    [4X[28X c | [ 4 ]   [ 4 ]   [ 5 ]   [ 4 ]   [ 5 ]   [128X[104X
+    [4X[28XInitial state:    [ 1 ][128X[104X
+    [4X[28XAccepting states: [ 3, 5 ][128X[104X
+    [4X[25Xgap>[125X [27X [127X[104X
+  [4X[32X[104X
+  
+  [1X9.3-7 NonSimpleAut[101X
+  
+  [29X[2XNonSimpleAut[102X( [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe  automaton  accepting all rank encoded non-simple permutations
+            with rank encoding [10Xk[110X.[133X
+  
+  [33X[0;0YWe find the language of all non-simple permutations of the set of all [22Xk[122X rank
+  encoded permutations [22XΩ_k[122X using the above equation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=NonSimpleAut(3);[127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 9 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(a);[127X[104X
+    [4X[28X   |  1  2  3  4  5  6  7  8  9  [128X[104X
+    [4X[28X--------------------------------[128X[104X
+    [4X[28X a |  1  3  1  5  3  1  6  3  3  [128X[104X
+    [4X[28X b |  3  3  3  3  9  9  3  9  3  [128X[104X
+    [4X[28X c |  2  2  2  2  4  4  2  7  4  [128X[104X
+    [4X[28XInitial state:   [ 8 ][128X[104X
+    [4X[28XAccepting state: [ 1 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.4 [33X[0;0YSimplicity[133X[101X
+  
+  [33X[0;0YThe set of simple permutations of a class is the complement set of the class
+  with the non-simple permutations. We are working in the rank encoding and so
+  in  language  terms our set of simple permutations [22XS_k[122X will be the subset of
+  [22XΩ_k[122X[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0YE(S_k) = E(Ω_k∖ NS_k) = E(Ω_k) ∖ E(NS_k) = E(Ω_k) ∩ E(NS_k)^C[133X[124X[133X
+  
+  
+  [1X9.4-1 SimplePermAut[101X
+  
+  [29X[2XSimplePermAut[102X( [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe  automaton accepting all rank encoded simple permutations with
+            highest rank encoding [10Xk[110X.[133X
+  
+  [33X[0;0YWe  find  the  language  of all simple permutations of the set of all [22Xk[122X rank
+  encoded permutations [22XΩ_k[122X using the above equation.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSimplePermAut(3);[127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 8 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(last);[127X[104X
+    [4X[28X   |  1  2  3  4  5  6  7  8  [128X[104X
+    [4X[28X-----------------------------[128X[104X
+    [4X[28X a |  2  2  1  1  7  2  1  6  [128X[104X
+    [4X[28X b |  2  2  4  2  2  4  4  2  [128X[104X
+    [4X[28X c |  2  2  8  5  2  5  5  2  [128X[104X
+    [4X[28XInitial state:    [ 3 ][128X[104X
+    [4X[28XAccepting states: [ 1, 3 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X9.5 [33X[0;0YExceptionality[133X[101X
+  
+  [33X[0;0YA  permutation  is  said  to be exceptional if it is of one of the following
+  forms,[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Y2 4 6 ... (2m) 1 3 5 ... (2m-1)[133X[124X[133X
+  
+  
+  
+        [33X[1;6Y[24X[33X[0;0Y(2m-1) (2m-3) ... 1 (2m) (2m-2) ... 2[133X[124X[133X
+  
+  
+  
+        [33X[1;6Y[24X[33X[0;0Y(m+1) 1 (m+2) 2 (m+3) 3 ... (2m) m[133X[124X[133X
+  
+  
+  
+        [33X[1;6Y[24X[33X[0;0Ym (2m) (m-1) (2m-1) ... 1 (m+1)[133X[124X[133X
+  
+  
+  [33X[0;0Ywhere [22Xm ≥ 2[122X [PR12].[133X
+  
+  [1X9.5-1 IsExceptionalPerm[101X
+  
+  [29X[2XIsExceptionalPerm[102X( [3Xperm[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10Y[10XTrue[110X if [10Xperm[110X is exceptional, [10XFalse[110X otherwise.[133X
+  
+  [33X[0;0YThe  functions  checks  whether  [10Xperm[110X  is  one of the 4 types of exceptional
+  permutations, that are described above.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsExceptionalPerm([1,2,5,3,4]);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsExceptionalPerm([1,1,3,1,1]);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsExceptionalPerm([2,4,6,1,3,5]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsExceptionalPerm([2,3,4,1,1,1]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X9.5-2 ExceptionalBoundedAutomaton[101X
+  
+  [29X[2XExceptionalBoundedAutomaton[102X( [3Xk[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe  automaton  which  accepts  all  exceptional permutations with
+            highest rank encoding [10Xk[110X.[133X
+  
+  [33X[0;0YThe  language of [10Xk[110X rank encoded exceptional permutations will be finite, and
+  so it regular.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XExceptionalBoundedAutomaton(8); [127X[104X
+    [4X[28X< deterministic automaton on 8 letters with 41 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(last,20);             [127X[104X
+    [4X[28X[ 0, 2, 0, 2, 0, 4, 0, 4, 0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0 ][128X[104X
+    [4X[25Xgap>[125X [27XExceptionalBoundedAutomaton(5);[127X[104X
+    [4X[28X< deterministic automaton on 5 letters with 21 states >[128X[104X
+    [4X[25Xgap>[125X [27XSpectrum(last);[127X[104X
+    [4X[28X[ 0, 2, 0, 2, 0, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  

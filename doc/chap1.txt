@@ -1,0 +1,33 @@
+  
+  [1X1 [33X[0;0YIntroduction[133X[101X
+  
+  [33X[0;0YToken  passing  networks (TPNs) are directed graphs with nodes that can hold
+  at  most  one  token.  Also  each  graph  has a designated input node, which
+  generates  an  ordered  sequence  of numbered tokens and a designated output
+  node that collects the tokens in the order they arrive at it. The input node
+  has  no  incoming  edges,  whereas  the output node has no outgoing edges. A
+  token  [22Xt[122X  travels  through the graph, from node to node, if there is an edge
+  connecting  the  nodes,  if  the node the token is moving from is either the
+  input  node and the tokens [22X1, ..., t-1[122X have been released or the node is not
+  the  output node, and lastly if the destination node contains no token or it
+  is the output node. [ALTd.][133X
+  
+  [33X[0;0YThe set of permutations resulting from a TPN is closed under the property of
+  containment.  A  permutation [22Xa[122X contains a permutation [22Xb[122X of shorter length if
+  in  [22Xa[122X  there  is  a  subsequence  that  is  isomorphic  to  [22Xb[122X. This class of
+  permutations  can be represented by its anti-chain, which in this context is
+  called the basis. [AAR03][133X
+  
+  [33X[0;0YTo   enhance   the   computability  of  permutation  pattern  classes,  each
+  permutation  can  be  encoded,  using  the  so  called  rank encoding. For a
+  permutation [22Xp_1 ... p_n[122X, it is the sequence [22Xe_1... e_n[122X where [22Xe_i[122X is the rank
+  of  [22Xp_i[122X  among [22X{p_i,p_i+1,...,p_n}[122X. It can be shown that the sets of encoded
+  permutations  of  the  class  and  the basis, both are a rational languages.
+  Rational languages can be represented by automata. [AAR03][133X
+  
+  [33X[0;0YThere  is another approach to get from TPNs to their corresponding automata.
+  Namely   building   equivalence   classes  from  TPNs  using  the  different
+  dispositions   of   tokens   within   them.  These  equivalence  classes  of
+  dispositions  and  the  rank encoding of the permutations allow to build the
+  same rational language as from the process above. [ALTd.][133X
+  

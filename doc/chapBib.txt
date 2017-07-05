@@ -1,0 +1,35 @@
+  
+  
+  [1XReferences[101X
+  
+  [[20XAA05[120X]  [16XAlbert,  M.  H. and Atkinson, M. D.[116X, [17XSimple permutations and pattern
+  restricted  permutations[117X,  [18XDiscrete  Mathematics[118X, [19X300[119X, 1--3 (2005), 1 -- 15,
+  (()).
+  
+  [[20XAAR03[120X]  [16XAlbert,  M.  H., Atkinson, M. D. and Ru\v{s}kuc, N.[116X, [17XRegular closed
+  sets of permutations[117X, [18XTheoretical Computer Science[118X, [19X306[119X (2003), 85 - 100.
+  
+  [[20XALTd.[120X]  [16XAtkinson,  M.  D.,  Livesey,  M.  J.  and  Tulley, D.[116X, [17XPermutations
+  generated  by  token  passing  in  graphs[117X, [18XTheoretical Computer Science[118X, [19X178[119X
+  (n.d.), 103 - 118.
+  
+  [[20XBri08[120X]  [16XBrignall,  R.[116X,  [17XA  Survey  of  Simple  Permutations[117X, [18XArXiv e-prints[118X
+  (2008).
+  
+  [[20XCJS11[120X]  [16XClaesson,  A., Jel{\'{i}}nek, V. and Steingr{\'{i}}msson, E.[116X, [17XUpper
+  bounds  for the Stanley-Wilf limit of 1324 and other layered patterns[117X, [18XArXiv
+  e-prints[118X (2011).
+  
+  [[20XHL13[120X]  [16XHoffmann,  R.  and Linton, S.[116X, [17XRegular Languages of Plus- and Minus-
+  (In)Decomposable Permutations[117X, [18XPure Mathematics and Applications (to appear)[118X
+  (2013).
+  
+  [[20XPR12[120X] [16XPierrot, A. and Rossin, D.[116X, [17XSimple permutations poset[117X, [18XArXiv e-prints[118X
+  (2012), 1--15.
+  
+  [[20XUY00[120X]  [16XUno,  T.  and  Yagiura,  M.[116X, [17XFast Algorithms to Enumerate All Common
+  Intervals of Two Permutations[117X, [18XAlgorithmica[118X, [19X26[119X (2000), 2000.
+  
+  
+  
+  [32X

@@ -1,0 +1,76 @@
+  
+  [1X10 [33X[0;0YMiscellaneous functions[133X[101X
+  
+  [33X[0;0YThis  temporary  chapter  is  dedicated  to miscellaneous functions that are
+  relevant to some specific ongoing research questions.[133X
+  
+  
+  [1X10.1 [33X[0;0YAutomaton Manipulation[133X[101X
+  
+  [1X10.1-1 LoopFreeAut[101X
+  
+  [29X[2XLoopFreeAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn automaton without any loops of length 1.[133X
+  
+  [33X[0;0Y[10XLoopFreeAut[110X  builds  the subautomaton of [10Xaut[110X that does not contain any loops
+  of length 1, except for the sink state.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=Automaton("det",4,3,[[2,4,3,3],[4,4,1,4],[3,1,2,4]],[1],[2]);[127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(a);                                                     [127X[104X
+    [4X[28X   |  1  2  3  4  [128X[104X
+    [4X[28X-----------------[128X[104X
+    [4X[28X a |  2  4  3  3  [128X[104X
+    [4X[28X b |  4  4  1  4  [128X[104X
+    [4X[28X c |  3  1  2  4  [128X[104X
+    [4X[28XInitial state:   [ 1 ][128X[104X
+    [4X[28XAccepting state: [ 2 ][128X[104X
+    [4X[25Xgap>[125X [27Xb:=LoopFreeAut(a);                                              [127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 5 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(b);                                                     [127X[104X
+    [4X[28X   |  1  2  3  4  5  [128X[104X
+    [4X[28X--------------------[128X[104X
+    [4X[28X a |  2  4  5  3  5  [128X[104X
+    [4X[28X b |  4  4  1  5  5  [128X[104X
+    [4X[28X c |  3  1  2  5  5  [128X[104X
+    [4X[28XInitial state:   [ 1 ][128X[104X
+    [4X[28XAccepting state: [ 2 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X10.1-2 LoopVertexFreeAut[101X
+  
+  [29X[2XLoopVertexFreeAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YAn automaton without any vertices that had loops of length 1.[133X
+  
+  [33X[0;0Y[10XLoopVertexFreeAut[110X builds the subautomaton that does not contain the vertices
+  and transitions of vertices in [10Xaut[110X that have loops of length 1. The function
+  minimalises  and determinises the automaton before returning it, which might
+  change  the  numbering  on  the  vertices,  but  the  returned  automaton is
+  isomorphic to the subautomaton of [10Xaut[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xa:=Automaton("det",4,3,[[2,4,3,3],[4,4,1,4],[3,1,2,4]],[1],[2]);[127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(a);                                                     [127X[104X
+    [4X[28X   |  1  2  3  4  [128X[104X
+    [4X[28X-----------------[128X[104X
+    [4X[28X a |  2  4  3  3  [128X[104X
+    [4X[28X b |  4  4  1  4  [128X[104X
+    [4X[28X c |  3  1  2  4  [128X[104X
+    [4X[28XInitial state:   [ 1 ][128X[104X
+    [4X[28XAccepting state: [ 2 ][128X[104X
+    [4X[25Xgap>[125X [27Xb:=LoopVertexFreeAut(a);                                        [127X[104X
+    [4X[28X< deterministic automaton on 3 letters with 3 states >[128X[104X
+    [4X[25Xgap>[125X [27XDisplay(b);                                                     [127X[104X
+    [4X[28X   |  1  2  3  [128X[104X
+    [4X[28X--------------[128X[104X
+    [4X[28X a |  2  2  1  [128X[104X
+    [4X[28X b |  2  2  2  [128X[104X
+    [4X[28X c |  3  2  2  [128X[104X
+    [4X[28XInitial state:   [ 3 ][128X[104X
+    [4X[28XAccepting state: [ 1 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
