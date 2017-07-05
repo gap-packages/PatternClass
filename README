@@ -12,7 +12,7 @@ patched functions are located in lib/aux.* .
 Introduction
 ------------
 
-This is version 2.2 of the 'PatternClass' package.
+This is version 2.3 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
@@ -80,6 +80,10 @@ online or within GAP help.
 
 Changes
 -------
+Changes from 2.2 to 2.3:
+- Added functions to create the language and set of permutations contained between two permutations.
+<<<>>><<<>>><<<>>><<<>>>
+
 Changes from 2.1 to 2.2:
 - Updated the way testing is being done in preparation for GAP4.8.
 <<<>>><<<>>><<<>>><<<>>>
