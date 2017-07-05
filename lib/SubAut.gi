@@ -81,7 +81,7 @@ end);
 ##
 #F  InbetweenPermAutomaton(perm,perm)
 ##
-##  Returns an automaton accepting all encoded rpermutations between the
+##  Returns an automaton accepting all encoded permutations between the
 ##  two parameters.
 ##
 InstallGlobalFunction(InbetweenPermAutomaton,function(p,q)
@@ -93,5 +93,31 @@ pAut := SubPermAut(p);
 qAut := SuperPermknAutomaton(q,k,Length(p));
 
 return MinimalAutomaton(IntersectionAutomaton(pAut,qAut));
+
+end);
+
+#############################################################################
+##
+#F  InbetweenPermSet(perm,perm)
+##
+##  Returns the set of all permutations between the
+##  two parameters.
+##
+InstallGlobalFunction(InbetweenPermSet,function(p,q)
+local aut, result, m, n, i, tmp;
+
+aut := InbetweenPermAutomaton(p,q);
+m := Length(p);
+n := Length(q);
+
+result := [];
+
+for i in [n..m] do
+	tmp := AcceptedWords(aut,i);
+	Apply(tmp,RankDecoding);
+	Append(result,tmp);
+od;
+
+return result;
 
 end);

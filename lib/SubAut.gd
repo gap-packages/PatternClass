@@ -36,3 +36,12 @@ DeclareGlobalFunction( "SuperPermknAutomaton" );
 ##  two parameters.
 ##
 DeclareGlobalFunction( "InbetweenPermAutomaton" );
+
+#############################################################################
+##
+#F  InbetweenPermSet(perm,perm)
+##
+##  Returns the set of all permutations between the
+##  two parameters.
+##
+DeclareGlobalFunction( "InbetweenPermSet" );
