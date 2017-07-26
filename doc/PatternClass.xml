@@ -1,0 +1,43 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Book SYSTEM "gapdoc.dtd">
+
+<?LaTeX ExtraPreamble="\usepackage{graphicx} \usepackage{float}"?>
+
+<Book Name="PatternClass">
+
+	<#Include SYSTEM "title.xml">
+
+  <TableOfContents/>
+
+  <Body>
+  <#Include SYSTEM "_AutoDocMainFile.xml">
+
+    <#Include SYSTEM "intro.xml">
+
+    <#Include SYSTEM "tpn.xml">
+
+    <#Include SYSTEM "encoding.xml">
+
+    <#Include SYSTEM "tpntoaut.xml">
+
+    <#Include SYSTEM "auttotpn.xml">
+
+    <#Include SYSTEM "classandbase.xml">
+
+    <#Include SYSTEM "basics.xml">
+
+    <#Include SYSTEM "props.xml">
+
+    <#Include SYSTEM "langs.xml">
+
+    <#Include SYSTEM "tmp.xml">
+
+  </Body>
+
+<TheIndex/>
+
+<Bibliography Databases="bibliography.bib" Style="ieeetr" />
+
+</Book>

@@ -39,9 +39,9 @@ DeclareGlobalFunction( "InbetweenPermAutomaton" );
 
 #############################################################################
 ##
-#F  IsSubPerm(perm,perm)
+#F  InbetweenPermSet(perm,perm)
 ##
-##  Checks whether the second input permutation is contained in the first
-##  by using the rank encoding deletion (involvement) transducer.
+##  Returns the set of all permutations between the
+##  two parameters.
 ##
-DeclareGlobalFunction( "IsSubPerm" );
+DeclareGlobalFunction( "InbetweenPermSet" );

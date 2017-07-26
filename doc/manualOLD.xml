@@ -1,18 +1,19 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE Book SYSTEM "gapdoc.dtd">
 
 <?LaTeX ExtraPreamble="\usepackage{graphicx} \usepackage{float}"?>
 
-<Book Name="PatternClass"> 
-  
+<Book Name="PatternClass">
+
   <TitlePage>
-    <Title>PatternClass</Title> 
-    <Subtitle>Permutation Pattern Classes</Subtitle> 
-    <Version>Version 2.1</Version> 
-    <Author>Michael Albert <Email> malbert at cs.otago.ac.nz</Email></Author> 
-    <Author>Steve Linton <Email> sl4 at st-andrews.ac.uk</Email></Author> 
-    <Author>Ruth Hoffmann <Email> rh347 at icloud.com</Email></Author> 
+    <Title>PatternClass</Title>
+    <Subtitle>Permutation Pattern Classes</Subtitle>
+    <Version>Version 2.1</Version>
+    <Author>Michael Albert <Email> malbert at cs.otago.ac.nz</Email></Author>
+    <Author>Steve Linton <Email> sl4 at st-andrews.ac.uk</Email></Author>
+    <Author>Ruth Hoffmann <Email> rh347 at icloud.com</Email></Author>
     <Date>August 2015</Date>
     <Abstract>
       The <C>PatternClass</C> package is build on the idea of token passing networks building
@@ -23,11 +24,11 @@
       from the token passing networks <Cite Key="PermGenTPGraph" />. Both ways will build the same
       language, i.e. the same automaton.
     </Abstract>
-    <Copyright>&copyright; 2011 by Michael Albert, Steve Linton and Ruth Hoffmann</Copyright> 
+    <Copyright>&copyright; 2011 by Michael Albert, Steve Linton and Ruth Hoffmann</Copyright>
     <!-- <Acknowledgements>We thank EVERYONE!</Acknowledgements> -->
     <!-- <Colophon>This is the Colophon page.</Colophon> -->
   </TitlePage>
-  
+
   <TableOfContents/>
 
   <Body>

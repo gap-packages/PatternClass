@@ -81,7 +81,7 @@ end);
 ##
 #F  InbetweenPermAutomaton(perm,perm)
 ##
-##  Returns an automaton accepting all encoded rpermutations between the
+##  Returns an automaton accepting all encoded permutations between the
 ##  two parameters.
 ##
 InstallGlobalFunction(InbetweenPermAutomaton,function(p,q)
@@ -98,34 +98,26 @@ end);
 
 #############################################################################
 ##
-#F  IsSubPerm(perm,perm)
+#F  InbetweenPermSet(perm,perm)
 ##
-##  Checks whether the second input permutation is contained in the first
-##  by using the rank encoding deletion (involvement) transducer.
+##  Returns the set of all permutations between the
+##  two parameters.
 ##
-InstallGlobalFunction( IsSubPerm, function(p,q)
-local penc,qenc,paut,maxrank,h,revpaut,subaut,wordlist;
+InstallGlobalFunction(InbetweenPermSet,function(p,q)
+local aut, result, m, n, i, tmp;
 
-penc := RankEncoding(p);
-qenc := RankEncoding(q);
+aut := InbetweenPermAutomaton(p,q);
+m := Length(p);
+n := Length(q);
 
-maxrank := Maximum(penc);
+result := [];
 
-penc := SequencesToRatExp([penc]);
-paut := RatExpToAut(penc);
+for i in [n..m] do
+	tmp := AcceptedWords(aut,i);
+	Apply(tmp,RankDecoding);
+	Append(result,tmp);
+od;
 
-h := InvolvementTransducer(maxrank);
-
-revpaut := MinimalAutomaton(ReversedAutomaton(paut));
-
-subaut := MinimalAutomaton(CombineAutTransducer(revpaut,h));
-
-wordlist := AcceptedWordsReversed(subaut,Length(q));
-
-if qenc in wordlist then
-    return true;
-fi;
-
-return false;
+return result;
 
 end);

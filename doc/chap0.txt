@@ -1,46 +1,54 @@
   
   
-                                  [1XPatternClass[101X
+                                 [1X PatternClass [101X
   
   
-                          [1XPermutation Pattern Classes[101X
+                     [1X A permutation pattern class package [101X
   
   
-                                  Version 2.0
+                                      2.3
   
   
-                                  August 2015
+                                   05/07/2017
   
-  
-                                 Michael Albert
-  
-                                  Steve Linton
   
                                  Ruth Hoffmann
   
+                                  Steve Linton
+  
+                                 Michael Albert
+  
+  
+  
+  Ruth Hoffmann
+      Email:    [7Xmailto:rh347@icloud.com[107X
+      Homepage: [7XTODO[107X
+      Address:  [33X[0;14YTODO[133X
+  
+  
+  Steve Linton
+      Email:    [7Xmailto:sl4@st-andrews.ac.uk[107X
+      Homepage: [7Xhttp://sal.host.cs.st-andrews.ac.uk/[107X
+      Address:  [33X[0;14YSteve Linton[133X
+                [33X[0;14YSchool of Computer Science,[133X
+                [33X[0;14YUniversity of St. Andrews,[133X
+                [33X[0;14YNorth Haugh,[133X
+                [33X[0;14YSt. Andrews,[133X
+                [33X[0;14YFife,[133X
+                [33X[0;14YKY16 9SS,[133X
+                [33X[0;14YSCOTLAND[133X
   
   
   Michael Albert
-      Email:    [7Xmailto:malbert at cs.otago.ac.nz[107X
-  Steve Linton
-      Email:    [7Xmailto:sl4 at st-andrews.ac.uk[107X
-  Ruth Hoffmann
-      Email:    [7Xmailto:rh347 at icloud.com[107X
+      Email:    [7Xmailto:malbert@cs.otago.ac.nz[107X
+      Homepage: [7Xhttp://www.cs.otago.ac.nz/staff/michael.html[107X
+      Address:  [33X[0;14YMichael Albert[133X
+                [33X[0;14YDepartment of Computer Science,[133X
+                [33X[0;14YUniversity of Otago,[133X
+                [33X[0;14YPO Box 56,[133X
+                [33X[0;14YDUNEDIN 9054,[133X
+                [33X[0;14YNew Zealand,[133X
   
-  -------------------------------------------------------
-  [1XAbstract[101X
-  [33X[0;0YThe  [10XPatternClass[110X  package  is  build  on the idea of token passing networks
-  building  permutation  pattern classes. Those classes are best determined by
-  their  basis.  Both sets can be encoded by rank encoding their permutations.
-  Each,  the  class  and  its  basis,  in  their encoded form build a rational
-  language  [AAR03].  Rational  languages  can  be  easily  computed  by using
-  automata,  which  also can be build directly from the token passing networks
-  [ALTd.]. Both ways will build the same language, i.e. the same automaton.[133X
-  
-  
-  -------------------------------------------------------
-  [1XCopyright[101X
-  [33X[0;0Y© 2011 by Michael Albert, Steve Linton and Ruth Hoffmann[133X
   
   
   -------------------------------------------------------
@@ -138,9 +146,14 @@
       9.5-1 IsExceptionalPerm
       9.5-2 ExceptionalBoundedAutomaton
   10 [33X[0;0YMiscellaneous functions[133X
-    10.1 [33X[0;0YAutomaton Manipulation[133X
-      10.1-1 LoopFreeAut
-      10.1-2 LoopVertexFreeAut
+    10.1 [33X[0;0YPermutation Inclusion Set[133X
+      10.1-1 InbetweenPermAutomaton
+      10.1-2 InbetweenPermSet
+    10.2 [33X[0;0YAutomaton Manipulation[133X
+      10.2-1 LoopFreeAut
+      10.2-2 LoopVertexFreeAut
   
   
   [32X
+  [33X[0;0Y [133X
+  
