@@ -176,7 +176,7 @@ if mA <> mB then
 fi;
 
 QA := A!.states;
-T := StructuralCopy( A!.transitions );
+T := List( A!.transitions, ShallowCopy );
 if A!.type <> "epsilon" and B!.type = "epsilon" then
 	Add(T,[]);
 fi;	

@@ -140,7 +140,7 @@ InstallGlobalFunction(PlusIndecomposableAut,function(aut)
     states:=NumberStatesOfAutomaton(temp)+2;
     fin:=FinalStatesOfAutomaton(temp);
     acc:=Concatenation([states-1],fin);
-    trans:=StructuralCopy(TransitionMatrixOfAutomaton(temp));
+    trans:=List(TransitionMatrixOfAutomaton(temp), ShallowCopy);
 
     for i in [1..Length(TransitionMatrixOfAutomaton(temp))] do
     	Add(trans[i],trans[i][1],states-1);
