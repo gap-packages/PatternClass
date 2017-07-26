@@ -19,7 +19,17 @@
 ##  highest letter being k.
 ##
 
-InstallFlushableValue(BOUNDED_CLASS_AUTOMATA_CACHE,[]);
+if not IsBound(MakeWriteOnceAtomic) then
+    BindGlobal("MakeWriteOnceAtomic", ID_FUNC);
+fi;
+
+BOUNDED_CLASS_AUTOMATA_CACHE :=  MakeWriteOnceAtomic([]);
+
+InstallMethod(FlushCaches, [],function()
+    BOUNDED_CLASS_AUTOMATA_CACHE := MakeWriteOnceAtomic([]);
+    TryNextMethod();
+end);
+
 
 InstallGlobalFunction(BoundedClassAutomaton, function(k)
     local   states,  alphabet,  trans,  i,  j;
