@@ -44,7 +44,7 @@ gap> ]]></Example>
 
 <ManSection>
   <Func Name="IsSubPerm" Arg="perm1, perm2"/>
-  <Returns><C>true</C> if <C>perm2</C> is a subpermutation of <C>perm1</C>.
+  <Returns><C>true</C> if <C>perm2</C> is a subpermutation of <C>perm1</C>.</Returns>
   <Description>
       Creates the automaton accepting all subpermutations of <C>perm1</C> of the same rank or less, and checks whether the automaton accepts the rank encoding of <C>perm2</C>.
 <!-- EXAMPLE !!!!!!!! -->

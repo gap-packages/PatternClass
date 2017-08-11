@@ -12,7 +12,7 @@ patched functions are located in lib/automata.* .
 Introduction
 ------------
 
-This is version 2.3 of the 'PatternClass' package.
+This is version 2.4 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
@@ -52,12 +52,12 @@ If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
 in the gap4r4 folder where GAP is installed on your computer.
 To uncompress the .tar.gz file on UNIX use the following command
 
-   tar xzf PatternClass2.3.tar.gz
+   tar xzf PatternClass2.4.tar.gz
 
 If your version of tar does not support the z option use
 
-   gunzip PatternClass2.3.tar.gz
-   tar xf PatternClass2.3.tar
+   gunzip PatternClass2.4.tar.gz
+   tar xf PatternClass2.4.tar
 
 This will create the folder PatternClass in pkg/ and within that
 you will find the directories and files mentioned above.
@@ -70,7 +70,7 @@ Loading  Automata 1.13
 For help, type: ?Automata:
 ----------------------------------------------------------------
 ─────────────────────────────────────────────────────────────────────────────
-Loading  PatternClass 2.3 (A permutation pattern class package)
+Loading  PatternClass 2.4 (A permutation pattern class package)
 by Ruth Hoffmann (TODO),
    Steve Linton (http://sal.host.cs.st-andrews.ac.uk/), and
    Michael Albert (http://www.cs.otago.ac.nz/staff/michael.html).
@@ -87,6 +87,12 @@ online or within GAP help.
 
 Changes
 -------
+Changes from 2.3 to 2.4:
+- Improved the runtime of InbetweenPermSet when the subpermutation is of length 1.
+- Added IsSumPerm function
+- Fixed&merged issues
+<<<>>><<<>>><<<>>><<<>>>
+
 Changes from 2.2 to 2.3:
 - Added functions to create the language and set of permutations contained between two permutations.
 <<<>>><<<>>><<<>>><<<>>>
