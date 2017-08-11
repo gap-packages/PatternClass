@@ -89,6 +89,10 @@ local pAut,qAut,k;
 
 k := Maximum(RankEncoding(p));
 
+if Length(q) = 1 then
+    return MinimalAutomaton(SubPermAut(p));
+fi;
+
 pAut := SubPermAut(p);
 qAut := SuperPermknAutomaton(q,k,Length(p));
 
@@ -119,5 +123,35 @@ for i in [n..m] do
 od;
 
 return result;
+
+end);
+
+#############################################################################
+##
+#F  IsSubPerm(perm,perm)
+##
+##  Checks whether the second permutation is a subpermutation of the first.
+##
+InstallGlobalFunction(IsSubPerm, function(p,q)
+
+local penc,qenc,paut,maxrank,h,revpaut,subaut;
+
+penc := RankEncoding(p);
+qenc := Reversed(RankEncoding(q));
+
+maxrank := Maximum(penc);
+
+if maxrank < Maximum(qenc) then
+    return false;
+fi;
+
+penc := SequencesToRatExp([penc]);
+paut := RatExpToAut(penc);
+
+h := InvolvementTransducer(maxrank);
+revpaut := MinimalAutomaton(ReversedAutomaton(paut));
+subaut := MinimalAutomaton(CombineAutTransducer(revpaut,h));
+
+return IsAcceptedWord(subaut,qenc);
 
 end);

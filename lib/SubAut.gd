@@ -45,3 +45,11 @@ DeclareGlobalFunction( "InbetweenPermAutomaton" );
 ##  two parameters.
 ##
 DeclareGlobalFunction( "InbetweenPermSet" );
+
+#############################################################################
+##
+#F  IsSubPerm(perm,perm)
+##
+##  Checks whether the second permutation is a subpermutation of the first.
+##
+DeclareGlobalFunction( "IsSubPerm" );
