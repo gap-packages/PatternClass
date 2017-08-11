@@ -18,7 +18,7 @@
 ##  Returns an automaton, that accepts all rank encoded permutations with
 ##  highest letter being k.
 ##
-DeclareGlobalVariable( "BOUNDED_CLASS_AUTOMATA_CACHE");
+
 DeclareGlobalFunction( "BoundedClassAutomaton" );
 
 #############################################################################

@@ -77,7 +77,7 @@ end );
 InstallGlobalFunction(LoopFreeAut,function(a)
 local trans,j,i;
 
-trans:=StructuralCopy(a!.transitions);
+trans:=List(a!.transitions, ShallowCopy);
 
 for j in [1..Length(trans[1])] do 
     for i in [1..Length(trans)] do
@@ -105,7 +105,7 @@ local acc,ll,trans,i,j,x,sink;
 
 acc:=FinalStatesOfAutomaton(a);
 ll:=[];
-trans:=StructuralCopy(a!.transitions);
+trans:=List(a!.transitions, ShallowCopy);
 sink:=a!.states+1;
 
 for i in [1..Length(trans)] do
