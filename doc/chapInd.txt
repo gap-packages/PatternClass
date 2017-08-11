@@ -1,0 +1,71 @@
+  
+  
+  [1XIndex[101X
+  
+  [2XAcceptedWords[102X  6.4-4
+  [2XAcceptedWordsR[102X  6.4-5
+  [2XAcceptedWordsReversed[102X  6.4-5
+  [2XAutStateTransitionMatrix[102X  6.4-3
+  [2XBasisAutomaton[102X  6.2-1
+  [2XBlockDecomposition[102X  8.4-2
+  [2XBoundedClassAutomaton[102X  6.2-3
+  [2XBufferAndStack[102X  2.1-3
+  [2XClassAutFromBase[102X  6.2-5
+  [2XClassAutFromBaseEncoding[102X  6.2-4
+  [2XClassAutomaton[102X  6.2-2
+  [2XClassDirectSum[102X  6.3-1
+  [2XCombineAutTransducer[102X  6.1-5
+  [2XConstrainedGraphToAut[102X  4.1-2
+  [2XDeletionTransducer[102X  6.1-2
+  [2XExceptionalBoundedAutomaton[102X  9.5-2
+  [2XExpandAlphabet[102X  6.2-6
+  [2XGapAut[102X  9.3-4
+  [2XGapSumAut[102X  9.3-6
+  [2XGraphToAut[102X  4.1-1
+  [2XInbetweenPermAutomaton[102X  10.1-1
+  [2XInbetweenPermSet[102X  10.1-2
+  [2XInflation[102X  8.4-1
+  [2XInversionAut[102X  9.1-1
+  [2XInversionAutOfClass[102X  9.1-2
+  [2XInvolvementTransducer[102X  6.1-4
+  [2XIs2StarReplaceable[102X  5.1-2
+  [2XIsExceptionalPerm[102X  9.5-1
+  [2XIsInterval[102X  8.1-1
+  [2XIsMinusDecomposable[102X  8.6-1
+  [2XIsPlusDecomposable[102X  8.5-1
+  [2XIsPossibleGraphAut[102X  5.1-4
+  [2XIsRankEncoding[102X  7.2-1
+  [2XIsSimplePerm[102X  8.2-1
+  [2XIsStarClosed[102X  5.1-1
+  [2XIsStratified[102X  5.1-3
+  [2XIsSubPerm[102X  10.1-3
+  [2XLengthBoundAut[102X  9.3-1
+  [2XLoopFreeAut[102X  10.2-1
+  [2XLoopVertexFreeAut[102X  10.2-2
+  [2XMinusDecomposableAut[102X  9.2-3
+  [2XMinusIndecomposableAut[102X  9.2-4
+  [2XNextGap[102X  9.3-3
+  [2XNonSimpleAut[102X  9.3-7
+  [2XNumberAcceptedWords[102X  6.4-2
+  [2XOnePointDelete[102X  8.3-1
+  [2XParstacks[102X  2.1-1
+  [2XPermComplement[102X  7.1-1
+  [2XPermDirectSum[102X  8.7-1
+  [2XPermSkewSum[102X  8.7-2
+  [2XPlusDecomposableAut[102X  9.2-1
+  [2XPlusIndecomposableAut[102X  9.2-2
+  [2XPointDeletion[102X  8.3-3
+  [2XRankDecoding[102X  3.1-2
+  [2XRankEncoding[102X  3.1-1
+  [2XSeqstacks[102X  2.1-2
+  [2XSequencesToRatExp[102X  3.1-3
+  [2XShiftAut[102X  9.3-2
+  [2XSimplePermAut[102X  9.4-1
+  [2XSpectrum[102X  6.4-1
+  [2XSumAut[102X  9.3-5
+  [2XTransducer[102X  6.1-1
+  [2XTransposedTransducer[102X  6.1-3
+  [2XTwoPointDelete[102X  8.3-2
+  
+  
+  -------------------------------------------------------

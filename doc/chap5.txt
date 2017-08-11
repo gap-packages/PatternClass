@@ -1,0 +1,118 @@
+  
+  [1X5 [33X[0;0YFrom Automata to Networks[133X[101X
+  
+  [33X[0;0YIt  is  not  only  important to see how a TPN can be interpreted as a finite
+  state  automaton.  But  also  if  an arbitrary automaton could represent the
+  language   of   rank   encoded  permutations  of  a  TPN.  Currently  within
+  [10XPatternClass[110X it is only possible to check whether deterministic automata are
+  possible representatives of a TPN.[133X
+  
+  
+  [1X5.1 [33X[0;0YFunctions[133X[101X
+  
+  [1X5.1-1 IsStarClosed[101X
+  
+  [29X[2XIsStarClosed[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X  if  the  start and accept states in [10Xaut[110X are one and the same
+            state.[133X
+  
+  [33X[0;0YThis  has the consequence that the whole rational expression accepted by [10Xaut[110X
+  is always enclosed by the Kleene star.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:=Automaton("det",4,2,[[3,4,2,4],[2,2,2,4]],[1],[2]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XIsStarClosed(x);                                      [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XAutToRatExp(x);        [127X[104X
+    [4X[28X(a(aUb)Ub)b*[128X[104X
+    [4X[25Xgap>[125X [27Xy:=Automaton("det",3,2,[[3,2,1],[2,3,1]],[1],[1]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 3 states >[128X[104X
+    [4X[25Xgap>[125X [27XIsStarClosed(y);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XAutToRatExp(y);[127X[104X
+    [4X[28X((ba*bUa)(aUb))*[128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X5.1-2 Is2StarReplaceable[101X
+  
+  [29X[2XIs2StarReplaceable[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X if none of the states in the automaton [10Xaut[110X, which are not the
+            initial  state,  have  a  transition to the initial state labelled
+            with  the  first  letter  of the alphabet. It also returns [10Xtrue[110X if
+            there  is  at least one state [22Xi ∈ Q[122X with the first two transitions
+            from [22Xi[122X being [22Xf(i,1)=1[122X and [22Xf(i,2)=x[122X, where [22Xx ∈ Q∖{1}[122X and [22Xf(x,1)=1[122X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:=Automaton("det",3,2,[[1,2,3],[2,2,3]],[1],[2]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 3 states >[128X[104X
+    [4X[25Xgap>[125X [27XIs2StarReplaceable(x);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xy:=Automaton("det",4,2,[[4,1,1,2],[1,3,3,2]],[1],[1]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XIs2StarReplaceable(y);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xz:=Automaton("det",4,2,[[4,1,1,2],[1,4,2,2]],[1],[4]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XIs2StarReplaceable(z);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X5.1-3 IsStratified[101X
+  
+  [29X[2XIsStratified[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X if [10Xaut[110X has a specific "layered" form.[133X
+  
+  [33X[0;0YA formal description of the most basic stratified automaton is:[133X
+  
+  [33X[0;0Y[22X(S,Q,f,q_0,A)[122X  with [22XS:={1,...,n}, Q:={1,...,m}, n<m, q_0:=1, A:=Q∖ {n+1}, f:
+  Q × S → Q[122X and [22Xn+1[122X is a sink state.[133X
+  
+  [33X[0;0YIf [22Xi,j ∈ Q ∖ { n+1 }[122X,with [22Xi < j[122X, and [22Xi',j' ∈ S[122X, [22Xi=i', j=j'[122X then[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Yf(i,i')=i, f(i,j')=j, f(j,j')=j, f(j,i')=j-1 or n+1.[133X[124X[133X
+  
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:=Automaton("det",4,2,[[1,3,1,4],[2,2,4,4]],[1],[2]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XIsStratified(x);                                      [127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xy:=Automaton("det",4,2,[[1,3,2,4],[2,4,1,4]],[1],[2]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 4 states >[128X[104X
+    [4X[25Xgap>[125X [27XIsStratified(y);                                      [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  [1X5.1-4 IsPossibleGraphAut[101X
+  
+  [29X[2XIsPossibleGraphAut[102X( [3Xaut[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10Y[9Xtrue[109X  if  [10Xaut[110X returns [10Xtrue[110X in [10XIsStratified[110X, [10XIs2StarReplaceable[110X and
+            [10XIsStarClosed[110X.[133X
+  
+  [33X[0;0YAn automaton that fulfils the three functions above has the right form to be
+  an automaton representing rank encoded permutations, which are output from a
+  TPN.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xx:=Automaton("det",2,2,[[1,2],[2,2]],[1],[1]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 2 states >[128X[104X
+    [4X[25Xgap>[125X [27XIsPossibleGraphAut(x);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27Xy:=Automaton("det",2,2,[[1,2],[1,2]],[1],[1]);[127X[104X
+    [4X[28X< deterministic automaton on 2 letters with 2 states >[128X[104X
+    [4X[25Xgap>[125X [27XIsPossibleGraphAut(y);                        [127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27XIsStarClosed(y);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIs2StarReplaceable(y);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsStratified(y);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  

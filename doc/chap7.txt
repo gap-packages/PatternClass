@@ -1,0 +1,48 @@
+  
+  [1X7 [33X[0;0YSome Permutation Essentials[133X[101X
+  
+  [33X[0;0YIn  this  chapter  we  mention  a couple functions that are fairly basic but
+  useful tools to work with.[133X
+  
+  
+  [1X7.1 [33X[0;0YComplement[133X[101X
+  
+  [1X7.1-1 PermComplement[101X
+  
+  [29X[2XPermComplement[102X( [3Xperm[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10YThe permutation that is the complement of [10Xperm[110X.[133X
+  
+  [33X[0;0YThe complement of a permutation [22Xτ=τ_1...τ_n[122X is the permutation[133X
+  
+  
+        [33X[1;6Y[24X[33X[0;0Yτ^C=(n+1)-τ_1 (n+1)-τ_2... (n+1)-τ_n[133X[124X[133X
+  
+  
+  [33X[0;0Y.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XPermComplement([3,2,8,6,7,1,5,4]);[127X[104X
+    [4X[28X[ 6, 7, 1, 3, 2, 8, 4, 5 ][128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X7.2 [33X[0;0YRank Encoding[133X[101X
+  
+  [1X7.2-1 IsRankEncoding[101X
+  
+  [29X[2XIsRankEncoding[102X( [3Xperm[103X ) [32X function
+  [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [10Xperm[110X is a valid rank encoding of a permutation.[133X
+  
+  [33X[0;0Y[10XIsRankEncoding[110X  checkes whether the input list [10Xperm[110X is a valid rank encoding
+  by  checking whether it is accepted by the bounded class automaton, with the
+  highest rank being set by the highest element in [10Xperm[110X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIsRankEncoding([3,2,6,4,4,1,2,1]);[127X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[25Xgap>[125X [27XIsRankEncoding([3,2,6,4,5,1,2,1]);[127X[104X
+    [4X[28Xfalse[128X[104X
+    [4X[25Xgap>[125X [27X[127X[104X
+  [4X[32X[104X
+  
