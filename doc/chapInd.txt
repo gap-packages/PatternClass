@@ -38,6 +38,7 @@
   [2XIsSimplePerm[102X  8.2-1
   [2XIsStarClosed[102X  5.1-1
   [2XIsStratified[102X  5.1-3
+  [2XIsSubPerm[102X  10.1-3
   [2XLengthBoundAut[102X  9.3-1
   [2XLoopFreeAut[102X  10.2-1
   [2XLoopVertexFreeAut[102X  10.2-2

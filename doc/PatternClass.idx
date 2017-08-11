@@ -59,5 +59,6 @@
 \indexentry{ExceptionalBoundedAutomaton@\texttt  {ExceptionalBoundedAutomaton}|hyperpage}{47}
 \indexentry{InbetweenPermAutomaton@\texttt  {InbetweenPermAutomaton}|hyperpage}{48}
 \indexentry{InbetweenPermSet@\texttt  {InbetweenPermSet}|hyperpage}{48}
+\indexentry{IsSubPerm@\texttt  {IsSubPerm}|hyperpage}{49}
 \indexentry{LoopFreeAut@\texttt  {LoopFreeAut}|hyperpage}{49}
-\indexentry{LoopVertexFreeAut@\texttt  {LoopVertexFreeAut}|hyperpage}{49}
+\indexentry{LoopVertexFreeAut@\texttt  {LoopVertexFreeAut}|hyperpage}{50}

@@ -54,12 +54,13 @@
   \item \texttt  {IsSimplePerm}, \hyperpage{35}
   \item \texttt  {IsStarClosed}, \hyperpage{20}
   \item \texttt  {IsStratified}, \hyperpage{21}
+  \item \texttt  {IsSubPerm}, \hyperpage{49}
 
   \indexspace
 
   \item \texttt  {LengthBoundAut}, \hyperpage{43}
   \item \texttt  {LoopFreeAut}, \hyperpage{49}
-  \item \texttt  {LoopVertexFreeAut}, \hyperpage{49}
+  \item \texttt  {LoopVertexFreeAut}, \hyperpage{50}
 
   \indexspace
 

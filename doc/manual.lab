@@ -99,5 +99,6 @@
 \makelabel{patternclass:ExceptionalBoundedAutomaton}{9.5.2}{X7B0086217E986ADA}
 \makelabel{patternclass:InbetweenPermAutomaton}{10.1.1}{X7E83DB497CCB5CDC}
 \makelabel{patternclass:InbetweenPermSet}{10.1.2}{X7A07B52779B59271}
+\makelabel{patternclass:IsSubPerm}{10.1.3}{X876ABC5F7822D768}
 \makelabel{patternclass:LoopFreeAut}{10.2.1}{X85793D54837E38D5}
 \makelabel{patternclass:LoopVertexFreeAut}{10.2.2}{X8503A7707FA666C4}

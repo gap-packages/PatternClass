@@ -91,8 +91,9 @@
 \contentsline {section}{\numberline {10.1}\leavevmode {\color {Chapter } Permutation Inclusion Set }}{48}{section.10.1}
 \contentsline {subsection}{\numberline {10.1.1}\leavevmode {\color {Chapter }InbetweenPermAutomaton}}{48}{subsection.10.1.1}
 \contentsline {subsection}{\numberline {10.1.2}\leavevmode {\color {Chapter }InbetweenPermSet}}{48}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}\leavevmode {\color {Chapter }IsSubPerm}}{49}{subsection.10.1.3}
 \contentsline {section}{\numberline {10.2}\leavevmode {\color {Chapter } Automaton Manipulation }}{49}{section.10.2}
 \contentsline {subsection}{\numberline {10.2.1}\leavevmode {\color {Chapter }LoopFreeAut}}{49}{subsection.10.2.1}
-\contentsline {subsection}{\numberline {10.2.2}\leavevmode {\color {Chapter }LoopVertexFreeAut}}{49}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.2}\leavevmode {\color {Chapter }LoopVertexFreeAut}}{50}{subsection.10.2.2}
 \contentsline {chapter}{Index}{51}{section*.2}
 \contentsline {chapter}{References}{52}{chapter*.3}
