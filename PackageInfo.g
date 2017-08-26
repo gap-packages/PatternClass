@@ -10,13 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-<<<<<<< HEAD
 Version := "2.4",
 Date := "11/08/2017", # dd/mm/yyyy format
-=======
-Version := "2.3",
-Date := "05/07/2017", # dd/mm/yyyy format
->>>>>>> 408e1d7a14b0730ea44ccb107a34242449f26fa3
 
 Persons := [
   rec(
@@ -24,11 +19,7 @@ Persons := [
     IsMaintainer := true,
     FirstNames := "Ruth",
     LastName := "Hoffmann",
-<<<<<<< HEAD
     WWWHome := "https://rh347.host.cs.st-andrews.ac.uk/",
-=======
-    WWWHome := "https://www.hoffmannandco.com",
->>>>>>> 408e1d7a14b0730ea44ccb107a34242449f26fa3
     Email := "rh347@icloud.com",
     PostalAddress := Concatenation(
                "School of Computer Science,\n",
