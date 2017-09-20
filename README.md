@@ -1,211 +1,191 @@
-# GitHubPagesForGAP
 
-This repository can be used to quickly set up a website hosted by
-[GitHub](https://github.com/) for GAP packages using a GitHub repository.
-Specifically, this uses [GitHub pages](https://pages.github.com/)
-by adding a `gh-pages` branch to your package repository which
-contains data generated from the `PackageInfo.g` file of your package.
+The 'PatternClass' GAP 4 package
+================================
 
-## Initial setup
+!!!!!!!!!!!!!!
+! Patch info !
+!!!!!!!!!!!!!!
+We had to patch the IntersectionAutomaton, UnionAutomata and ProductLanguage
+from the Automata pkg (version 1.13) to improve performance testing. The
+patched functions are located in lib/automata.* .
 
-The following instructions assume you do not already have a `gh-pages`
-branch in your repository. If you do have one, you should delete it before
-following these instructions.
+Introduction
+------------
 
-1. Go into your clone of your package repository.
+This is version 2.4 of the 'PatternClass' package.
 
-2. Setup a `gh-pages` branch in a `gh-pages` subdirectory.
+The 'PatternClass' package allows you to explore the permutation
+pattern classes build by token passing networks.
+Amongst other things, 'PatternClass' can compute the basis of a
+permutation pattern class et vice versa, rank encode and decode permutations,
+create automata from token passing networks and checking if the
+deterministic automaton is a possible representative of a
+token passing network.
+More details on what functions "PatternClass' contains, consult
+the manual in the doc folder.
 
-   Users with a recent enough git version (recommended is >= 2.11)
-   can do this using a "worktree", via the following commands:
+If there are any problems with the package please do not hesitate to contact us.
 
-   ```sh
-   # Add a new remote pointing to the GitHubPagesForGAP repository
-   git remote add gh-gap https://github.com/fingolfin/GitHubPagesForGAP
-   git fetch gh-gap
-
-   # Create a fresh gh-pages branch from the new remote
-   git branch gh-pages gh-gap/gh-pages --no-track
-
-   # Create a new worktree and change into it
-   git worktree add gh-pages gh-pages
-   cd gh-pages
-   ```
-
-   Everybody else should instead do the following, with the URL
-   in the initial clone command suitably adjusted:
-
-   ```sh
-   # Create a fresh clone of your repository, and change into it
-   git clone https://github.com/USERNAME/REPOSITORY gh-pages
-   cd gh-pages
-
-   # Add a new remote pointing to the GitHubPagesForGAP repository
-   git remote add gh-gap https://github.com/fingolfin/GitHubPagesForGAP
-   git fetch gh-gap
-
-   # Create a fresh gh-pages branch from the new remote
-   git checkout -b gh-pages gh-gap/gh-pages --no-track
-   ```
-
-5. Add in copies of your PackageInfo.g, README and manual:
-
-   ```
-   cp -f ../PackageInfo.g ../README .
-   cp -f ../doc/*.{css,html,js,txt} doc/
-   ```
-
-6. Now run the `update.g` GAP script. This extracts data from your
-   `PackageInfo.g` file and puts that data into `_data/package.yml`.
-   From this, the website template can populate the web pages with
-   some sensible default values.
-
-   ```
-   gap update.g
-   ```
-
-7. Commit and push everything.
-
-   ```
-   git add PackageInfo.g README doc/ _data/package.yml
-   git commit -m "Setup gh-pages based on GitHubPagesForGAP"
-   git push --set-upstream origin gh-pages
-   ```
-
-That's it. You can now see your new package website under
-https://USERNAME.github.io/REPOSITORY/ (of course after
-adjusting USERNAME and REPOSITORY suitably).
+Michael Albert	 <malbert@cs.otago.ac.nz>
+Steve Linton 	 <sl4@st-andrews.ac.uk>
+Ruth Hoffmann	 <rh347@icloud.com> (Current maintainer)
 
 
-## Adjusting the content and layout
+Contents
+--------
 
-GitHubPagesForGAP tries to automatically provide good defaults for
-most packages. However, you can tweak everything about it:
+This package comes with the following files and directories
 
-* To adjust the page layout, edit the files `stylesheets/styles.css`
-and `_layouts/default.html`.
+    doc             the directory with the manual
+    init.g          this file does initialise the package
+    lib             this directory contains all GAP code
+    lib/grid        this directory contains experimental code which is not preloaded
+                    see README in lib/grid for info
+    PackageInfo.g   the information file for automatic processing
+    read.g          this file reads the package
+    README          you are currently reading this file
 
-* To adjust the content of the front page, edit `index.md` (resp.
-  for the content of the sidebar, edit `_layouts/default.html`
+Unpacking and Installing 'PatternClass'
+---------------------------------------
 
-* You can also add additional pages, in various formats (HTML,
-Markdown, Textile, ...).
+If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
+in the gap4r4 folder where GAP is installed on your computer.
+To uncompress the .tar.gz file on UNIX use the following command
 
-For details, please consult the [Jekyll](http://jekyllrb.com/)
-manual.
+   tar xzf PatternClass2.4.tar.gz
 
+If your version of tar does not support the z option use
 
-## Testing the site locally
+   gunzip PatternClass2.4.tar.gz
+   tar xf PatternClass2.4.tar
 
-If you would like to test your site on your own machine, without
-uploading it to GitHub (where it is visible to the public), you can do
-so by installing [Jekyll](http://jekyllrb.com/), the static web site
-generator used by GitHub to power GitHub Pages.
+This will create the folder PatternClass in pkg/ and within that
+you will find the directories and files mentioned above.
 
-Once you have installed Jekyll as described on its homepage, you can
-test the website locally as follows:
+To use the package within GAP, run GAP and type the following
 
-1. Go to the `gh-pages` directory we created above.
+gap> LoadPackage("patternclass");
+----------------------------------------------------------------
+Loading  Automata 1.13
+For help, type: ?Automata:
+----------------------------------------------------------------
+─────────────────────────────────────────────────────────────────────────────
+Loading  PatternClass 2.4 (A permutation pattern class package)
+by Ruth Hoffmann (TODO),
+   Steve Linton (http://sal.host.cs.st-andrews.ac.uk/), and
+   Michael Albert (http://www.cs.otago.ac.nz/staff/michael.html).
+Homepage: https://RuthHoffmann.github.io/PatternClass/
+─────────────────────────────────────────────────────────────────────────────
+true
+gap>
 
-2. Run jekyll (this launches a tiny web server on your machine):
-
-   ```
-   jekyll serve -w
-   ```
-
-3. Visit the URL http://localhost:4000 in a web browser.
-
-
-## Updating after you made a release
-
-Whenever you make a release of your package (and perhaps more often than
-that), you will want to update your website. The easiest way is to use
-the `release` script from the [ReleaseTools][]. However, you can also do
-it manually. The steps for doing it are quite similar to the above:
-
-1. Go to the `gh-pages` directory we created above.
-
-2. Add in copies of your PackageInfo.g, README and manual:
-
-   ```
-   cp -f ../PackageInfo.g ../README .
-   cp -f ../doc/*.{css,html,js,txt} doc/
-   ```
-
-3. Now run the `update.g` GAP script.
-
-4. Commit and push the work we have just done.
-
-   ```
-   git add PackageInfo.g README doc/ _data/package.yml
-   git commit -m "Update web pages"
-   git push
-   ```
-
-A few seconds after you have done this, your changes will be online
-under https://USERNAME.github.io/REPOSITORY/ .
-
-
-## Updating to a newer version of GitHubPagesForGAP
-
-Normally you should not have to ever do this. However, if you really want to,
-you can attempt to update to the most recent version of GitHubPagesForGAP via
-the following instructions. The difficulty of such an update depends on how
-much you tweaked the site after initially cloning GitHubPagesForGAP.
-
-1. Go to the `gh-pages` directory we created above.
-   Make sure that there are no uncommitted changes, as they will be lost
-   when following these instructions.
-
-2. Fetch changes made to GitHubPagesForGAP.
-   ```
-   git fetch gh-gap
-   ```
-
-3. Attempt to merge these changes. This may produce multiple merge conflicts,
-   so ideally, you should be familiar with dealing with such merge conflicts.
-   ```
-   git pull gh-gap gh-pages
-   ```
-   If at any point you don't know how to continue, you can abort the merge
-   process and revert to the original state by issuing this command:
-   ```
-   git merge --abort
-   ```
-
-4. This may produce merge conflicts. Most likely you will have conflicts in
-   the file `_data/package.yml`, but these are easy to resolve as follows:
-   ```
-   gap update.g
-   git add _data/package.yml
-   ```
-   If you are lucky, this is the only conflict (check with `git status`).
+Now you can use all functions of 'PatternClass' within this session
+of GAP. As described in the manual, found in the doc directory or
+online or within GAP help.
 
 
 
-## Packages using GitHubPagesForGAP
-Packages using GitHubPagesForGAP include the following:
+Changes
+-------
+Changes from 2.3 to 2.4:
+- Improved the runtime of InbetweenPermSet when the subpermutation is of length 1.
+- Added IsSumPerm function
+- Fixed&merged issues
+<<<>>><<<>>><<<>>><<<>>>
 
-* <https://gap-packages.github.io/anupq>
-* <https://gap-packages.github.io/cvec>
-* <https://gap-packages.github.io/genss>
-* <https://gap-packages.github.io/io>
-* <https://gap-packages.github.io/NormalizInterface>
-* <https://gap-packages.github.io/nq>
-* <https://gap-packages.github.io/orb>
-* <https://gap-packages.github.io/polenta>
-* <https://gap-packages.github.io/recog>
-* <https://gap-packages.github.io/recogbase>
-* <https://gap-packages.github.io/SingularInterface>
+Changes from 2.2 to 2.3:
+- Added functions to create the language and set of permutations contained between two permutations.
+<<<>>><<<>>><<<>>><<<>>>
 
+Changes from 2.1 to 2.2:
+- Updated the way testing is being done in preparation for GAP4.8.
+<<<>>><<<>>><<<>>><<<>>>
 
-## Contact
+Changes from 2.0 to 2.1:
+- Removed all unnecessary files from the archive.
+- Fixed PackageInfo, such that no warnings are thrown.
+<<<>>><<<>>><<<>>><<<>>>
 
-Please submit bug reports, suggestions for improvements and patches via
-the [issue tracker](https://github.com/fingolfin/GitHubPagesForGAP/issues).
+Changes from 1.12358132134 to 2.0:
+- Package is now being hosted on GitHub!
+- Updated maintainers details
+- Changed version numbering to a simpler system.
+<<<>>><<<>>><<<>>><<<>>>
 
-You can also contact me directly via [email](max@quendi.de).
+Changes from 1.123581321 to 1.1235813213455:
+- Fixed up PackageInfo.g for submission to GAP distribution.
+<<<>>><<<>>><<<>>><<<>>>
 
-Copyright (c) 2013-2016 Max Horn
+Changes from 1.1235813 to 1.123581321:
+- Fixed up some small editorial faults (copyright, authors etc.)
+<<<>>><<<>>><<<>>><<<>>>
 
-[ReleaseTools]: https://github.com/fingolfin/ReleaseTools
+Changes from 1.12358 to 1.1235813:
+- Cleaned up some code.
+- Moved the alternative automaton theoretic functions into their own file
+- Introduced tests for the pkg
+<<<>>><<<>>><<<>>><<<>>>
+
+Changes from 1.1235 to 1.12358:
+- Fixed issues with the experimental code from lib/grid by not loading the code
+automatically. At their own discretion.
+<<<>>><<<>>><<<>>><<<>>>
+
+Changes from 1.123 to 1.1235:
+- The undocumented functions for chains of simple permutations are now documented.
+- The experimental code on grid classes is moved into a separate folder, these
+functions are undocumented.
+- Patched code for Automata functions UnionAutomata, IntersectionAutomaton and
+ProductOfLanguages has been added.
+- Some code has been changed to use the patched functions, and general code
+cleaning has been done in places.
+
+<<<>>><<<>>><<<>>><<<>>>
+
+Changes from 1.12 to 1.123:
+- Functions for the regular language of simple permutations have been added.
+- Fix of SequencesToRatExp, there was an issue when the alphabet exceeded 9 letters.
+- Undocumented functions for chains of simple permutations have been added.
+
+<<<>>><<<>>><<<>>><<<>>>
+
+Changes from 1.1 to 1.12:
+
+- The following functions have been added:
+   * IsInterval - Checker whether the input sequence is an interval.
+   * Inflation - Returns a permutation that is represented by the
+      input list of permutations.
+   * Block-Decomposition - Returns the unique (for some permutations)
+      list of permutations representing the input permutation in a
+      truncated format.
+
+<<<>>><<<>>><<<>>><<<>>>
+
+Changes from 1.0 to 1.1:
+
+- Improvement in BoundedClassAutomaton
+
+- Additional functions checking whether a permutation is
+   * plus-decomposable
+   * minus-decomposable
+   * simple
+
+- Functions to build the rational subsets of a class accepting
+  all plus- (minus-) decomposable permutations (also indecomposable
+  permutations)
+
+- Functions to check whether the input list is
+   * a valid rank encoding
+   * a rank encoding stemming from the input class
+
+- A function calculating the complement of a permutation
+
+- Functions to calculate the direct sum or the skew sum of 2 permutations
+
+- A function calculating the direct sum for 2 rational pattern classes
+
+- A function to build the automaton that accepts all permutations under the
+  rank encoding that have the same number of inversions.
+
+- A function that builds the subclass containing all permutations with the
+  same number of inversions in the class.

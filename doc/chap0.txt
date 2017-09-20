@@ -149,10 +149,7 @@
     10.1 [33X[0;0YPermutation Inclusion Set[133X
       10.1-1 InbetweenPermAutomaton
       10.1-2 InbetweenPermSet
-<<<<<<< HEAD
       10.1-3 IsSubPerm
-=======
->>>>>>> 408e1d7a14b0730ea44ccb107a34242449f26fa3
     10.2 [33X[0;0YAutomaton Manipulation[133X
       10.2-1 LoopFreeAut
       10.2-2 LoopVertexFreeAut

@@ -35,7 +35,7 @@ downloads:
       url: https://github.com/RuthHoffmann/PatternClass/releases/download/v2.4/PatternClass-2.4.tar.gz
 
 abstract: |
-
+    
 
 status: deposited
 doc-html: doc/chap0.html
