@@ -1,10 +1,7 @@
-pkgdir := DirectoriesPackageLibrary( "PatternClass", "tst" );
-Test( Filename( pkgdir, "chap2.tst"));
-Test( Filename( pkgdir, "chap3.tst"));
-Test( Filename( pkgdir, "chap4.tst"));
-Test( Filename( pkgdir, "chap5.tst"));
-Test( Filename( pkgdir, "chap6.tst"));
-Test( Filename( pkgdir, "chap7.tst"));
-Test( Filename( pkgdir, "chap8.tst"));
-Test( Filename( pkgdir, "chap9.tst"));
-Test( Filename( pkgdir, "chap10.tst"));
+LoadPackage( "patternclass" );
+
+TestDirectory(DirectoriesPackageLibrary( "patternclass", "tst" ),
+  rec(exitGAP     := true,
+      testOptions := rec(compareFunction := "uptowhitespace") ) );
+
+FORCE_QUIT_GAP(1); # if we ever get here, there was an error
