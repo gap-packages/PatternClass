@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.4",
-Date := "11/08/2017", # dd/mm/yyyy format
+Version := "2.4.1",
+Date := "28/09/2017", # dd/mm/yyyy format
 
 Persons := [
   rec(
@@ -72,11 +72,11 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := Concatenation( "https://github.com/RuthHoffmann/", ~.PackageName ),
+    URL := Concatenation( "https://github.com/gap-packages/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 #SupportEmail   := "TODO",
-PackageWWWHome  := "https://RuthHoffmann.github.io/PatternClass/",
+PackageWWWHome  := "https://gap-packages.github.io/PatternClass/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
@@ -113,9 +113,7 @@ Dependencies := rec(
   ExternalConditions := [ ],
 ),
 
-AvailabilityTest := function()
-        return true;
-    end,
+AvailabilityTest := ReturnTrue,
 
 TestFile := "tst/testall.g",
 
