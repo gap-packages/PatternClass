@@ -95,7 +95,7 @@ ArchiveFormats := ".tar.gz",
 ##
 Status := "deposited",
 
-AbstractHTML   :=  "",
+AbstractHTML := "The PatternClass package is build on the idea of token passing networks building permutation pattern classes. Those classes are best determined by their basis. Both sets can be encoded by rank encoding their permutations. Each, the class and its basis, in their encoded form build a rational language. Rational languages can be easily computed by using automata, which also can be build directly from the token passing networks. Both ways will build the same language, i.e. the same automaton.",
 
 PackageDoc := rec(
   BookName  := "PatternClass",
@@ -117,6 +117,6 @@ AvailabilityTest := ReturnTrue,
 
 TestFile := "tst/testall.g",
 
-#Keywords := [ "TODO" ],
+Keywords := [ "permutation", "pattern", "transducer", "regular language", "subpermutation" , "token passing network", "encoding" ],
 
 ));
