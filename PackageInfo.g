@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.4",
-Date := "11/08/2017", # dd/mm/yyyy format
+Version := "2.4.1",
+Date := "28/09/2017", # dd/mm/yyyy format
 
 Persons := [
   rec(
@@ -72,11 +72,11 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := Concatenation( "https://github.com/RuthHoffmann/", ~.PackageName ),
+    URL := Concatenation( "https://github.com/gap-packages/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 #SupportEmail   := "TODO",
-PackageWWWHome  := "https://RuthHoffmann.github.io/PatternClass/",
+PackageWWWHome  := "https://gap-packages.github.io/PatternClass/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
@@ -95,7 +95,7 @@ ArchiveFormats := ".tar.gz",
 ##
 Status := "deposited",
 
-AbstractHTML   :=  "",
+AbstractHTML := "The PatternClass package is build on the idea of token passing networks building permutation pattern classes. Those classes are best determined by their basis. Both sets can be encoded by rank encoding their permutations. Each, the class and its basis, in their encoded form build a rational language. Rational languages can be easily computed by using automata, which also can be build directly from the token passing networks. Both ways will build the same language, i.e. the same automaton.",
 
 PackageDoc := rec(
   BookName  := "PatternClass",
@@ -113,12 +113,10 @@ Dependencies := rec(
   ExternalConditions := [ ],
 ),
 
-AvailabilityTest := function()
-        return true;
-    end,
+AvailabilityTest := ReturnTrue,
 
 TestFile := "tst/testall.g",
 
-#Keywords := [ "TODO" ],
+Keywords := [ "permutation", "pattern", "transducer", "regular language", "subpermutation" , "token passing network", "encoding" ],
 
 ));

@@ -4,7 +4,7 @@
   [33X[0;0YIt  is  known  that  the  language  of  all encoded permutations of a TPN is
   rational,  and  thus  is it indeed possible to turn a TPN into an automaton.
   The  idea  is  to inspect all dispositions of tokens within the TPN and find
-  equivalence classes of these dispositions, for more details consult [ALTd.].
+  equivalence  classes  of  these  dispositions, for more details consult [3].
   Adding  a  constraint,  which limits the number of tokens at any time within
   the TPN, is also considered in this chapter.[133X
   

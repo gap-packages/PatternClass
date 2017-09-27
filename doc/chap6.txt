@@ -8,7 +8,7 @@
   
   [33X[0;0YWith the rational language of the rank encoded class, it is also possible to
   find  the  rational  language  of the basis and vice versa. Several specific
-  kinds of transducers are used in this process. [AAR03][133X
+  kinds of transducers are used in this process. [2][133X
   
   
   [1X6.1 [33X[0;0YTransducers[133X[101X
@@ -158,8 +158,7 @@
   permutations which do not belong to the class. Using[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YB(L)=(L^r D^t)^r ∩ L^c[133X[124X[133X
-  
+  [24X[33X[0;6YB(L)=(L^r D^t)^r ∩ L^c[133X[124X
   
   [33X[0;0Yit  is  possible  using  the  deletion transducer [22XD[122X and the language of rank
   encoded permutations [22XL[122X to find the language of the rank encoded permutations
@@ -214,8 +213,7 @@
   encoded basis of a permutation class, and using the formula[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YL=B_k ∩ ((B(L)^r I^t)^c )^r[133X[124X[133X
-  
+  [24X[33X[0;6YL=B_k ∩ ((B(L)^r I^t)^c )^r[133X[124X
   
   [33X[0;0Yreturns  the  automaton  that  accepts  the rank encoded permutations of the
   class. In the formula, [22XB_k[122X is the automaton that accepts all permutations of
