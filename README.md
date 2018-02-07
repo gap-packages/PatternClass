@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gap-packages/PatternClass.svg?branch=master)](https://travis-ci.org/gap-packages/PatternClass)
+[![Code Coverage](https://codecov.io/github/gap-packages/PatternClass/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/PatternClass)
 
 The 'PatternClass' GAP 4 package
 ================================
