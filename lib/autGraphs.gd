@@ -24,12 +24,6 @@
 
 #############################################################################
 ##
-#V  HashSet
-##
-DeclareGlobalVariable("HashSet");
-
-#############################################################################
-##
 #F  GraphToAut(g,innode,outnode)  
 ##
 ##  Returns an automaton representing the input token passing network.

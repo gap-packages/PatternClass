@@ -20,12 +20,6 @@
 
 #############################################################################
 ##
-#V HashSet
-##
-InstallValue(HashSet,  s->HashKeyBag(s,57,0,4+4*Length(s)));
-
-#############################################################################
-##
 #F  GraphToAut(g,innode,outnode)  
 ##
 ##  Returns an automaton representing the input token passing network.
@@ -35,7 +29,7 @@ InstallGlobalFunction(GraphToAut, function(g,innode,outnode)
             he,  x,  init, a;
 
     states := [[]];
-    ht := SparseHashTable(HashSet);
+    ht := SparseHashTable( s->HashKeyBag(s,57,0,4+4*Length(s)) );
     AddHashEntry(ht,[],1);
     tm := List([1..Length(g)], x-> [[]]);
     ins := g[innode];
@@ -131,7 +125,7 @@ InstallGlobalFunction(ConstrainedGraphToAut, function(g,innode,outnode,capacity)
             he,  x,  init, a;
 
     states := [[]];
-    ht := SparseHashTable(HashSet);
+    ht := SparseHashTable( s->HashKeyBag(s,57,0,4+4*Length(s)) );
     AddHashEntry(ht,[],1);
     tm := List([1..Length(g)], x-> [[]]);
     ins := g[innode];
