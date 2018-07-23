@@ -75,7 +75,7 @@ SourceRepository := rec(
     URL := Concatenation( "https://github.com/gap-packages/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-#SupportEmail   := "TODO",
+SupportEmail   := "rh347@icloud.com",
 PackageWWWHome  := "https://gap-packages.github.io/PatternClass/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),

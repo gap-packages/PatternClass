@@ -72,8 +72,8 @@ Loading  Automata 1.13
 For help, type: ?Automata:
 ----------------------------------------------------------------
 ─────────────────────────────────────────────────────────────────────────────
-Loading  PatternClass 2.4 (A permutation pattern class package)
-by Ruth Hoffmann (TODO),
+Loading  PatternClass 2.4.1 (A permutation pattern class package)
+by Ruth Hoffmann (https://rh347.host.cs.st-andrews.ac.uk/),
    Steve Linton (http://sal.host.cs.st-andrews.ac.uk/), and
    Michael Albert (http://www.cs.otago.ac.nz/staff/michael.html).
 Homepage: https://RuthHoffmann.github.io/PatternClass/
