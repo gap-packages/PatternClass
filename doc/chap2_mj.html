@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (PatternClass) - Chapter 2: Token Passing Networks</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -38,7 +38,7 @@
 
 <p>A token passing network is a directed graph with a designated input node and a designated output node. The input node has no incoming edges whereas the output node has no outgoing edges. Also the input node generates a sequence of tokens, labelled 1, 2, 3, ... . These tokens are passed on to the nodes within the graph, where each node, apart from the input and output node, can hold at most one token at any time. The edges do not hold tokens but are there to pass them on. The following must hold if a token <span class="SimpleMath">\(t\)</span> moves from the node <span class="SimpleMath">\(x\)</span> to the node <span class="SimpleMath">\(y\)</span>.</p>
 
-<p>There is an edge from <span class="SimpleMath">\(x\)</span> to <span class="SimpleMath">\(y\)</span>; <span class="SimpleMath">\(x\)</span> is the input node, and the tokens 1, 2, 3, ... , <span class="SimpleMath">\(t-1\)</span> have been moved, or <span class="SimpleMath">\(x\)</span> is any other node but not the output node; lastly either <span class="SimpleMath">\(y\)</span> is the output node or <span class="SimpleMath">\(y\)</span> is not the input node and currently is not occupied by a token. <a href="chapBib_mj.html#biBPermGenTPGraph">[3]</a></p>
+<p>There is an edge from <span class="SimpleMath">\(x\)</span> to <span class="SimpleMath">\(y\)</span>; <span class="SimpleMath">\(x\)</span> is the input node, and the tokens 1, 2, 3, ... , <span class="SimpleMath">\(t-1\)</span> have been moved, or <span class="SimpleMath">\(x\)</span> is any other node but not the output node; lastly either <span class="SimpleMath">\(y\)</span> is the output node or <span class="SimpleMath">\(y\)</span> is not the input node and currently is not occupied by a token. <a href="chapBib_mj.html#biBPermGenTPGraph">[ALTd.]</a></p>
 
 <p>Token passing networks, or TPNs, are represented in <strong class="pkg">GAP</strong> as a list. Each entry of the list is the index of the node within the TPN and contains a list of the "destinations", i.e. the end of the edge or arrow where it is directed to.</p>
 

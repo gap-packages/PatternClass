@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.4.1",
-Date := "28/09/2017", # dd/mm/yyyy format
+Version := "2.4.2",
+Date := "24/07/2018", # dd/mm/yyyy format
 
 Persons := [
   rec(
@@ -75,7 +75,6 @@ SourceRepository := rec(
     URL := Concatenation( "https://github.com/gap-packages/", ~.PackageName ),
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-#SupportEmail   := "TODO",
 PackageWWWHome  := "https://gap-packages.github.io/PatternClass/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),

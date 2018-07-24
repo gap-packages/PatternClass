@@ -14,7 +14,7 @@ patched functions are located in lib/automata.* .
 Introduction
 ------------
 
-This is version 2.4 of the 'PatternClass' package.
+This is version 2.4.2 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
@@ -54,12 +54,12 @@ If you get 'PatternClass' as a compressed file unpack it in the pkg/ folder
 in the gap4r4 folder where GAP is installed on your computer.
 To uncompress the .tar.gz file on UNIX use the following command
 
-   tar xzf PatternClass2.4.tar.gz
+   tar xzf PatternClass2.4.2.tar.gz
 
 If your version of tar does not support the z option use
 
-   gunzip PatternClass2.4.tar.gz
-   tar xf PatternClass2.4.tar
+   gunzip PatternClass2.4.2.tar.gz
+   tar xf PatternClass2.4.2.tar
 
 This will create the folder PatternClass in pkg/ and within that
 you will find the directories and files mentioned above.
@@ -72,11 +72,11 @@ Loading  Automata 1.13
 For help, type: ?Automata:
 ----------------------------------------------------------------
 ─────────────────────────────────────────────────────────────────────────────
-Loading  PatternClass 2.4 (A permutation pattern class package)
-by Ruth Hoffmann (TODO),
+Loading  PatternClass 2.4.2 (A permutation pattern class package)
+by Ruth Hoffmann (https://rh347.host.cs.st-andrews.ac.uk/),
    Steve Linton (http://sal.host.cs.st-andrews.ac.uk/), and
    Michael Albert (http://www.cs.otago.ac.nz/staff/michael.html).
-Homepage: https://RuthHoffmann.github.io/PatternClass/
+Homepage: https://gap-packages.github.io/PatternClass/
 ─────────────────────────────────────────────────────────────────────────────
 true
 gap>
@@ -89,6 +89,11 @@ online or within GAP help.
 
 Changes
 -------
+Changes from 2.4 to 2.4.2:
+- Changed the name of HashSet due to clash with DataStructure Package
+- Removed TODOs from code
+<<<>>><<<>>><<<>>><<<>>>
+
 Changes from 2.3 to 2.4:
 - Improved the runtime of InbetweenPermSet when the subpermutation is of length 1.
 - Added IsSumPerm function

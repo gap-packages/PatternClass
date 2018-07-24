@@ -22,8 +22,15 @@
   
   Ruth Hoffmann
       Email:    [7Xmailto:rh347@icloud.com[107X
-      Homepage: [7XTODO[107X
-      Address:  [33X[0;14YTODO[133X
+      Homepage: [7Xhttps://rh347.host.cs.st-andrews.ac.uk/[107X
+      Address:  [33X[0;14YRuth Hoffmann[133X
+                [33X[0;14YSchool of Computer Science,[133X
+                [33X[0;14YUniversity of St. Andrews,[133X
+                [33X[0;14YNorth Haugh,[133X
+                [33X[0;14YSt. Andrews,[133X
+                [33X[0;14YFife,[133X
+                [33X[0;14YKY16 9SS,[133X
+                [33X[0;14YSCOTLAND[133X
   
   
   Steve Linton

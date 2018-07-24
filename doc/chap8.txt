@@ -49,8 +49,8 @@
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [10Xperm[110X is simple.[133X
   
   [33X[0;0YTo  check  whether  [10Xperm[110X  (length  of  [10Xperm[110X  =  [22Xn[122X)  is  a simple permutation
-  [10XIsSimplePerm[110X  uses the basic algorithm proposed by Uno and Yagiura in [8] to
-  compare the [10Xperm[110X against the identity permutation of the same length.[133X
+  [10XIsSimplePerm[110X  uses the basic algorithm proposed by Uno and Yagiura in [UY00]
+  to compare the [10Xperm[110X against the identity permutation of the same length.[133X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XIsSimplePerm([2,3,4,5,1,1,1,1]);[127X[104X
@@ -65,11 +65,11 @@
   
   [1X8.3 [33X[0;0YPoint Deletion in Simple Permutations[133X[101X
   
-  [33X[0;0YIn [7] it is shown how one can get chains of permutations by starting with a
-  simple permutation and then removing either a single point or two points and
-  the resulting permutation would still be simple. We have applied this theory
-  to  create  functions  such  that  the set of simple permutations of shorter
-  length, by one deletion, can be found.[133X
+  [33X[0;0YIn  [PR12]  it  is  shown how one can get chains of permutations by starting
+  with  a  simple  permutation  and then removing either a single point or two
+  points  and the resulting permutation would still be simple. We have applied
+  this  theory to create functions such that the set of simple permutations of
+  shorter length, by one deletion, can be found.[133X
   
   [1X8.3-1 OnePointDelete[101X
   
@@ -129,10 +129,10 @@
   [33X[0;0YGiven  a permutation [22Xπ[122X of length [22Xm[122X and nonempty permutations [22Xα_1,...,α_m[122X the
   inflation of [22Xπ[122X by [22Xα_1,...,α_m[122X, written as [22Xπ[α_1,...,α_m][122X, is the permutation
   obtained  by  replacing  each  entry  [22Xπ(i)[122X  by  an  interval  that  is order
-  isomorphic  to  [22Xα_i[122X  [4].  Conversely  a  block-decomposition  of  [22Xσ[122X  is any
+  isomorphic  to  [22Xα_i[122X  [Bri08].  Conversely  a block-decomposition of [22Xσ[122X is any
   expression of [22Xσ[122X as an inflation [22Xσ=π[α_1,...,α_m][122X. The block decomposition of
   a  permutation  is unique if and only if [22Xσ,π,α_1,...,α_n[122X all are in the same
-  pattern class and [22Xπ[122X is simple and [22Xπ≠ 1 2, 2 1[122X [1].[133X
+  pattern class and [22Xπ[122X is simple and [22Xπ≠ 1 2, 2 1[122X [AA05].[133X
   
   [33X[0;0YFor example the inflation of [22X25413[21,1,1,1,2413]=3 2 8 9 1 5 7 4 6[122X, written
   in [5XGAP[105X this is [10X[[2,5,4,1,3],[2,1],[1],[1],[1],[2,4,1,3]][110X. This decomposition
@@ -193,7 +193,8 @@
   uniquely in the following form,[133X
   
   
-  [24X[33X[0;6Yσ = 12 [α_1,α_2][133X[124X
+        [33X[1;6Y[24X[33X[0;0Yσ = 12 [α_1,α_2][133X[124X[133X
+  
   
   [33X[0;0Ywhere [22Xα_1[122X is not plus-decomposable.[133X
   
@@ -228,7 +229,8 @@
   written uniquely in the following form,[133X
   
   
-  [24X[33X[0;6Yσ = 21 [α_1,α_2][133X[124X
+        [33X[1;6Y[24X[33X[0;0Yσ = 21 [α_1,α_2][133X[124X[133X
+  
   
   [33X[0;0Ywhere [22Xα_1[122X is not minus-decomposable.[133X
   
@@ -263,12 +265,14 @@
   as,[133X
   
   
-  [24X[33X[0;6Yσ ⊕ τ = σ_1 σ_2...σ_k τ_1+k τ_2+k...τ_l+k .[133X[124X
+        [33X[1;6Y[24X[33X[0;0Yσ ⊕ τ = σ_1 σ_2...σ_k τ_1+k τ_2+k...τ_l+k .[133X[124X[133X
+  
   
   [33X[0;0YIn a similar fashion the skew sum of [22Xσ, τ[122X is[133X
   
   
-  [24X[33X[0;6Yσ ⊖ τ = σ_1+l σ_2+l...σ_k+l τ_1 τ_2...τ_l .[133X[124X
+        [33X[1;6Y[24X[33X[0;0Yσ ⊖ τ = σ_1+l σ_2+l...σ_k+l τ_1 τ_2...τ_l .[133X[124X[133X
+  
   
   [33X[0;0YThe  calculation  of the direct and skew sums of permutations using the rank
   encoding  is  also  straight  forward and is used in the functions described

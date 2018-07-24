@@ -1,6 +1,6 @@
 name: PatternClass
-version: 2.4.1
-date: 2017-09-28
+version: 2.4.2
+date: 2018-07-24
 description: |
     A permutation pattern class package
 
@@ -32,7 +32,7 @@ packageinfo: https://gap-packages.github.io/PatternClass/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/PatternClass/releases/download/v2.4.1/PatternClass-2.4.1.tar.gz
+      url: https://github.com/gap-packages/PatternClass/releases/download/v2.4.2/PatternClass-2.4.2.tar.gz
 
 abstract: |
     The PatternClass package is build on the idea of token passing networks building permutation pattern classes. Those classes are best determined by their basis. Both sets can be encoded by rank encoding their permutations. Each, the class and its basis, in their encoded form build a rational language. Rational languages can be easily computed by using automata, which also can be build directly from the token passing networks. Both ways will build the same language, i.e. the same automaton.
