@@ -2,7 +2,7 @@
 ##
 #M Row count method
 ##
-## This method allows us to count negative indices in lists. It is useful for 
+## This method allows us to count negative indices in lists. It is useful for
 ## indexing gridding matices where the index of the entry/cell is associated with
 ## the coordinates in the x,y plot. So cols and rows are interchanged and rows
 ## are counted from bottom to top.
@@ -19,7 +19,7 @@ local i,j;
 
 for i in [1..Length(m)] do
     for j in [1..Length(m[1])] do
-        if not(m[i][j] in [0,1,-1]) then 
+        if not(m[i][j] in [0,1,-1]) then
             return false;
         fi;
     od;
@@ -73,7 +73,7 @@ end );
 ##
 #F  HasColumnRowSigns(matrix)
 ##
-## Takes a 0/+1/-1 matrix and checkes whether it could be a partial 
+## Takes a 0/+1/-1 matrix and checkes whether it could be a partial
 ## multiplication matrix. HasColumnRowSigns returns column and row signs for mat.
 ##
 InstallGlobalFunction(HasColumnRowSigns, function(mat)
@@ -107,7 +107,7 @@ for i in [1..Length(mat)] do
                         while first < Length(col) and mat[i][first] = 0 do
                             first:=PositionNot(col{[first+1..Length(col)]},0)+first;
                         od;
-                        if first <= Length(col) and mat[i][first] = 1 then 
+                        if first <= Length(col) and mat[i][first] = 1 then
                             row[i]:=col[first];
                             col[j]:=col[first];
                         elif first <= Length(col) and mat[i][first] = -1 then
@@ -134,10 +134,10 @@ for i in [1..Length(mat)] do
                         fi;
                     fi;
                 elif row[i] = 0 and col[j] in [1,-1] then
-                    
+
                     row[i]:=col[j];
                 elif col[j] = 0 and row[i] in [1,-1] then
-                    
+
                     col[j]:=row[i];
                 elif not(row[i] = col[j]) and not(col[j] = 0 or row[i] = 0) then
                     return false;
@@ -231,7 +231,7 @@ end );
 ## Input is a 0/+1/-1 matrix, with or without colum/row signs and a word
 ## of the alphabet {[i,j] : M(i,j) in {1,-1} }. Using the decoding described in
 ## Geometric grid classes of permutations or On partial well-coder for monotone
-## grid classes of permutations the result is a permutation. 
+## grid classes of permutations the result is a permutation.
 ##
 ##
 InstallGlobalFunction(GridDecoding, function(matrix,word)
@@ -246,7 +246,7 @@ else
 fi;
 
 #
-# If 
+# If
 ##  COL = 1 then insert LEFT TO RIGHT
 ##  COL = -1 then insert RIGHT TO LEFT
 # If
@@ -257,17 +257,17 @@ index:=[];
 values:=[];
 for i in [1..Length(word)] do
     if matcr[2][word[i][1]] = 1 then
-        index[i]:=Length(Filtered(word{[1..Length(word)]}[1], x -> x <= word[i][1])) - 
+        index[i]:=Length(Filtered(word{[1..Length(word)]}[1], x -> x <= word[i][1])) -
                 Length(Filtered(word{[i+1..Length(word)]}[1], x -> x = word[i][1]));
     else
-        index[i]:=Length(Filtered(word{[1..Length(word)]}[1], x -> x <= word[i][1])) - 
+        index[i]:=Length(Filtered(word{[1..Length(word)]}[1], x -> x <= word[i][1])) -
                 Length(Filtered(word{[1..i-1]}[1], x -> x = word[i][1]));
     fi;
     if matcr[3][word[i][2]] = 1 then
-        values[i]:=Length(Filtered(word{[1..Length(word)]}[2], x -> x <= word[i][2])) - 
+        values[i]:=Length(Filtered(word{[1..Length(word)]}[2], x -> x <= word[i][2])) -
                 Length(Filtered(word{[i+1..Length(word)]}[2], x -> x = word[i][2]));
     else
-        values[i]:=Length(Filtered(word{[1..Length(word)]}[2], x -> x <= word[i][2])) - 
+        values[i]:=Length(Filtered(word{[1..Length(word)]}[2], x -> x <= word[i][2])) -
                 Length(Filtered(word{[1..i-1]}[2], x -> x = word[i][2]));
     fi;
 od;
@@ -280,7 +280,7 @@ end );
 #F GridAut(matrix)
 ##
 ## Builds the automaton that accepts all words over the alphabet of the matrix.
-## Where the alphabet is build by marking all non-empty entries of the matrix 
+## Where the alphabet is build by marking all non-empty entries of the matrix
 ## incrementally L->R T->B.
 ##
 InstallGlobalFunction(GridAut, function(matrix)
@@ -290,7 +290,7 @@ alph:=[];
 for i in [1..Length(matrix)] do
     if not(Position(matrix[i],1) = fail) then
         Append(alph,Positions(matrix[i],1));
-    elif not(Position(matrix[i],-1) = fail) then    
+    elif not(Position(matrix[i],-1) = fail) then
         Append(alph,Positions(matrix[i],-1));
     fi;
 od;
@@ -305,7 +305,7 @@ end );
 ##
 ## Technically just determines how many non-empty entries the matrix has and then
 ## sets up an alphabet on that number. It is a useful small function though.
-## Convention of alphabet is L-R, T-B, rather than the 'normal', in sense of 
+## Convention of alphabet is L-R, T-B, rather than the 'normal', in sense of
 ## working through the cells in euclidian coordinate fashion.
 ##
 InstallGlobalFunction(GridAlphabet, function(mat)
@@ -328,8 +328,8 @@ end );
 ##
 #F CoordinatesToAlphabetInOrder(coordinates)
 ##
-## Takes a list of coordinates and translates them into the the word in the 
-## alphabet (with the GridAlphabet convention) such that the Automaton can 
+## Takes a list of coordinates and translates them into the the word in the
+## alphabet (with the GridAlphabet convention) such that the Automaton can
 ## recognise the word.
 ##
 InstallGlobalFunction(CoordinatesToAlphabetInOrder, function(coords)
@@ -337,7 +337,7 @@ local alph,count,x,y;
 
 alph:=ListWithIdenticalEntries(Length(coords),0);
 count:=1;
-for y in [Maximum(coords{[1..Length(coords)]}[2]),Maximum(coords{[1..Length(coords)]}[2])-1..1] do 
+for y in [Maximum(coords{[1..Length(coords)]}[2]),Maximum(coords{[1..Length(coords)]}[2])-1..1] do
     for x in [1..Maximum(coords{[1..Length(coords)]}[1])] do
         if [x,y] in coords then
             alph[Position(coords,[x,y])]:=count;
@@ -423,7 +423,7 @@ InstallGlobalFunction(PMMTox3Mat, function(mat)
 local dims,resmat,i,j,colrow,rescr;
 
 if HasColumnRowSigns(mat) = false then
-    Print("Input matrix is not PMM.");
+    Print("Input matrix is not PMM.\n");
     return fail;
 fi;
 
@@ -432,14 +432,14 @@ resmat:=NullMat(3*dims[1],3*dims[2]);
 
 for i in [1..dims[1]] do
     for j in [1..dims[2]] do
-        if mat[i][j] = 1 then 
+        if mat[i][j] = 1 then
             resmat{[3*i-2..3*i]}{[3*j-2..3*j]}:=[[0,0,1],[0,1,0],[1,0,0]];
         elif mat[i][j] = -1 then
             resmat{[3*i-2..3*i]}{[3*j-2..3*j]}:=[[-1,0,0],[0,-1,0],[0,0,-1]];
         elif mat[i][j] = 0 then
             resmat{[3*i-2..3*i]}{[3*j-2..3*j]}:=[[0,0,0],[0,0,0],[0,0,0]];
         else
-            Print("This matrix does not contain only 0,1,-1's.");
+            Print("This matrix does not contain only 0,1,-1's.\n");
             return fail;
         fi;
     od;
@@ -473,7 +473,7 @@ else
     mat:=inmat;
     signs:=HasColumnRowSigns(mat);
     if signs = false then
-        Print("Input matrix is not a partial multiplication matrix");
+        Print("Input matrix is not a partial multiplication matrix\n");
         return fail;
     fi;
 fi;
@@ -549,7 +549,7 @@ end );
 ##
 #F x3ToOffSetMat(matrixwithcolumnrowsigns)
 ##
-## Takes the x3 matrix with row and column signs and returns the one point 
+## Takes the x3 matrix with row and column signs and returns the one point
 ## extension matrix, which allows for points to lie off the diagonal.
 ##
 InstallGlobalFunction(x3ToOffSetMat, function(matcr)
@@ -599,9 +599,9 @@ for i in [2,5..Length(mat)-1] do
         elif mat[i][j] = -1 then
             resmat[2+5*((i-2)/3)][4+5*((j-2)/3)]:=1;
             resmat[4+5*((i-2)/3)][2+5*((j-2)/3)]:=1;
-        else 
+        else
             resmat[2+5*((i-2)/3)][2+5*((j-2)/3)]:=1;
-            resmat[4+5*((i-2)/3)][4+5*((j-2)/3)]:=1;   
+            resmat[4+5*((i-2)/3)][4+5*((j-2)/3)]:=1;
             resmat[2+5*((i-2)/3)][4+5*((j-2)/3)]:=1;
             resmat[4+5*((i-2)/3)][2+5*((j-2)/3)]:=1;
         fi;
@@ -630,7 +630,7 @@ end );
 ##
 #F  MatrixUnion(mats)
 ##
-## Takes the input list of matrices mats and concatenates these matrices into 
+## Takes the input list of matrices mats and concatenates these matrices into
 ## a larger matrix that contains mats on its diagonal.
 ##
 InstallGlobalFunction(MatrixUnion, function(args)
@@ -663,8 +663,8 @@ end );
 ##
 #F  Find22Mats(mat)
 ##
-## Inspects all 2x2 blocks in the matrix mat if a [[0,1],[1,0]] is seen then 
-## in the returned matrix a 1 is written, for [[-1,0],[0,-1]] there is a -1, if 
+## Inspects all 2x2 blocks in the matrix mat if a [[0,1],[1,0]] is seen then
+## in the returned matrix a 1 is written, for [[-1,0],[0,-1]] there is a -1, if
 ## [[0,0],[0,0]] then 0 else we write 9.
 ##
 InstallGlobalFunction(Find22Mats, function(mat)
@@ -690,8 +690,8 @@ for i in [1..Length(mat)-1] do
 od;
 
 Add(markedmat,ListWithIdenticalEntries(Length(markedmat[1]),0));
-for i in [1..Length(markedmat)] do 
-    Add(markedmat[i],0); 
+for i in [1..Length(markedmat)] do
+    Add(markedmat[i],0);
 od;
 
 markedmat[Length(markedmat)][Length(markedmat[1])] := 9;
@@ -703,9 +703,9 @@ end );
 ##
 #F  CheckMarkedMat(mat)
 ##
-## CheckMarkedMat goes through the marked matrix returned by Find22Mats and 
-## notes which rows and columns do not contain consecutive 9's, only 0's & 9's 
-## and whether there is an entry on a row or column that could interfere with 
+## CheckMarkedMat goes through the marked matrix returned by Find22Mats and
+## notes which rows and columns do not contain consecutive 9's, only 0's & 9's
+## and whether there is an entry on a row or column that could interfere with
 ## the collapsing of the 2x2 blocks.
 ##
 InstallGlobalFunction(CheckMarkedMat, function(mat)
@@ -724,8 +724,8 @@ for i in [1..Length(mat)] do
     Add(tmp,check);
 od;
 
-Add(res,tmp); 
- 
+Add(res,tmp);
+
 tmp:=[];
 for j in [1..Length(mat[1])] do
     check:=true;
@@ -745,7 +745,7 @@ for i in [1..Length(mat)] do
 od;
 
 for j in [1..Length(mat[1])] do
-    if res[2][j] and not(1 in mat{[1..Length(mat)]}[j] or 
+    if res[2][j] and not(1 in mat{[1..Length(mat)]}[j] or
             -1 in mat{[1..Length(mat)]}[j]) and (9 in mat{[1..Length(mat)]}[j]) then
         res[2][j] := false;
     fi;
@@ -768,7 +768,7 @@ end );
 ##
 #F  MatrixReduction(mat)
 ##
-## MatrixReduction collapses 2x2 blocks with either 0's or other collapsable 
+## MatrixReduction collapses 2x2 blocks with either 0's or other collapsable
 ## 2x2 on their cols and rows.
 ##
 InstallGlobalFunction(MatrixReduction, function(mat)
@@ -834,7 +834,7 @@ od;
 dims:=[Length(res),Length(res[1])];
 for j in [dims[2], dims[2]-1 .. 1] do
     if Flat(res{[1..dims[1]]}[j]) = ListWithIdenticalEntries(dims[1],0) then
-        for i in [1..dims[1]] do 
+        for i in [1..dims[1]] do
             Remove(res[i],j);
         od;
     fi;
@@ -918,8 +918,8 @@ for i in [a..b-1] do
     fi;
 od;
 
-if (status = 1 and not(cellval = 0)) or 
-   (status / 2 = cellval) or 
+if (status = 1 and not(cellval = 0)) or
+   (status / 2 = cellval) or
    (status = 0 and not(cellval=0)) then
     return true;
 else
@@ -932,7 +932,7 @@ end );
 ##
 #F  IsInGrid(perm,grid,mat)
 ##
-## Checks whether perm is griddable by a specific grid, with mat indicating the 
+## Checks whether perm is griddable by a specific grid, with mat indicating the
 ## monotonicity in the cells.
 ##
 InstallGlobalFunction(IsInGrid, function(perm,grid,mat)
@@ -964,7 +964,7 @@ end );
 #F  IsGriddable(perm,mat)
 ##
 ## Checkes whether a specific permutation perm is griddable by mat. This is based
-## at the moment on a brute-force algorithm that goes through all possible 
+## at the moment on a brute-force algorithm that goes through all possible
 ## griddings until a gridding is found.
 ##
 InstallGlobalFunction(IsGriddable, function(perm,mat)
@@ -1014,7 +1014,7 @@ end );
 ##
 #F Griddings
 ##
-## Returns all possible griddings (in form of gridline coordinates) of perm 
+## Returns all possible griddings (in form of gridline coordinates) of perm
 ## in mat.
 InstallGlobalFunction(Griddings, function(perm,mat)
 local hori,vert,max,grids,a,b;
@@ -1035,7 +1035,7 @@ while not(hori = ListWithIdenticalEntries(Length(hori),max)) do
         if IsInGrid(perm,[vert,hori],mat) then
             a:=ShallowCopy(vert);
             b:=ShallowCopy(hori);
-            Add(grids,[a,b]); 
+            Add(grids,[a,b]);
         fi;
     od;
     mover(hori,max);

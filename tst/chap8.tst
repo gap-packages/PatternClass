@@ -26,10 +26,24 @@ gap> OnePointDelete([5,2,3,1,2,1]);
 [ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
 gap> OnePointDelete([5,2,4,1,6,3]);
 [ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
+gap> OnePointDelete([2,4,6,8,1,3,5,7]);
+[ 2, 4, 6, 8, 1, 3, 5, 7
+ ]is an exceptional permutation and needs 2 point deletion.fail
+gap> OnePointDelete([1,2,4,6,8,3,5,7]);
+[ 1, 2, 4, 6, 8, 3, 5, 7 ]is not simple.fail
 gap> TwoPointDelete([2,4,6,8,1,3,5,7]);
 [ [ 2, 3, 4, 1, 1, 1 ] ]
 gap> TwoPointDelete([2,3,4,5,1,1,1,1]);
 [ [ 2, 3, 4, 1, 1, 1 ] ]
+gap> TwoPointDelete([7,5,3,1,8,6,4,2]);
+[ [ 5, 3, 1, 3, 2, 1 ] ]
+gap> TwoPointDelete([5,1,6,2,7,3,8,4]);
+[ [ 4, 1, 3, 1, 2, 1 ] ]
+gap> TwoPointDelete([4,8,3,7,2,6,1,5]);
+[ [ 3, 5, 2, 3, 1, 1 ] ]
+gap> TwoPointDelete([1,2,4,6,8,3,5,7]);
+The input permutation is not an exceptional permutation.
+fail
 gap> PointDeletion([5,2,3,1,2,1]);
 [ [ 2, 3, 1, 2, 1 ], [ 4, 1, 2, 2, 1 ] ]
 gap> PointDeletion([5,2,4,1,6,3]);
@@ -38,6 +52,8 @@ gap> PointDeletion([2,4,6,8,1,3,5,7]);
 [ [ 2, 3, 4, 1, 1, 1 ] ]
 gap> PointDeletion([2,3,4,5,1,1,1,1]);
 [ [ 2, 3, 4, 1, 1, 1 ] ]
+gap> PointDeletion([1,2,3,4,5]);
+[ 1, 2, 3, 4, 5 ]is not simple.fail
 
 gap> Inflation([[3,2,1],[1],[1,2],[1,2,3]]);
 [ 6, 4, 5, 1, 2, 3 ]

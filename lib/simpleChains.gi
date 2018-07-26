@@ -12,7 +12,7 @@
 #W  simpleChains.gi                       Ruth Hoffmann
 ##
 ##
-#Y  Copyright (C) 2004-2015 School of Computer Science, 
+#Y  Copyright (C) 2004-2015 School of Computer Science,
 #Y                          University of St. Andrews, North Haugh,
 #Y                          St. Andrews, Fife KY16 9SS, Scotland
 ##
@@ -30,7 +30,7 @@ local i,p,t,j,plist,p1;
 if IsSimplePerm(perm) and not(IsExceptionalPerm(perm)) then
     if IsRankEncoding(perm) then
         p:=RankDecoding(perm);
-    else 
+    else
         p:=ShallowCopy(perm);
     fi;
     plist:=[];
@@ -49,10 +49,10 @@ if IsSimplePerm(perm) and not(IsExceptionalPerm(perm)) then
     Apply(plist,RankEncoding);
     return plist;
 elif IsExceptionalPerm(perm) then
-    Print(perm, "is an exceptional permutation and needs 2 point deletion.");
+    Print(perm, " is an exceptional permutation and needs 2 point deletion.\n");
     return fail;
 else
-    Print(perm, "is not simple.");
+    Print(perm, " is not simple.\n");
     return fail;
 fi;
 end );
@@ -71,7 +71,7 @@ if IsExceptionalPerm(perm) then
     m:=Length(perm)/2;
     if IsRankEncoding(perm) then
         p:=StructuralCopy(perm);
-    else 
+    else
         p:=RankEncoding(perm);
     fi;
     if p{[1..m]}=[2..m+1] then
@@ -82,7 +82,7 @@ if IsExceptionalPerm(perm) then
         Remove(p,m+1);
         Remove(p,1);
         return [p];
-    else 
+    else
         Remove(p,2);
         Remove(p,1);
         return [p];
@@ -97,7 +97,7 @@ end );
 ##
 #F  PointDeletion(perm)
 ##
-## PointDeletion, takes any simple permutation does not matter whether 
+## PointDeletion, takes any simple permutation does not matter whether
 ## exceptional or not and removes the right number of points.
 ##
 InstallGlobalFunction(PointDeletion, function(perm)
@@ -109,14 +109,14 @@ if IsSimplePerm(perm) then
         return OnePointDelete(perm);
     fi;
 else
-    Print(perm, "is not simple.");
+    Print(perm, " is not simple.\n");
     return fail;
 fi;
 
 end );
 
 ########
-## Experimental, undocumented code to get the language of simple permutations 
+## Experimental, undocumented code to get the language of simple permutations
 ## with one more point.
 ########
 ################################################################################
@@ -151,7 +151,7 @@ for i in [1..k] do
             fi;
         od;
     else
-        for n in [1..k] do 
+        for n in [1..k] do
             Add(trans,[n,n,k+7+i,k+7+i]);
         od;
     fi;
@@ -166,8 +166,8 @@ end );
 ##
 #F OneStepSimplePermsAut(perms)
 ##
-## Takes in a list of rank encoded simple permutations, of the same length and 
-## returns the simple permutations that are have one additional point and are 
+## Takes in a list of rank encoded simple permutations, of the same length and
+## returns the simple permutations that are have one additional point and are
 ## encoded using the same alphabet.
 ##
 InstallGlobalFunction(OneStepSimplePermsAut, function(perms)
@@ -199,7 +199,7 @@ tmp:=IntersectionAutomaton(ComplementDA(b),c);
 # Union of L(C) with exceptional perms to get whole language, might not
 # be needed though.
 #
-alph1:=AlphabetOfAutomatonAsList(tmp); 
+alph1:=AlphabetOfAutomatonAsList(tmp);
 
 expaut:=ExceptionalBoundedAutomaton(Length(alph1));
 
@@ -211,4 +211,3 @@ res:=IntersectionAutomaton(tmp1,a1);
 return res;
 
 end );
-
