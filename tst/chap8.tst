@@ -81,6 +81,8 @@ gap> IsMinusDecomposable([3,4,5,6,7,8,2,1]);
 true
 gap> IsMinusDecomposable([3,2,8,6,7,1,5,4]);
 false
+gap> IsMinusDecomposable([1,2,6,5,4,3]);
+false
 
 gap> PermDirectSum([2,4,1,3],[2,5,4,1,3]);
 [ 2, 4, 1, 3, 6, 9, 8, 5, 7 ]
