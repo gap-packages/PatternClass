@@ -12,7 +12,7 @@
 #W  inversion.gi						Ruth Hoffmann
 ##
 ##
-#Y  Copyright (C) 2004-2015 School of Computer Science, 
+#Y  Copyright (C) 2004-2015 School of Computer Science,
 #Y                          University of St. Andrews, North Haugh,
 #Y                          St. Andrews, Fife KY16 9SS, Scotland
 ##
@@ -21,9 +21,9 @@
 ##
 #F InversionAut(k)
 ##
-## InversionAut builds the automaton that accepts all permutations under the 
+## InversionAut builds the automaton that accepts all permutations under the
 ## rank encoding with exactly k inversions.
-## 
+##
 ##
 InstallGlobalFunction(InversionAut,function(k)
 local siz,alph,strt,acc,trans,temp,i,aut;
@@ -55,8 +55,8 @@ end );
 #F InversionAutOfClass(aut,inv)
 ##
 ## InvserionAutOfClass returns the automaton that accepts all permutations under
-## the rank encoding, lying in the regular class aut, that have exactly inv 
-## inversions. 
+## the rank encoding, lying in the regular class aut, that have exactly inv
+## inversions.
 ##
 InstallGlobalFunction(InversionAutOfClass,function(a,inv)
 local iaut,aaut;
@@ -67,6 +67,7 @@ if AlphabetOfAutomaton(a) < AlphabetOfAutomaton(iaut) then
     aaut:=ExpandAlphabet(a,AlphabetOfAutomaton(iaut));
 elif AlphabetOfAutomaton(a) > AlphabetOfAutomaton(iaut) then
     iaut:=ExpandAlphabet(iaut,AlphabetOfAutomaton(a));
+    aaut:=a;
 else
     aaut:=a;
 fi;
@@ -79,15 +80,15 @@ end );
 ##
 #F LoopFreeAut(aut)
 ##
-## LoopFreeAut returns the subautomaton of aut that contains no loops of the 
-## form (i,i,x) where i is a state and x is any letter in the alphabet. 
+## LoopFreeAut returns the subautomaton of aut that contains no loops of the
+## form (i,i,x) where i is a state and x is any letter in the alphabet.
 ##
 InstallGlobalFunction(LoopFreeAut,function(a)
 local trans,j,i;
 
 trans:=List(a!.transitions, ShallowCopy);
 
-for j in [1..Length(trans[1])] do 
+for j in [1..Length(trans[1])] do
     for i in [1..Length(trans)] do
         Add(trans[i],a!.states+1);
         if trans[i][j]=j then
@@ -105,7 +106,7 @@ end );
 ##
 #F LoopVertexFreeAut(aut)
 ##
-## LoopVertexFreeAut builds the subautomaton of aut that does not contain the 
+## LoopVertexFreeAut builds the subautomaton of aut that does not contain the
 ## vertices and their transitions in aut that loop to themselves.
 ##
 InstallGlobalFunction(LoopVertexFreeAut,function(a)
@@ -141,4 +142,4 @@ od;
 
 return MinimalAutomaton(Automaton("nondet",a!.states+1,a!.alphabet,trans,a!.initial,a!.accepting));
 
-end ); 
+end );

@@ -22,6 +22,8 @@ gap> InversionAutOfClass(BoundedClassAutomaton(5),6);
 < deterministic automaton on 7 letters with 42 states >
 gap> InversionAutOfClass(BoundedClassAutomaton(5),10);
 < deterministic automaton on 11 letters with 86 states >
+gap> InversionAutOfClass(BoundedClassAutomaton(7),4);
+< deterministic automaton on 7 letters with 27 states >
 
 gap> PlusDecomposableAut(BoundedClassAutomaton(4));
 < deterministic automaton on 4 letters with 7 states >
