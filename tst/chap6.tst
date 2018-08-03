@@ -105,6 +105,8 @@ gap> a:=BoundedClassAutomaton(5);
 gap> Spectrum(a);
 [ 1, 2, 6, 24, 120, 600, 3000, 15000, 75000, 375000, 1875000, 9375000,
   46875000, 234375000, 1171875000 ]
+gap> Spectrum(a,10);
+[ 1, 2, 6, 24, 120, 600, 3000, 15000, 75000, 375000 ]
 gap> NumberAcceptedWords(a,10);
 375000
 gap> AutStateTransitionMatrix(a);
@@ -124,4 +126,10 @@ gap> AcceptedWordsR(a,4);
   [ 1, 1, 1, 3 ], [ 1, 2, 1, 3 ], [ 1, 1, 2, 3 ], [ 1, 2, 2, 3 ],
   [ 1, 1, 3, 3 ], [ 1, 2, 3, 3 ], [ 1, 1, 1, 4 ], [ 1, 2, 1, 4 ],
   [ 1, 1, 2, 4 ], [ 1, 2, 2, 4 ], [ 1, 1, 3, 4 ], [ 1, 2, 3, 4 ] ]
+gap> a:=BoundedClassAutomaton(5);
+< deterministic automaton on 5 letters with 5 states >
+gap> ba:=BasisAutomaton(a);
+< non deterministic automaton on 5 letters with 3 states >
+gap> AutStateTransitionMatrix(ba);
+Error, AutStateTransitionMatrix can only be applied to determistic automata.
 gap> STOP_TEST( "chap6.tst", 10000 );

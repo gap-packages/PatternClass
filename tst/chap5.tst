@@ -30,6 +30,10 @@ gap> x:=Automaton("det",4,2,[[1,3,2,4],[2,4,1,4]],[1],[2]);
 < deterministic automaton on 2 letters with 4 states >
 gap> IsStratified(x);
 false
+gap> x:=Automaton("det",3,2,[[3,2,1],[2,3,1]],[1],[1]);
+< deterministic automaton on 2 letters with 3 states >
+gap> IsStratified(x);
+false
 gap> x:=Automaton("det",2,2,[[1,2],[2,2]],[1],[1]);
 < deterministic automaton on 2 letters with 2 states >
 gap> IsPossibleGraphAut(x);
