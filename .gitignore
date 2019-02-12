@@ -1,3 +1,5 @@
+.DS_Store
+
 doc/*.aux
 doc/*.bbl
 doc/*.bib
