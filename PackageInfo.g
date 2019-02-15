@@ -12,6 +12,7 @@ PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
 Version := "2.4.2",
 Date := "24/07/2018", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
