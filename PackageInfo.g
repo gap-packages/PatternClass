@@ -57,7 +57,7 @@ Persons := [
     IsMaintainer := false,
     FirstNames := "Michael",
     LastName := "Albert",
-    WWWHome := "http://www.cs.otago.ac.nz/staff/michael.html",
+    WWWHome := "https://www.otago.ac.nz/computer-science/people/Michael_Albert.html",
     Email := "malbert@cs.otago.ac.nz",
     PostalAddress := Concatenation(
                "Michael Albert\n",
