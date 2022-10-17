@@ -61,7 +61,7 @@
 
 <p>Permutation pattern classes can be determined using their corresponding basis. The basis of a pattern class is the anti-chain of the class, under the order of containment. A permutation <span class="SimpleMath">π</span> contains another permutation <span class="SimpleMath">σ</span> (of shorter length) if there is a subsequence in <span class="SimpleMath">π</span>, which is isomorphic to <span class="SimpleMath">σ</span>.</p>
 
-<p>With the rational language of the rank encoded class, it is also possible to find the rational language of the basis and vice versa. Several specific kinds of transducers are used in this process. <a href="chapBib.html#biBRegCloSetPerms">[AAR03]</a></p>
+<p>With the rational language of the rank encoded class, it is also possible to find the rational language of the basis and vice versa. Several specific kinds of transducers are used in this process. <a href="chapBib.html#biBRegCloSetPerms">[2]</a></p>
 
 <p><a id="X843CB33182B8E477" name="X843CB33182B8E477"></a></p>
 
@@ -71,7 +71,7 @@
 
 <h5>6.1-1 Transducer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Transducer</code>( <var class="Arg">states</var>, <var class="Arg">init</var>, <var class="Arg">transitions</var>, <var class="Arg">accepting</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Transducer</code>( <var class="Arg">states</var>, <var class="Arg">init</var>, <var class="Arg">transitions</var>, <var class="Arg">accepting</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A record that represents a transducer.</p>
 
 <p>A transducer is essentially an automaton, where running through the process does not determine whether the input is accepted, but the input is translated to another language, over a different alphabet.</p>
@@ -95,7 +95,7 @@ rec( accepting := [ 2 ], initial := 1, states := 3,
 
 <h5>6.1-2 DeletionTransducer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DeletionTransducer</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DeletionTransducer</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A transducer over <code class="code">k</code>+1 states.</p>
 
 <p>A deletion transducer is a transducer that deletes one letter of a rank encoded permutation and returns the correct rank encoding of the new permutation. The deletion transducer over <code class="code">k</code> deletes letters over the set of all rank encoded permutations with highest rank <code class="code">k</code>. Specifically, running through a deletion transducer with a rank encoded permutation, of highest rank <code class="code">k</code>, will lead to the set of all rank encoded permutations that have one letter of the initial permutation removed. It is important to note that computing these shorter permutations with the transducer, is done by reading the input permutation from right to left. For example the deletion transducer with <code class="code">k</code>=3, looks as follows:</p>
@@ -116,7 +116,7 @@ rec( accepting := [ 1 .. 3 ], initial := 4, states := 4,
 
 <h5>6.1-3 TransposedTransducer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TransposedTransducer</code>( <var class="Arg">t</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TransposedTransducer</code>( <var class="Arg">t</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A new transducer with interchanged input and output letters on each transition.</p>
 
 <p>A transducer is transposed when all origins and destinations of transitions are left the same as before but the input and output letters on each transition are interchanged. Taking the deletion transducer from above, its transpose looks as follows:</p>
@@ -137,7 +137,7 @@ rec( accepting := [ 1 .. 3 ], initial := 4, states := 4,
 
 <h5>6.1-4 InvolvementTransducer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolvementTransducer</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InvolvementTransducer</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A transducer over <code class="code">k</code>+1 states, with a <code class="code">k</code> sized alphabet.</p>
 
 <p>An involvement transducer is a transducer over <code class="code">k</code>+1 states, and deletes any number of letters in a rank encoded permutation, of rank at most <code class="code">k</code>.</p>
@@ -161,7 +161,7 @@ rec( accepting := [ 1 .. 4 ], initial := 4, states := 4,
 
 <h5>6.1-5 CombineAutTransducer</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CombineAutTransducer</code>( <var class="Arg">aut</var>, <var class="Arg">trans</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; CombineAutTransducer</code>( <var class="Arg">aut</var>, <var class="Arg">trans</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton consisting of a combination of <code class="code">aut</code> and <code class="code">trans</code>.</p>
 
 <p>Combining automata and transducers is done over the natural "translation" of the by the automaton accepted language through the transducer and then building a new automaton that accepts the new language. The function <code class="code">CombineAutTransducer</code> does this process and returns the new non-deterministic automaton.</p>
@@ -198,7 +198,7 @@ Accepting state: [ 1 ]
 
 <h5>6.2-1 BasisAutomaton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BasisAutomaton</code>( <var class="Arg">a</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BasisAutomaton</code>( <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts the rank encoded permutations of the basis of the input automaton <code class="code">a</code>.</p>
 
 <p>Every pattern class has a basis that consists of the smallest set of permutations which do not belong to the class. Using</p>
@@ -245,7 +245,7 @@ d(a(dbdb)*aaU@)UbUc
 
 <h5>6.2-2 ClassAutomaton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassAutomaton</code>( <var class="Arg">a</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassAutomaton</code>( <var class="Arg">a</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton that accepts permutations of the class in their rank encoding.</p>
 
 <p>The function <code class="code">ClassAutomaton</code> does the reverse process of <code class="code">BasisAutomaton</code>. Namely it takes the automaton that represents the language of the rank encoded basis of a permutation class, and using the formula</p>
@@ -278,7 +278,7 @@ true
 
 <h5>6.2-3 BoundedClassAutomaton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BoundedClassAutomaton</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BoundedClassAutomaton</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts all rank encoded permutations, with highest rank being <code class="code">k</code>.</p>
 
 <p>The bounded class automaton, is an automaton that accepts all rank encoded permutations, of any length, with highest rank <code class="code">k</code>.</p>
@@ -301,7 +301,7 @@ Accepting state: [ 1 ]
 
 <h5>6.2-4 ClassAutFromBaseEncoding</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassAutFromBaseEncoding</code>( <var class="Arg">base</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassAutFromBaseEncoding</code>( <var class="Arg">base</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The class automaton from a list of rank encoded basis permutations.</p>
 
 <p>Given the permutations in the basis, in their rank encoded form, and the bound of the rank of the permutations of the class, <code class="code">ClassAutFromBaseEncoding</code> builds the automaton that accepts rank encoded permutations of the class.</p>
@@ -325,7 +325,7 @@ Accepting state: [ 1 ]
 
 <h5>6.2-5 ClassAutFromBase</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassAutFromBase</code>( <var class="Arg">perms</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassAutFromBase</code>( <var class="Arg">perms</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The class automaton from a list of permutations of the basis.</p>
 
 <p>Taking <code class="code">perms</code> which is the list of permutations in the basis and <code class="code">k</code> an integer which indicates the highest rank in the encoded permutations of the class, <code class="code">ClassAutFromBase</code> constructs the automaton that accepts the language of rank encoded permutations of the class.</p>
@@ -349,7 +349,7 @@ Accepting state: [ 1 ]
 
 <h5>6.2-6 ExpandAlphabet</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExpandAlphabet</code>( <var class="Arg">a</var>, <var class="Arg">newAlphabet</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExpandAlphabet</code>( <var class="Arg">a</var>, <var class="Arg">newAlphabet</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton <code class="code">a</code>, over the alphabet of size <code class="code">newAlphabet</code>.</p>
 
 <p>Given an automaton and the size of the new alphabet, which has to be bigger than the size of the alphabet in <code class="code">a</code> , <code class="code">ExpandAlphabet</code> changes the automaton <code class="code">a</code> to contain an alphabet of size <code class="code">newAlphabet</code>. The new letters have no transitions within the automaton.</p>
@@ -388,7 +388,7 @@ Accepting state: [ 3 ]
 
 <h5>6.3-1 ClassDirectSum</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassDirectSum</code>( <var class="Arg">aut1</var>, <var class="Arg">aut2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ClassDirectSum</code>( <var class="Arg">aut1</var>, <var class="Arg">aut2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that corresponds to the direct sum of <code class="code">aut1</code> with <code class="code">aut2</code>.</p>
 
 <p><code class="code">ClassDirectSum</code> builds the concatenation automaton of <code class="code">aut1</code> with <code class="code">aut2</code>, which corresponds to the pattern class <code class="code">aut1</code> <span class="SimpleMath">⊕</span> <code class="code">aut2</code>.</p>
@@ -436,7 +436,7 @@ d(a(dbdb)*aaU@)UbUc
 
 <h5>6.4-1 Spectrum</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Spectrum</code>( <var class="Arg">aut</var>[, <var class="Arg">int</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Spectrum</code>( <var class="Arg">aut</var>[, <var class="Arg">int</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list indicating how many words of each length from 1 to <code class="code">int</code> or 15 (default) are accepted by the automaton.</p>
 
 <p>Each entry in the returned list indicates how many words of length the index of the entry are accepted by the automaton <code class="code">aut</code>. The length of the list is by default 15, but if this is too much or too little the second optional argument regulates the length of the list.</p>
@@ -453,7 +453,7 @@ d(a(dbdb)*aaU@)UbUc
 
 <h5>6.4-2 NumberAcceptedWords</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberAcceptedWords</code>( <var class="Arg">aut</var>, <var class="Arg">len</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NumberAcceptedWords</code>( <var class="Arg">aut</var>, <var class="Arg">len</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The number of words of length <code class="code">len</code> accepted by the automaton <code class="code">aut</code>.</p>
 
 <p>Given the automaton <code class="code">aut</code> and the integer <code class="code">len</code>, <code class="code">NumberAcceptedWords</code> determines how many words of length <code class="code">len</code> are accepted by the automaton.</p>
@@ -470,7 +470,7 @@ d(a(dbdb)*aaU@)UbUc
 
 <h5>6.4-3 AutStateTransitionMatrix</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutStateTransitionMatrix</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AutStateTransitionMatrix</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A matrix containing the number of transitions between states of the automaton <code class="code">aut</code>.</p>
 
 <p>In the matrix computed by <code class="code">AutStateTransitionMatrix</code> the rows are indexed by the state the transitions are originating from, the columnns are indexed by the states the transitions are ending at. Each entry <span class="SimpleMath">a_i,j</span> of the matrix represents the number of transitions from the state <span class="SimpleMath">i</span> to the state <span class="SimpleMath">j</span>.</p>
@@ -489,7 +489,7 @@ d(a(dbdb)*aaU@)UbUc
 
 <h5>6.4-4 AcceptedWords</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AcceptedWords</code>( <var class="Arg">aut</var>, <var class="Arg">int</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AcceptedWords</code>( <var class="Arg">aut</var>, <var class="Arg">int</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: All words of length <code class="code">int</code> that are accepted by the automaton <code class="code">aut</code>.</p>
 
 <p><code class="code">AcceptedWords</code> outputs all permutations accepted by the automaton <code class="code">aut</code>, which have length <code class="code">int</code>, in a list. The permutations are output in their rank encoding.</p>
@@ -506,8 +506,8 @@ d(a(dbdb)*aaU@)UbUc
 
 <h5>6.4-5 AcceptedWordsR</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AcceptedWordsR</code>( <var class="Arg">aut</var>, <var class="Arg">int1</var>[, <var class="Arg">int2</var>] )</td><td class="tdright">( function )</td></tr></table></div>
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AcceptedWordsReversed</code>( <var class="Arg">aut</var>, <var class="Arg">int1</var>[, <var class="Arg">int2</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AcceptedWordsR</code>( <var class="Arg">aut</var>, <var class="Arg">int1</var>[, <var class="Arg">int2</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AcceptedWordsReversed</code>( <var class="Arg">aut</var>, <var class="Arg">int1</var>[, <var class="Arg">int2</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The list of all by the automaton accepted words of length <code class="code">int1</code>, where each word is written in reverse.</p>
 
 <p>The functions <code class="code">AcceptedWordsR</code> and <code class="code">AcceptedWordsReversed</code> are synonymous and take the following arguments; an automaton <code class="code">aut</code>, an integer <code class="code">int1</code> which indicates the length of the words that are accepted by the <code class="code">aut</code> and another integer <code class="code">int2</code> which is optional and represents the initial state of <code class="code">aut</code>. The return value of these functions is the list containing all permutations of length <code class="code">int1</code> that are accepted by <code class="code">aut</code>. The permutations are rank encoded and written in reverse.</p>

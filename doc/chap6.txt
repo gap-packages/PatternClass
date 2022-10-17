@@ -8,14 +8,14 @@
   
   [33X[0;0YWith the rational language of the rank encoded class, it is also possible to
   find  the  rational  language  of the basis and vice versa. Several specific
-  kinds of transducers are used in this process. [AAR03][133X
+  kinds of transducers are used in this process. [2][133X
   
   
   [1X6.1 [33X[0;0YTransducers[133X[101X
   
   [1X6.1-1 Transducer[101X
   
-  [29X[2XTransducer[102X( [3Xstates[103X, [3Xinit[103X, [3Xtransitions[103X, [3Xaccepting[103X ) [32X function
+  [33X[1;0Y[29X[2XTransducer[102X( [3Xstates[103X, [3Xinit[103X, [3Xtransitions[103X, [3Xaccepting[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA record that represents a transducer.[133X
   
   [33X[0;0YA  transducer is essentially an automaton, where running through the process
@@ -44,7 +44,7 @@
   
   [1X6.1-2 DeletionTransducer[101X
   
-  [29X[2XDeletionTransducer[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XDeletionTransducer[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA transducer over [10Xk[110X+1 states.[133X
   
   [33X[0;0YA  deletion  transducer  is  a  transducer that deletes one letter of a rank
@@ -70,7 +70,7 @@
   
   [1X6.1-3 TransposedTransducer[101X
   
-  [29X[2XTransposedTransducer[102X( [3Xt[103X ) [32X function
+  [33X[1;0Y[29X[2XTransposedTransducer[102X( [3Xt[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  new  transducer  with  interchanged input and output letters on
             each transition.[133X
   
@@ -91,7 +91,7 @@
   
   [1X6.1-4 InvolvementTransducer[101X
   
-  [29X[2XInvolvementTransducer[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XInvolvementTransducer[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA transducer over [10Xk[110X+1 states, with a [10Xk[110X sized alphabet.[133X
   
   [33X[0;0YAn  involvement  transducer is a transducer over [10Xk[110X+1 states, and deletes any
@@ -112,7 +112,7 @@
   
   [1X6.1-5 CombineAutTransducer[101X
   
-  [29X[2XCombineAutTransducer[102X( [3Xaut[103X, [3Xtrans[103X ) [32X function
+  [33X[1;0Y[29X[2XCombineAutTransducer[102X( [3Xaut[103X, [3Xtrans[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn automaton consisting of a combination of [10Xaut[110X and [10Xtrans[110X.[133X
   
   [33X[0;0YCombining automata and transducers is done over the natural "translation" of
@@ -150,7 +150,7 @@
   
   [1X6.2-1 BasisAutomaton[101X
   
-  [29X[2XBasisAutomaton[102X( [3Xa[103X ) [32X function
+  [33X[1;0Y[29X[2XBasisAutomaton[102X( [3Xa[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  that  accepts  the rank encoded permutations of the
             basis of the input automaton [10Xa[110X.[133X
   
@@ -158,8 +158,7 @@
   permutations which do not belong to the class. Using[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YB(L)=(L^r D^t)^r ∩ L^c[133X[124X[133X
-  
+  [24X[33X[0;6YB(L)=(L^r D^t)^r ∩ L^c[133X[124X
   
   [33X[0;0Yit  is  possible  using  the  deletion transducer [22XD[122X and the language of rank
   encoded permutations [22XL[122X to find the language of the rank encoded permutations
@@ -205,7 +204,7 @@
   
   [1X6.2-2 ClassAutomaton[101X
   
-  [29X[2XClassAutomaton[102X( [3Xa[103X ) [32X function
+  [33X[1;0Y[29X[2XClassAutomaton[102X( [3Xa[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe automaton that accepts permutations of the class in their rank
             encoding.[133X
   
@@ -214,8 +213,7 @@
   encoded basis of a permutation class, and using the formula[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YL=B_k ∩ ((B(L)^r I^t)^c )^r[133X[124X[133X
-  
+  [24X[33X[0;6YL=B_k ∩ ((B(L)^r I^t)^c )^r[133X[124X
   
   [33X[0;0Yreturns  the  automaton  that  accepts  the rank encoded permutations of the
   class. In the formula, [22XB_k[122X is the automaton that accepts all permutations of
@@ -244,7 +242,7 @@
   
   [1X6.2-3 BoundedClassAutomaton[101X
   
-  [29X[2XBoundedClassAutomaton[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XBoundedClassAutomaton[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  that  accepts  all  rank encoded permutations, with
             highest rank being [10Xk[110X.[133X
   
@@ -267,7 +265,7 @@
   
   [1X6.2-4 ClassAutFromBaseEncoding[101X
   
-  [29X[2XClassAutFromBaseEncoding[102X( [3Xbase[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XClassAutFromBaseEncoding[102X( [3Xbase[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe   class   automaton   from   a  list  of  rank  encoded  basis
             permutations.[133X
   
@@ -292,7 +290,7 @@
   
   [1X6.2-5 ClassAutFromBase[101X
   
-  [29X[2XClassAutFromBase[102X( [3Xperms[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XClassAutFromBase[102X( [3Xperms[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe class automaton from a list of permutations of the basis.[133X
   
   [33X[0;0YTaking [10Xperms[110X which is the list of permutations in the basis and [10Xk[110X an integer
@@ -317,7 +315,7 @@
   
   [1X6.2-6 ExpandAlphabet[101X
   
-  [29X[2XExpandAlphabet[102X( [3Xa[103X, [3XnewAlphabet[103X ) [32X function
+  [33X[1;0Y[29X[2XExpandAlphabet[102X( [3Xa[103X, [3XnewAlphabet[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe automaton [10Xa[110X, over the alphabet of size [10XnewAlphabet[110X.[133X
   
   [33X[0;0YGiven  an automaton and the size of the new alphabet, which has to be bigger
@@ -360,7 +358,7 @@
   
   [1X6.3-1 ClassDirectSum[101X
   
-  [29X[2XClassDirectSum[102X( [3Xaut1[103X, [3Xaut2[103X ) [32X function
+  [33X[1;0Y[29X[2XClassDirectSum[102X( [3Xaut1[103X, [3Xaut2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn automaton that corresponds to the direct sum of [10Xaut1[110X with [10Xaut2[110X.[133X
   
   [33X[0;0Y[10XClassDirectSum[110X  builds  the concatenation automaton of [10Xaut1[110X with [10Xaut2[110X, which
@@ -409,7 +407,7 @@
   
   [1X6.4-1 Spectrum[101X
   
-  [29X[2XSpectrum[102X( [3Xaut[103X[, [3Xint[103X] ) [32X function
+  [33X[1;0Y[29X[2XSpectrum[102X( [3Xaut[103X[, [3Xint[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  indicating how many words of each length from 1 to [10Xint[110X or
             15 (default) are accepted by the automaton.[133X
   
@@ -428,7 +426,7 @@
   
   [1X6.4-2 NumberAcceptedWords[101X
   
-  [29X[2XNumberAcceptedWords[102X( [3Xaut[103X, [3Xlen[103X ) [32X function
+  [33X[1;0Y[29X[2XNumberAcceptedWords[102X( [3Xaut[103X, [3Xlen[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe number of words of length [10Xlen[110X accepted by the automaton [10Xaut[110X.[133X
   
   [33X[0;0YGiven  the automaton [10Xaut[110X and the integer [10Xlen[110X, [10XNumberAcceptedWords[110X determines
@@ -444,7 +442,7 @@
   
   [1X6.4-3 AutStateTransitionMatrix[101X
   
-  [29X[2XAutStateTransitionMatrix[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XAutStateTransitionMatrix[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  matrix  containing  the number of transitions between states of
             the automaton [10Xaut[110X.[133X
   
@@ -465,7 +463,7 @@
   
   [1X6.4-4 AcceptedWords[101X
   
-  [29X[2XAcceptedWords[102X( [3Xaut[103X, [3Xint[103X ) [32X function
+  [33X[1;0Y[29X[2XAcceptedWords[102X( [3Xaut[103X, [3Xint[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAll words of length [10Xint[110X that are accepted by the automaton [10Xaut[110X.[133X
   
   [33X[0;0Y[10XAcceptedWords[110X  outputs all permutations accepted by the automaton [10Xaut[110X, which
@@ -482,8 +480,8 @@
   
   [1X6.4-5 AcceptedWordsR[101X
   
-  [29X[2XAcceptedWordsR[102X( [3Xaut[103X, [3Xint1[103X[, [3Xint2[103X] ) [32X function
-  [29X[2XAcceptedWordsReversed[102X( [3Xaut[103X, [3Xint1[103X[, [3Xint2[103X] ) [32X function
+  [33X[1;0Y[29X[2XAcceptedWordsR[102X( [3Xaut[103X, [3Xint1[103X[, [3Xint2[103X] ) [32X function[133X
+  [33X[1;0Y[29X[2XAcceptedWordsReversed[102X( [3Xaut[103X, [3Xint1[103X[, [3Xint2[103X] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  list  of  all by the automaton accepted words of length [10Xint1[110X,
             where each word is written in reverse.[133X
   

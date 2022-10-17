@@ -10,8 +10,9 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.4.2",
-Date := "24/07/2018", # dd/mm/yyyy format
+Version := "2.4.3",
+Date := "17/10/2022", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
@@ -56,7 +57,7 @@ Persons := [
     IsMaintainer := false,
     FirstNames := "Michael",
     LastName := "Albert",
-    WWWHome := "http://www.cs.otago.ac.nz/staff/michael.html",
+    WWWHome := "https://www.otago.ac.nz/computer-science/people/Michael_Albert.html",
     Email := "malbert@cs.otago.ac.nz",
     PostalAddress := Concatenation(
                "Michael Albert\n",
@@ -99,7 +100,7 @@ AbstractHTML := "The PatternClass package is build on the idea of token passing 
 PackageDoc := rec(
   BookName  := "PatternClass",
   ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "A permutation pattern class package",

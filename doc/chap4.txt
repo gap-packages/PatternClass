@@ -4,7 +4,7 @@
   [33X[0;0YIt  is  known  that  the  language  of  all encoded permutations of a TPN is
   rational,  and  thus  is it indeed possible to turn a TPN into an automaton.
   The  idea  is  to inspect all dispositions of tokens within the TPN and find
-  equivalence classes of these dispositions, for more details consult [ALTd.].
+  equivalence  classes  of  these  dispositions, for more details consult [3].
   Adding  a  constraint,  which limits the number of tokens at any time within
   the TPN, is also considered in this chapter.[133X
   
@@ -19,7 +19,7 @@
   
   [1X4.1-1 GraphToAut[101X
   
-  [29X[2XGraphToAut[102X( [3Xg[103X, [3Xinnode[103X, [3Xoutnode[103X ) [32X function
+  [33X[1;0Y[29X[2XGraphToAut[102X( [3Xg[103X, [3Xinnode[103X, [3Xoutnode[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn automaton representing the input TPN.[133X
   
   [33X[0;0Y[10XGraphToAut[110X  turns an array represented directed graph, with a distinct input
@@ -105,7 +105,7 @@
   
   [1X4.1-2 ConstrainedGraphToAut[101X
   
-  [29X[2XConstrainedGraphToAut[102X( [3Xg[103X, [3Xinnode[103X, [3Xoutnode[103X, [3Xcapacity[103X ) [32X function
+  [33X[1;0Y[29X[2XConstrainedGraphToAut[102X( [3Xg[103X, [3Xinnode[103X, [3Xoutnode[103X, [3Xcapacity[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn automaton representing the input TPN with bounded capacity.[133X
   
   [33X[0;0Y[10XConstrainedGraphToAut[110X  builds an epsilon automaton based on the same idea as

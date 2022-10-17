@@ -4,21 +4,21 @@
   [33X[0;0YA permutation [22Xπ=π_1 ... π_n[122X has rank encoding [22Xp_1 ... p_n[122X where [22Xp_i= |{j : j
   ≥  i,  π_j  ≤  π_i  }  |[122X.  In  other words the rank encoded permutation is a
   sequence of [22Xp_i[122X with [22X1≤ i≤ n[122X, where [22Xp_i[122X is the rank of [22Xπ_i[122X in [22X{π_i,π_i+1,...
-  ,π_n}[122X. [AAR03][133X
+  ,π_n}[122X. [2][133X
   
   [33X[0;0YThe encoding of the permutation 3 2 5 1 6 7 4 8 9 is done as follows:[133X
   
-        Permutation │ Encoding  │ Assisting list
-         325167489  │     [22X∅[122X     │   123456789   
-         25167489   │     3     │    12456789   
-          5167489   │    32     │    1456789    
-          167489    │    323    │     146789    
-           67489    │   3231    │     46789     
-           7489     │   32312   │      4789     
-            489     │  323122   │      489      
-            89      │  3231221  │       89      
-             9      │ 32312211  │       9       
-             [22X∅[122X      │ 323122111 │       [22X∅[122X       
+        Permutation │ Encoding  │ Assisting list   
+         325167489  │     [22X∅[122X     │   123456789      
+         25167489   │     3     │    12456789      
+          5167489   │    32     │    1456789       
+          167489    │    323    │     146789       
+           67489    │   3231    │     46789        
+           7489     │   32312   │      4789        
+            489     │  323122   │      489         
+            89      │  3231221  │       89         
+             9      │ 32312211  │       9          
+             [22X∅[122X      │ 323122111 │       [22X∅[122X          
   
   [33X[0;0YDecoding a permutation is done in a similar fashion, taking the sequence [22Xp_1
   ... p_n[122X and using the reverse process will lead to the permutation [22Xπ=π_1 ...
@@ -27,24 +27,24 @@
   
   [33X[0;0YThe sequence 3 2 3 1 2 2 1 1 1 is decoded as:[133X
   
-        Encoding  │ Permutation │ Assisting list
-        323122111 │      [22X∅[122X      │   123456789   
-        23122111  │      3      │    12456789   
-         3122111  │     32      │    1456789    
-         122111   │     325     │     146789    
-          22111   │    3251     │     46789     
-          2111    │    32516    │      4789     
-           111    │   325167    │      489      
-           11     │   3251674   │       89      
-            1     │  32516748   │       9       
-            [22X∅[122X     │  325167489  │       [22X∅[122X       
+        Encoding  │ Permutation │ Assisting list   
+        323122111 │      [22X∅[122X      │   123456789      
+        23122111  │      3      │    12456789      
+         3122111  │     32      │    1456789       
+         122111   │     325     │     146789       
+          22111   │    3251     │     46789        
+          2111    │    32516    │      4789        
+           111    │   325167    │      489         
+           11     │   3251674   │       89         
+            1     │  32516748   │       9          
+            [22X∅[122X     │  325167489  │       [22X∅[122X          
   
   
   [1X3.1 [33X[0;0YEncoding and Decoding[133X[101X
   
   [1X3.1-1 RankEncoding[101X
   
-  [29X[2XRankEncoding[102X( [3Xp[103X ) [32X function
+  [33X[1;0Y[29X[2XRankEncoding[102X( [3Xp[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA list that represents the rank encoding of the permutation [10Xp[110X.[133X
   
   [33X[0;0YUsing  the  algorithm above [10XRankEncoding[110X turns the permutation [10Xp[110X into a list
@@ -60,7 +60,7 @@
   
   [1X3.1-2 RankDecoding[101X
   
-  [29X[2XRankDecoding[102X( [3Xe[103X ) [32X function
+  [33X[1;0Y[29X[2XRankDecoding[102X( [3Xe[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA permutation in list form.[133X
   
   [33X[0;0YA  rank  encoded  permutation  is decoded by using the reversed process from
@@ -76,7 +76,7 @@
   
   [1X3.1-3 SequencesToRatExp[101X
   
-  [29X[2XSequencesToRatExp[102X( [3Xlist[103X ) [32X function
+  [33X[1;0Y[29X[2XSequencesToRatExp[102X( [3Xlist[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA rational expression that describes all the words in [10Xlist[110X.[133X
   
   [33X[0;0YA  list  of  sequences is turned into a rational expression by concatenating

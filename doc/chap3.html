@@ -33,7 +33,7 @@
 
 <h3>3 <span class="Heading">Permutation Encoding</span></h3>
 
-<p>A permutation <span class="SimpleMath">π=π_1 ... π_n</span> has rank encoding <span class="SimpleMath">p_1 ... p_n</span> where <span class="SimpleMath">p_i= |{j : j ≥ i, π_j ≤ π_i } |</span>. In other words the rank encoded permutation is a sequence of <span class="SimpleMath">p_i</span> with <span class="SimpleMath">1≤ i≤ n</span>, where <span class="SimpleMath">p_i</span> is the rank of <span class="SimpleMath">π_i</span> in <span class="SimpleMath">{π_i,π_i+1,... ,π_n}</span>. <a href="chapBib.html#biBRegCloSetPerms">[AAR03]</a></p>
+<p>A permutation <span class="SimpleMath">π=π_1 ... π_n</span> has rank encoding <span class="SimpleMath">p_1 ... p_n</span> where <span class="SimpleMath">p_i= |{j : j ≥ i, π_j ≤ π_i } |</span>. In other words the rank encoded permutation is a sequence of <span class="SimpleMath">p_i</span> with <span class="SimpleMath">1≤ i≤ n</span>, where <span class="SimpleMath">p_i</span> is the rank of <span class="SimpleMath">π_i</span> in <span class="SimpleMath">{π_i,π_i+1,... ,π_n}</span>. <a href="chapBib.html#biBRegCloSetPerms">[2]</a></p>
 
 <p>The encoding of the permutation 3 2 5 1 6 7 4 8 9 is done as follows:</p>
 
@@ -93,7 +93,7 @@
 <td class="tdcenter">323122111</td>
 <td class="tdcenter"><span class="SimpleMath">∅</span></td>
 </tr>
-</table><br /><p>&nbsp;</p><br />
+</table><br />
 </div>
 
 <p>Decoding a permutation is done in a similar fashion, taking the sequence <span class="SimpleMath">p_1 ... p_n</span> and using the reverse process will lead to the permutation <span class="SimpleMath">π=π_1 ... π_n</span>, where <span class="SimpleMath">π_i</span> is determined by finding the number that has rank <span class="SimpleMath">p_i</span> in <span class="SimpleMath">{π_i, π_i+1, ... , π_n}</span>.</p>
@@ -156,7 +156,7 @@
 <td class="tdcenter">325167489</td>
 <td class="tdcenter"><span class="SimpleMath">∅</span></td>
 </tr>
-</table><br /><p>&nbsp;</p><br />
+</table><br />
 </div>
 
 <p><a id="X793F8BF48048365F" name="X793F8BF48048365F"></a></p>
@@ -167,7 +167,7 @@
 
 <h5>3.1-1 RankEncoding</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankEncoding</code>( <var class="Arg">p</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankEncoding</code>( <var class="Arg">p</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list that represents the rank encoding of the permutation <code class="code">p</code>.</p>
 
 <p>Using the algorithm above <code class="code">RankEncoding</code> turns the permutation <code class="code">p</code> into a list of integers.</p>
@@ -184,7 +184,7 @@
 
 <h5>3.1-2 RankDecoding</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankDecoding</code>( <var class="Arg">e</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; RankDecoding</code>( <var class="Arg">e</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A permutation in list form.</p>
 
 <p>A rank encoded permutation is decoded by using the reversed process from encoding, which is also explained above.</p>
@@ -201,7 +201,7 @@
 
 <h5>3.1-3 SequencesToRatExp</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SequencesToRatExp</code>( <var class="Arg">list</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SequencesToRatExp</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A rational expression that describes all the words in <code class="code">list</code>.</p>
 
 <p>A list of sequences is turned into a rational expression by concatenating each sequence and unifying all of them.</p>

@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (PatternClass) - Chapter 4: From Networks to Automata</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -35,7 +35,7 @@
 
 <h3>4 <span class="Heading">From Networks to Automata</span></h3>
 
-<p>It is known that the language of all encoded permutations of a TPN is rational, and thus is it indeed possible to turn a TPN into an automaton. The idea is to inspect all dispositions of tokens within the TPN and find equivalence classes of these dispositions, for more details consult <a href="chapBib_mj.html#biBPermGenTPGraph">[ALTd.]</a>. Adding a constraint, which limits the number of tokens at any time within the TPN, is also considered in this chapter.</p>
+<p>It is known that the language of all encoded permutations of a TPN is rational, and thus is it indeed possible to turn a TPN into an automaton. The idea is to inspect all dispositions of tokens within the TPN and find equivalence classes of these dispositions, for more details consult <a href="chapBib_mj.html#biBPermGenTPGraph">[3]</a>. Adding a constraint, which limits the number of tokens at any time within the TPN, is also considered in this chapter.</p>
 
 <p>The algorithms featured in this chapter do not return the minimal automata representing the input TPN as they are exactly visualising the equivalence classes of the dispositions of the tokens in the TPN. The automaton can be minimalised by choice, as it simplifies future computations involving the automaton also is makes the automata more legible.</p>
 
@@ -47,7 +47,7 @@
 
 <h5>4.1-1 GraphToAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GraphToAut</code>( <var class="Arg">g</var>, <var class="Arg">innode</var>, <var class="Arg">outnode</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GraphToAut</code>( <var class="Arg">g</var>, <var class="Arg">innode</var>, <var class="Arg">outnode</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton representing the input TPN.</p>
 
 <p><code class="code">GraphToAut</code> turns an array represented directed graph, with a distinct input node and a distinct output node, into the corresponding automaton, that accepts the language build by the resulting rank encoded permutations of the directed graph.</p>
@@ -138,7 +138,7 @@ Accepting state: [ 1 ]
 
 <h5>4.1-2 ConstrainedGraphToAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConstrainedGraphToAut</code>( <var class="Arg">g</var>, <var class="Arg">innode</var>, <var class="Arg">outnode</var>, <var class="Arg">capacity</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ConstrainedGraphToAut</code>( <var class="Arg">g</var>, <var class="Arg">innode</var>, <var class="Arg">outnode</var>, <var class="Arg">capacity</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton representing the input TPN with bounded capacity.</p>
 
 <p><code class="code">ConstrainedGraphToAut</code> builds an epsilon automaton based on the same idea as <code class="code">GraphToAut</code>, so it takes a list representation of a directed graph, a designated input node and a distinct output node, but additionally there is the constraint that there can be at most <code class="code">capacity</code> tokens in the graph, at any time.</p>

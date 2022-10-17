@@ -9,14 +9,13 @@
   
   [1X7.1-1 PermComplement[101X
   
-  [29X[2XPermComplement[102X( [3Xperm[103X ) [32X function
+  [33X[1;0Y[29X[2XPermComplement[102X( [3Xperm[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe permutation that is the complement of [10Xperm[110X.[133X
   
   [33X[0;0YThe complement of a permutation [22Xτ=τ_1...τ_n[122X is the permutation[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Yτ^C=(n+1)-τ_1 (n+1)-τ_2... (n+1)-τ_n[133X[124X[133X
-  
+  [24X[33X[0;6Yτ^C=(n+1)-τ_1 (n+1)-τ_2... (n+1)-τ_n[133X[124X
   
   [33X[0;0Y.[133X
   
@@ -31,7 +30,7 @@
   
   [1X7.2-1 IsRankEncoding[101X
   
-  [29X[2XIsRankEncoding[102X( [3Xperm[103X ) [32X function
+  [33X[1;0Y[29X[2XIsRankEncoding[102X( [3Xperm[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [10Xperm[110X is a valid rank encoding of a permutation.[133X
   
   [33X[0;0Y[10XIsRankEncoding[110X  checkes whether the input list [10Xperm[110X is a valid rank encoding

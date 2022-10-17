@@ -13,7 +13,7 @@
   [33X[0;0YThere  is  an edge from [22Xx[122X to [22Xy[122X; [22Xx[122X is the input node, and the tokens 1, 2, 3,
   ...  ,  [22Xt-1[122X have been moved, or [22Xx[122X is any other node but not the output node;
   lastly  either [22Xy[122X is the output node or [22Xy[122X is not the input node and currently
-  is not occupied by a token. [ALTd.][133X
+  is not occupied by a token. [3][133X
   
   [33X[0;0YToken  passing  networks,  or  TPNs,  are represented in [5XGAP[105X as a list. Each
   entry  of  the  list  is the index of the node within the TPN and contains a
@@ -40,7 +40,7 @@
   
   [1X2.1-1 Parstacks[101X
   
-  [29X[2XParstacks[102X( [3Xm[103X, [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XParstacks[102X( [3Xm[103X, [3Xn[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  that  represents  the  directed  edges of a token passing
             network.[133X
   
@@ -62,7 +62,7 @@
   
   [1X2.1-2 Seqstacks[101X
   
-  [29X[2XSeqstacks[102X( [3Xn[103X[, [3Xm[103X[, [3Xo[103X[, [3Xp[103X[, [3X...[103X]]]] ) [32X function
+  [33X[1;0Y[29X[2XSeqstacks[102X( [3Xn[103X[, [3Xm[103X[, [3Xo[103X[, [3Xp[103X[, [3X...[103X]]]] ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  that  represents  the  directed  edges of a token passing
             network.[133X
   
@@ -85,7 +85,7 @@
   
   [1X2.1-3 BufferAndStack[101X
   
-  [29X[2XBufferAndStack[102X( [3Xm[103X, [3Xn[103X ) [32X function
+  [33X[1;0Y[29X[2XBufferAndStack[102X( [3Xm[103X, [3Xn[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  that  represents  the  directed  edges of a token passing
             network.[133X
   

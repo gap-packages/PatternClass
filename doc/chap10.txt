@@ -12,7 +12,7 @@
   
   [1X10.1-1 InbetweenPermAutomaton[101X
   
-  [29X[2XInbetweenPermAutomaton[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function
+  [33X[1;0Y[29X[2XInbetweenPermAutomaton[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton which accepts the encoded permutations between [10Xperm1[110X
             and [10Xperm2[110X where, [10Xperm2[110X is the subpermutation.[133X
   
@@ -36,7 +36,7 @@
   
   [1X10.1-2 InbetweenPermSet[101X
   
-  [29X[2XInbetweenPermSet[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function
+  [33X[1;0Y[29X[2XInbetweenPermSet[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA  list  which  contains  the permutations between [10Xperm1[110X and [10Xperm2[110X
             where, [10Xperm2[110X is the subpermutation.[133X
   
@@ -53,7 +53,7 @@
   
   [1X10.1-3 IsSubPerm[101X
   
-  [29X[2XIsSubPerm[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function
+  [33X[1;0Y[29X[2XIsSubPerm[102X( [3Xperm1[103X, [3Xperm2[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10Xtrue[110X if [10Xperm2[110X is a subpermutation of [10Xperm1[110X.[133X
   
   [33X[0;0YCreates  the  automaton  accepting  all subpermutations of [10Xperm1[110X of the same
@@ -73,7 +73,7 @@
   
   [1X10.2-1 LoopFreeAut[101X
   
-  [29X[2XLoopFreeAut[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XLoopFreeAut[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn automaton without any loops of length 1.[133X
   
   [33X[0;0Y[10XLoopFreeAut[110X  builds  the subautomaton of [10Xaut[110X that does not contain any loops
@@ -105,7 +105,7 @@
   
   [1X10.2-2 LoopVertexFreeAut[101X
   
-  [29X[2XLoopVertexFreeAut[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XLoopVertexFreeAut[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn automaton without any vertices that had loops of length 1.[133X
   
   [33X[0;0Y[10XLoopVertexFreeAut[110X builds the subautomaton that does not contain the vertices

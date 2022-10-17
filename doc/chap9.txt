@@ -8,11 +8,11 @@
   [1X9.1 [33X[0;0YInversions in Permutations[133X[101X
   
   [33X[0;0YAn  inversion in a permutation [22Xτ=τ_1...τ_n[122X is a pair [22X(i,j)[122X such that [22X1≤ i<j≤
-  n[122X and [22Xτ_i>τ_j[122X [CJS11].[133X
+  n[122X and [22Xτ_i>τ_j[122X [5].[133X
   
   [1X9.1-1 InversionAut[101X
   
-  [29X[2XInversionAut[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XInversionAut[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn   automaton  that  accepts  all  permutations  with  exactly  [10Xk[110X
             inversions.[133X
   
@@ -38,7 +38,7 @@
   
   [1X9.1-2 InversionAutOfClass[101X
   
-  [29X[2XInversionAutOfClass[102X( [3Xaut[103X, [3Xinv[103X ) [32X function
+  [33X[1;0Y[29X[2XInversionAutOfClass[102X( [3Xaut[103X, [3Xinv[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  accepting  all  permutations  of  a  class with [10Xinv[110X
             inversions.[133X
   
@@ -64,7 +64,7 @@
   
   [1X9.2-1 PlusDecomposableAut[101X
   
-  [29X[2XPlusDecomposableAut[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XPlusDecomposableAut[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  that accepts the subset of the class [10Xaut[110X containing
             the plus-decomposable permutations of [10Xaut[110X.[133X
   
@@ -87,7 +87,7 @@
   
   [1X9.2-2 PlusIndecomposableAut[101X
   
-  [29X[2XPlusIndecomposableAut[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XPlusIndecomposableAut[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  that  accepts  all permutations of [10Xaut[110X that are not
             plus-decomposable.[133X
   
@@ -113,7 +113,7 @@
   
   [1X9.2-3 MinusDecomposableAut[101X
   
-  [29X[2XMinusDecomposableAut[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XMinusDecomposableAut[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  that accepts the subset of the class [10Xaut[110X containing
             the minus-decomposable permutations of [10Xaut[110X.[133X
   
@@ -136,7 +136,7 @@
   
   [1X9.2-4 MinusIndecomposableAut[101X
   
-  [29X[2XMinusIndecomposableAut[102X( [3Xaut[103X ) [32X function
+  [33X[1;0Y[29X[2XMinusIndecomposableAut[102X( [3Xaut[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YAn  automaton  that  accepts  all permutations of [10Xaut[110X that are not
             minus-decomposable.[133X
   
@@ -166,14 +166,10 @@
   highest rank [22Xk[122X is described by the following equation,[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YE(NS_k) = E(Ω_k) ∩ ( ⋃_l=1^k-1 P_l ⋃_m=l^k-1 E(hatΩ_k-m)^+m ∪
-        ⋃_j=1^k-1 E(hatΩ_k-j)^+j ∪[133X[124X[133X
+  [24X[33X[0;6YE(NS_k) = E(Ω_k) ∩ ( ⋃_l=1^k-1 P_l ⋃_m=l^k-1 E(hatΩ_k-m)^+m ∪ ⋃_j=1^k-1 E(hatΩ_k-j)^+j ∪[133X[124X
   
   
-  
-        [33X[1;6Y[24X[33X[0;0Y∪ ⋃_a=2^k-1 ⋃_b=0^k-1-a Q_a,b ⋃_i=0^a-2 (E(hatΩ_k-(b+i))^+b+i)^(a-i) )
-        Σ^* ∪ E(mathcalD_P(Ω_k))[133X[124X[133X
-  
+  [24X[33X[0;6Y∪ ⋃_a=2^k-1 ⋃_b=0^k-1-a Q_a,b ⋃_i=0^a-2 (E(hatΩ_k-(b+i))^+b+i)^(a-i) ) Σ^* ∪ E(mathcalD_P(Ω_k))[133X[124X
   
   [33X[0;0Ywhere [22XΣ[122X is the alphabet [22X{1,...,k}[122X, [22Xk∈N[122X, [22Xk ≥ 3[122X.[133X
   
@@ -193,11 +189,11 @@
   [33X[0;0Y[22XE(hatΩ_k)[122X is the sublanguage of [22XE(Ω_k)[122X excluding the words of length [22X≤ 1[122X.[133X
   
   [33X[0;0Y[22XE(mathcalD_P(Ω_k))[122X  is the language of all plus-decomposable permutations as
-  described in [HL13].[133X
+  described in [6].[133X
   
   [1X9.3-1 LengthBoundAut[101X
   
-  [29X[2XLengthBoundAut[102X( [3Xaut[103X, [3Xmin[103X, [3Xi[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XLengthBoundAut[102X( [3Xaut[103X, [3Xmin[103X, [3Xi[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe subautomaton of [10Xaut[110X that accepts words between (and including)
             the lengths [10Xmin[110X and [10Xi[110X.[133X
   
@@ -219,7 +215,7 @@
   
   [1X9.3-2 ShiftAut[101X
   
-  [29X[2XShiftAut[102X( [3Xi[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XShiftAut[102X( [3Xi[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe automaton [22XΩ_k-i^+i[122X.[133X
   
   [33X[0;0YWe  are shifting the alphabet of [22XΩ_k-i[122X in their values by [22Xi[122X to expand to the
@@ -253,7 +249,7 @@
   
   [1X9.3-3 NextGap[101X
   
-  [29X[2XNextGap[102X( [3Xgap[103X, [3Xrank[103X ) [32X function
+  [33X[1;0Y[29X[2XNextGap[102X( [3Xgap[103X, [3Xrank[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YA list of gap sizes.[133X
   
   [33X[0;0YKnowing  the  current  available  gap  sizes  [10Xgap[110X,  which  are the number of
@@ -273,7 +269,7 @@
   
   [1X9.3-4 GapAut[101X
   
-  [29X[2XGapAut[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XGapAut[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe   non-deterministic   automaton  accepting  the  rank  encoded
             language of [22XΩ_k[122X and the list of all possible gap sizes.[133X
   
@@ -302,7 +298,7 @@
   
   [1X9.3-5 SumAut[101X
   
-  [29X[2XSumAut[102X( [3Xsum[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XSumAut[102X( [3Xsum[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe automaton accepting the language [22XP_sum[122X.[133X
   
   [33X[0;0YThis  automaton is based on the [10XGapAut[110X where the accept states are chosen by
@@ -324,7 +320,7 @@
   
   [1X9.3-6 GapSumAut[101X
   
-  [29X[2XGapSumAut[102X( [3Xgap[103X, [3Xsum[103X, [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XGapSumAut[102X( [3Xgap[103X, [3Xsum[103X, [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe automaton accepting the language [22XQ_gap,sum[122X.[133X
   
   [33X[0;0YThis  automaton is based on the [10XGapAut[110X where the accept states are chosen by
@@ -347,7 +343,7 @@
   
   [1X9.3-7 NonSimpleAut[101X
   
-  [29X[2XNonSimpleAut[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XNonSimpleAut[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  automaton  accepting all rank encoded non-simple permutations
             with rank encoding [10Xk[110X.[133X
   
@@ -377,12 +373,11 @@
   [22XΩ_k[122X[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YE(S_k) = E(Ω_k∖ NS_k) = E(Ω_k) ∖ E(NS_k) = E(Ω_k) ∩ E(NS_k)^C[133X[124X[133X
-  
+  [24X[33X[0;6YE(S_k) = E(Ω_k∖ NS_k) = E(Ω_k) ∖ E(NS_k) = E(Ω_k) ∩ E(NS_k)^C[133X[124X
   
   [1X9.4-1 SimplePermAut[101X
   
-  [29X[2XSimplePermAut[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XSimplePermAut[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  automaton accepting all rank encoded simple permutations with
             highest rank encoding [10Xk[110X.[133X
   
@@ -410,26 +405,22 @@
   forms,[133X
   
   
-        [33X[1;6Y[24X[33X[0;0Y2 4 6 ... (2m) 1 3 5 ... (2m-1)[133X[124X[133X
+  [24X[33X[0;6Y2 4 6 ... (2m) 1 3 5 ... (2m-1)[133X[124X
   
   
-  
-        [33X[1;6Y[24X[33X[0;0Y(2m-1) (2m-3) ... 1 (2m) (2m-2) ... 2[133X[124X[133X
-  
+  [24X[33X[0;6Y(2m-1) (2m-3) ... 1 (2m) (2m-2) ... 2[133X[124X
   
   
-        [33X[1;6Y[24X[33X[0;0Y(m+1) 1 (m+2) 2 (m+3) 3 ... (2m) m[133X[124X[133X
+  [24X[33X[0;6Y(m+1) 1 (m+2) 2 (m+3) 3 ... (2m) m[133X[124X
   
   
+  [24X[33X[0;6Ym (2m) (m-1) (2m-1) ... 1 (m+1)[133X[124X
   
-        [33X[1;6Y[24X[33X[0;0Ym (2m) (m-1) (2m-1) ... 1 (m+1)[133X[124X[133X
-  
-  
-  [33X[0;0Ywhere [22Xm ≥ 2[122X [PR12].[133X
+  [33X[0;0Ywhere [22Xm ≥ 2[122X [7].[133X
   
   [1X9.5-1 IsExceptionalPerm[101X
   
-  [29X[2XIsExceptionalPerm[102X( [3Xperm[103X ) [32X function
+  [33X[1;0Y[29X[2XIsExceptionalPerm[102X( [3Xperm[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10Y[10XTrue[110X if [10Xperm[110X is exceptional, [10XFalse[110X otherwise.[133X
   
   [33X[0;0YThe  functions  checks  whether  [10Xperm[110X  is  one of the 4 types of exceptional
@@ -449,7 +440,7 @@
   
   [1X9.5-2 ExceptionalBoundedAutomaton[101X
   
-  [29X[2XExceptionalBoundedAutomaton[102X( [3Xk[103X ) [32X function
+  [33X[1;0Y[29X[2XExceptionalBoundedAutomaton[102X( [3Xk[103X ) [32X function[133X
   [6XReturns:[106X  [33X[0;10YThe  automaton  which  accepts  all  exceptional permutations with
             highest rank encoding [10Xk[110X.[133X
   

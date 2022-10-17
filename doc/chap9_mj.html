@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (PatternClass) - Chapter 9:  Regular Languages of Sets of Permutations </title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -71,13 +71,13 @@
 
 <h4>9.1 <span class="Heading"> Inversions in Permutations </span></h4>
 
-<p>An inversion in a permutation <span class="SimpleMath">\(\tau=\tau_{1}\ldots\tau_{n}\)</span> is a pair <span class="SimpleMath">\((i,j)\)</span> such that <span class="SimpleMath">\(1\leq i&lt;j\leq n\)</span> and <span class="SimpleMath">\(\tau_{i}&gt;\tau_{j}\)</span> <a href="chapBib_mj.html#biBUpBndStanWilf1324">[CJS11]</a>.</p>
+<p>An inversion in a permutation <span class="SimpleMath">\(\tau=\tau_{1}\ldots\tau_{n}\)</span> is a pair <span class="SimpleMath">\((i,j)\)</span> such that <span class="SimpleMath">\(1\leq i&lt;j\leq n\)</span> and <span class="SimpleMath">\(\tau_{i}&gt;\tau_{j}\)</span> <a href="chapBib_mj.html#biBUpBndStanWilf1324">[5]</a>.</p>
 
 <p><a id="X79B3989A7D90B227" name="X79B3989A7D90B227"></a></p>
 
 <h5>9.1-1 InversionAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InversionAut</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InversionAut</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts all permutations with exactly <code class="code">k</code> inversions.</p>
 
 <p>The rational language of all permutations with a given number , <code class="code">k</code>, of inversions is computed by <code class="code">InversionAut</code>.</p>
@@ -103,7 +103,7 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <h5>9.1-2 InversionAutOfClass</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InversionAutOfClass</code>( <var class="Arg">aut</var>, <var class="Arg">inv</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InversionAutOfClass</code>( <var class="Arg">aut</var>, <var class="Arg">inv</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton accepting all permutations of a class with <code class="code">inv</code> inversions.</p>
 
 <p><code class="code">InversionAutOfClass</code> intersects the rational pattern class with the rational language containing all permutations under the rank encoding that have exactly <code class="code">inv</code> inversions.</p>
@@ -129,7 +129,7 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <h5>9.2-1 PlusDecomposableAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PlusDecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PlusDecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts the subset of the class <code class="code">aut</code> containing the plus-decomposable permutations of <code class="code">aut</code>.</p>
 
 <p>The <code class="code">PlusDecomposableAut</code> automaton accepts the language of all plus-decomposable permutations of the encoded class accepted by <code class="code">aut</code>.</p>
@@ -152,7 +152,7 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <h5>9.2-2 PlusIndecomposableAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PlusIndecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PlusIndecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts all permutations of <code class="code">aut</code> that are not plus-decomposable.</p>
 
 <p>The <code class="code">PlusIndecomposableAutomaton</code> automaton accepts the language of all plus-indecomposable permutations of the encoded class accepted by aut, by rejecting every rank encoding that in the original automaton would have entered and left the accept state before the last letter in the rank encodedpermutation.</p>
@@ -175,7 +175,7 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <h5>9.2-3 MinusDecomposableAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinusDecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinusDecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts the subset of the class <code class="code">aut</code> containing the minus-decomposable permutations of <code class="code">aut</code>.</p>
 
 <p>The <code class="code">MinusDecomposableAut</code> automaton accepts the language of all minus-decomposable permutations of the rank encoded class accepted by <code class="code">aut</code>.</p>
@@ -198,7 +198,7 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <h5>9.2-4 MinusIndecomposableAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinusIndecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; MinusIndecomposableAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton that accepts all permutations of <code class="code">aut</code> that are not minus-decomposable.</p>
 
 <p>The <code class="code">MinusIndecomposableAut</code> automaton accepts the language of all minus-indecomposable permutations of the encoded class accepted by aut, which is the complement set of the set of minus-decomposable permutations within the class.</p>
@@ -250,13 +250,13 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <p><span class="SimpleMath">\(E(\hat{\Omega}_{k})\)</span> is the sublanguage of <span class="SimpleMath">\(E(\Omega_{k})\)</span> excluding the words of length <span class="SimpleMath">\(\leq 1\)</span>.</p>
 
-<p><span class="SimpleMath">\(E(\mathcal{D}_{P}(\Omega_{k}))\)</span> is the language of all plus-decomposable permutations as described in <a href="chapBib_mj.html#biBRegLangPlusMinPerms">[HL13]</a>.</p>
+<p><span class="SimpleMath">\(E(\mathcal{D}_{P}(\Omega_{k}))\)</span> is the language of all plus-decomposable permutations as described in <a href="chapBib_mj.html#biBRegLangPlusMinPerms">[6]</a>.</p>
 
 <p><a id="X7EE214F57A6350E0" name="X7EE214F57A6350E0"></a></p>
 
 <h5>9.3-1 LengthBoundAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LengthBoundAut</code>( <var class="Arg">aut</var>, <var class="Arg">min</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LengthBoundAut</code>( <var class="Arg">aut</var>, <var class="Arg">min</var>, <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The subautomaton of <code class="code">aut</code> that accepts words between (and including) the lengths <code class="code">min</code> and <code class="code">i</code>.</p>
 
 <p>We are taking the automaton <code class="code">aut</code> and it's alphabet <code class="code">k</code>, and find the automaton that accepts all words of <code class="code">aut</code> of length between (and including) <code class="code">min</code> and <code class="code">i</code>.</p>
@@ -278,7 +278,7 @@ a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
 
 <h5>9.3-2 ShiftAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ShiftAut</code>( <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ShiftAut</code>( <var class="Arg">i</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton <span class="SimpleMath">\(\Omega_{k-i}^{+i}\)</span>.</p>
 
 <p>We are shifting the alphabet of <span class="SimpleMath">\(\Omega_{k-i}\)</span> in their values by <span class="SimpleMath">\(i\)</span> to expand to the alphabet <span class="SimpleMath">\(\{1,\ldots,k\}\)</span>, but keeping the automaton structure of <span class="SimpleMath">\(\Omega_{k-i}\)</span>.</p>
@@ -313,7 +313,7 @@ Accepting state: [ 5 ]
 
 <h5>9.3-3 NextGap</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NextGap</code>( <var class="Arg">gap</var>, <var class="Arg">rank</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NextGap</code>( <var class="Arg">gap</var>, <var class="Arg">rank</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of gap sizes.</p>
 
 <p>Knowing the current available gap sizes <code class="code">gap</code>, which are the number of available spaces in a permutation plot. These gaps are separated by blocks where there are already points inserted. We determine where the next point (known to us as its <code class="code">rank</code>) is being placed and what the next gap sizes are.</p>
@@ -332,7 +332,7 @@ Accepting state: [ 5 ]
 
 <h5>9.3-4 GapAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GapAut</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GapAut</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The non-deterministic automaton accepting the rank encoded language of <span class="SimpleMath">\(\Omega_{k}\)</span> and the list of all possible gap sizes.</p>
 
 <p>The automaton accepts the rank encoded permutations of <span class="SimpleMath">\(\Omega_{k}\)</span>, but the automaton is slightly extended through having each state corresponding to a gap size and the start state being the emptyset of gap sizes. The transitions of the automaton are determined through the knowledge of the available spaces and the rank. This is calculated in <code class="code">NextGap</code>. Please note that the index of the gap sizes in the list corresponds to the state of the automaton.</p>
@@ -356,7 +356,7 @@ Accepting states: [ 1, 2 ]
 
 <h5>9.3-5 SumAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SumAut</code>( <var class="Arg">sum</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SumAut</code>( <var class="Arg">sum</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton accepting the language <span class="SimpleMath">\(P_{sum}\)</span>.</p>
 
 <p>This automaton is based on the <code class="code">GapAut</code> where the accept states are chosen by their gap sizes, namely if the total sum of gap sizes equal to <code class="code">sum</code>.</p>
@@ -379,7 +379,7 @@ Accepting states: [ 4, 5 ]
 
 <h5>9.3-6 GapSumAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GapSumAut</code>( <var class="Arg">gap</var>, <var class="Arg">sum</var>, <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GapSumAut</code>( <var class="Arg">gap</var>, <var class="Arg">sum</var>, <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton accepting the language <span class="SimpleMath">\(Q_{gap,sum}\)</span>.</p>
 
 <p>This automaton is based on the <code class="code">GapAut</code> where the accept states are chosen by their gap sizes, namely if there is a gap size <code class="code">gap</code> and the gap sizes before have a total sum of <code class="code">sum</code>.</p>
@@ -402,7 +402,7 @@ Accepting states: [ 3, 5 ]
 
 <h5>9.3-7 NonSimpleAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NonSimpleAut</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; NonSimpleAut</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton accepting all rank encoded non-simple permutations with rank encoding <code class="code">k</code>.</p>
 
 <p>We find the language of all non-simple permutations of the set of all <span class="SimpleMath">\(k\)</span> rank encoded permutations <span class="SimpleMath">\(\Omega_{k}\)</span> using the above equation.</p>
@@ -435,7 +435,7 @@ E(S_{k}) = E(\Omega_{k}\setminus NS_{k}) = E(\Omega_{k}) \setminus E(NS_{k}) = E
 
 <h5>9.4-1 SimplePermAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SimplePermAut</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SimplePermAut</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton accepting all rank encoded simple permutations with highest rank encoding <code class="code">k</code>.</p>
 
 <p>We find the language of all simple permutations of the set of all <span class="SimpleMath">\(k\)</span> rank encoded permutations <span class="SimpleMath">\(\Omega_{k}\)</span> using the above equation.</p>
@@ -476,13 +476,13 @@ Accepting states: [ 1, 3 ]
 m (2m) (m-1) (2m-1) \ldots 1 (m+1)
 \]</p>
 
-<p>where <span class="SimpleMath">\(m \geq 2\)</span> <a href="chapBib_mj.html#biBSimpPermsPoset">[PR12]</a>.</p>
+<p>where <span class="SimpleMath">\(m \geq 2\)</span> <a href="chapBib_mj.html#biBSimpPermsPoset">[7]</a>.</p>
 
 <p><a id="X820901F881D220EE" name="X820901F881D220EE"></a></p>
 
 <h5>9.5-1 IsExceptionalPerm</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExceptionalPerm</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsExceptionalPerm</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">True</code> if <code class="code">perm</code> is exceptional, <code class="code">False</code> otherwise.</p>
 
 <p>The functions checks whether <code class="code">perm</code> is one of the 4 types of exceptional permutations, that are described above.</p>
@@ -503,7 +503,7 @@ true
 
 <h5>9.5-2 ExceptionalBoundedAutomaton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExceptionalBoundedAutomaton</code>( <var class="Arg">k</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; ExceptionalBoundedAutomaton</code>( <var class="Arg">k</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The automaton which accepts all exceptional permutations with highest rank encoding <code class="code">k</code>.</p>
 
 <p>The language of <code class="code">k</code> rank encoded exceptional permutations will be finite, and so it regular.</p>

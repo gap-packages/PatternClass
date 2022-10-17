@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (PatternClass) - Chapter 8: Properties of Permutations </title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -84,7 +84,7 @@
 
 <h5>8.1-1 IsInterval</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInterval</code>( <var class="Arg">list</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsInterval</code>( <var class="Arg">list</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code>, if <code class="code">list</code> is an interval.</p>
 
 <p>IsInterval takes in any list with unique elements, which can be ordered lexicographically and checkes whether it is an interval.</p>
@@ -107,10 +107,10 @@ true
 
 <h5>8.2-1 IsSimplePerm</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSimplePerm</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSimplePerm</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <code class="code">perm</code> is simple.</p>
 
-<p>To check whether <code class="code">perm</code> (length of <code class="code">perm</code> = <span class="SimpleMath">\(n\)</span>) is a simple permutation <code class="code">IsSimplePerm</code> uses the basic algorithm proposed by Uno and Yagiura in <a href="chapBib_mj.html#biBFAlgsEnumAllCommIntsof2Perms">[UY00]</a> to compare the <code class="code">perm</code> against the identity permutation of the same length.</p>
+<p>To check whether <code class="code">perm</code> (length of <code class="code">perm</code> = <span class="SimpleMath">\(n\)</span>) is a simple permutation <code class="code">IsSimplePerm</code> uses the basic algorithm proposed by Uno and Yagiura in <a href="chapBib_mj.html#biBFAlgsEnumAllCommIntsof2Perms">[8]</a> to compare the <code class="code">perm</code> against the identity permutation of the same length.</p>
 
 
 <div class="example"><pre> 
@@ -126,13 +126,13 @@ false
 
 <h4>8.3 <span class="Heading"> Point Deletion in Simple Permutations </span></h4>
 
-<p>In <a href="chapBib_mj.html#biBSimpPermsPoset">[PR12]</a> it is shown how one can get chains of permutations by starting with a simple permutation and then removing either a single point or two points and the resulting permutation would still be simple. We have applied this theory to create functions such that the set of simple permutations of shorter length, by one deletion, can be found.</p>
+<p>In <a href="chapBib_mj.html#biBSimpPermsPoset">[7]</a> it is shown how one can get chains of permutations by starting with a simple permutation and then removing either a single point or two points and the resulting permutation would still be simple. We have applied this theory to create functions such that the set of simple permutations of shorter length, by one deletion, can be found.</p>
 
 <p><a id="X877D962E7FBFB47E" name="X877D962E7FBFB47E"></a></p>
 
 <h5>8.3-1 OnePointDelete</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OnePointDelete</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; OnePointDelete</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of simple permutations with one point less than <code class="code">perm</code>.</p>
 
 <p><code class="code">OnePointDelete</code> removes single points in the simple permutation and returns a list of the resulting simple permutations, in their rank encoding.</p>
@@ -149,7 +149,7 @@ false
 
 <h5>8.3-2 TwoPointDelete</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TwoPointDelete</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TwoPointDelete</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: The exceptional permutation with two point less than <code class="code">perm</code>.</p>
 
 <p><code class="code">TwoPointDelete</code> removes two points of the input exceptional permutation and returns the list of the unique resulting permutation, in its rank encoding.</p>
@@ -166,7 +166,7 @@ false
 
 <h5>8.3-3 PointDeletion</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PointDeletion</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PointDeletion</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of simple permutations with of shorter length than <code class="code">perm</code>.</p>
 
 <p><code class="code">PointDeletion</code> takes any simple permutation does not matter whether exceptional or not and removes the right number of points.</p>
@@ -187,7 +187,7 @@ false
 
 <h4>8.4 <span class="Heading"> Block-Decomposition </span></h4>
 
-<p>Given a permutation <span class="SimpleMath">\(\pi\)</span> of length <span class="SimpleMath">\(m\)</span> and nonempty permutations <span class="SimpleMath">\(\alpha_{1},\ldots,\alpha_{m}\)</span> the inflation of <span class="SimpleMath">\(\pi\)</span> by <span class="SimpleMath">\(\alpha_{1},\ldots,\alpha_{m}\)</span>, written as <span class="SimpleMath">\(\pi[\alpha_{1},\ldots,\alpha_{m}]\)</span>, is the permutation obtained by replacing each entry <span class="SimpleMath">\(\pi(i)\)</span> by an interval that is order isomorphic to <span class="SimpleMath">\(\alpha_{i}\)</span> <a href="chapBib_mj.html#biBSimpSurv">[Bri08]</a>. Conversely a block-decomposition of <span class="SimpleMath">\(\sigma\)</span> is any expression of <span class="SimpleMath">\(\sigma\)</span> as an inflation <span class="SimpleMath">\(\sigma=\pi[\alpha_{1},\ldots,\alpha_{m}]\)</span>. The block decomposition of a permutation is unique if and only if <span class="SimpleMath">\(\sigma,\pi,\alpha_{1},\ldots,\alpha_{n}\)</span> all are in the same pattern class and <span class="SimpleMath">\(\pi\)</span> is simple and <span class="SimpleMath">\(\pi\neq 1 2,\ 2 1\)</span> <a href="chapBib_mj.html#biBSimpAndPRestrPerms">[AA05]</a>.</p>
+<p>Given a permutation <span class="SimpleMath">\(\pi\)</span> of length <span class="SimpleMath">\(m\)</span> and nonempty permutations <span class="SimpleMath">\(\alpha_{1},\ldots,\alpha_{m}\)</span> the inflation of <span class="SimpleMath">\(\pi\)</span> by <span class="SimpleMath">\(\alpha_{1},\ldots,\alpha_{m}\)</span>, written as <span class="SimpleMath">\(\pi[\alpha_{1},\ldots,\alpha_{m}]\)</span>, is the permutation obtained by replacing each entry <span class="SimpleMath">\(\pi(i)\)</span> by an interval that is order isomorphic to <span class="SimpleMath">\(\alpha_{i}\)</span> <a href="chapBib_mj.html#biBSimpSurv">[4]</a>. Conversely a block-decomposition of <span class="SimpleMath">\(\sigma\)</span> is any expression of <span class="SimpleMath">\(\sigma\)</span> as an inflation <span class="SimpleMath">\(\sigma=\pi[\alpha_{1},\ldots,\alpha_{m}]\)</span>. The block decomposition of a permutation is unique if and only if <span class="SimpleMath">\(\sigma,\pi,\alpha_{1},\ldots,\alpha_{n}\)</span> all are in the same pattern class and <span class="SimpleMath">\(\pi\)</span> is simple and <span class="SimpleMath">\(\pi\neq 1 2,\ 2 1\)</span> <a href="chapBib_mj.html#biBSimpAndPRestrPerms">[1]</a>.</p>
 
 <p>For example the inflation of <span class="SimpleMath">\(25413[21,1,1,1,2413]=3 2 8 9 1 5 7 4 6\)</span>, written in <strong class="pkg">GAP</strong> this is <code class="code">[[2,5,4,1,3],[2,1],[1],[1],[1],[2,4,1,3]]</code>. This decomposition of <span class="SimpleMath">\(3 2 8 9 1 5 7 4 6\)</span> is not unique. The unique block-decomposition, as described above, for <span class="SimpleMath">\(3 2 8 9 1 5 7 4 6=2413[21,12,1,2413]\)</span> or in <strong class="pkg">GAP</strong> notation <code class="code">[3,2,8,9,1,5,7,4,6]=[[2,4,1,3],[2,1],[1,2],[1],[2,4,1,3]]</code>.</p>
 
@@ -195,7 +195,7 @@ false
 
 <h5>8.4-1 Inflation</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Inflation</code>( <var class="Arg">list_of_perms</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Inflation</code>( <var class="Arg">list_of_perms</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A permutation that represents the inflation of the list of permutations, taking the first permutation to be <span class="SimpleMath">\(\pi\)</span>, as described in the definition of inflation.</p>
 
 <p>Inflation takes the list of permutations that stand for a box decomposition of a permutation, and calculates that permutation by replacing each entry <span class="SimpleMath">\(i\)</span> in the first permutation by an interval order isomorphic to the permutation in index <span class="SimpleMath">\(i+1\)</span>.</p>
@@ -214,7 +214,7 @@ false
 
 <h5>8.4-2 BlockDecomposition</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BlockDecomposition</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; BlockDecomposition</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list of permutations, representing the block-decomposition of <code class="code">perm</code>. In the list the first permutation is <span class="SimpleMath">\(\pi\)</span>, as described in the definiton of block-decomposition above.</p>
 
 <p><code class="code">BlockDecomposition</code> takes a plus- and minus-indecomposable permutation and decomposes it into its maximal maximal intervals, which are preceded by the simple permutation that represents the positions of the intervals. If a plus- or minus-decomposable permutation is input, then the decomposition will not be the unique decomposition, by the definition of plus- or minus- decomposable permutations, see below.</p>
@@ -245,7 +245,7 @@ false
 
 <h5>8.5-1 IsPlusDecomposable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPlusDecomposable</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPlusDecomposable</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <code class="code">perm</code> is plus-decomposable.</p>
 
 <p>To check whether <code class="code">perm</code> is a plus-decomposable permutation <code class="code">IsPlusDecomposable</code> uses the fact that there has to be an interval <span class="SimpleMath">\(1..x\)</span> where <span class="SimpleMath">\(x &lt;n\)</span> (<span class="SimpleMath">\(n\)</span> = length of the <code class="code">perm</code>) in the rank encoded permutation that is a valid rank encoding.</p>
@@ -276,7 +276,7 @@ false
 
 <h5>8.6-1 IsMinusDecomposable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMinusDecomposable</code>( <var class="Arg">perm</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsMinusDecomposable</code>( <var class="Arg">perm</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <code class="code">perm</code> is minus-decomposable.</p>
 
 <p>To check whether <code class="code">perm</code> (length of <code class="code">perm</code> = <span class="SimpleMath">\(n\)</span>) is a minus-decomposable permutation <code class="code">IsMinusDecomposable</code> uses the fact that the first <span class="SimpleMath">\(n-x\)</span>, where <span class="SimpleMath">\(x&lt;n\)</span>, letters in the rank encoding of <code class="code">perm</code> have to be <span class="SimpleMath">\(&gt;x\)</span> and that the letters from position <span class="SimpleMath">\(x+1\)</span> until the last one have to be <span class="SimpleMath">\(\leq x\)</span>.</p>
@@ -309,7 +309,7 @@ false
 
 <h5>8.7-1 PermDirectSum</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermDirectSum</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermDirectSum</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A permutation resulting from <code class="code">perm1</code> <span class="SimpleMath">\(\oplus\)</span> <code class="code">perm2</code>.</p>
 
 <p><code class="code">PermDirectSum</code> returns the permutation corresponding to <code class="code">perm1</code> <span class="SimpleMath">\(\oplus\)</span> <code class="code">perm2</code> if <code class="code">perm1</code> and <code class="code">perm2</code> are both not rank encoded. If both <code class="code">perm1</code> and <code class="code">perm2</code> are rank encoded, then <code class="code">PermDirectSum</code> returns a rank encoded sequence.</p>
@@ -326,7 +326,7 @@ false
 
 <h5>8.7-2 PermSkewSum</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermSkewSum</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; PermSkewSum</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A permutation resulting from <code class="code">perm1</code> <span class="SimpleMath">\(\ominus\)</span> <code class="code">perm2</code>.</p>
 
 <p><code class="code">PermSkewSum</code> returns the permutation corresponding to <code class="code">perm1</code> <span class="SimpleMath">\(\ominus\)</span> <code class="code">perm2</code> if <code class="code">perm1</code> and <code class="code">perm2</code> are both not rank encoded. If both <code class="code">perm1</code> and <code class="code">perm2</code> are rank encoded, then <code class="code">PermSkewSum</code> returns a rank encoded sequence.</p>

@@ -51,7 +51,7 @@
 
 <h5>10.1-1 InbetweenPermAutomaton</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InbetweenPermAutomaton</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InbetweenPermAutomaton</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton which accepts the encoded permutations between <code class="code">perm1</code> and <code class="code">perm2</code> where, <code class="code">perm2</code> is the subpermutation.</p>
 
 <p><code class="code">InbetweenPermAutomaton</code> creates the intersection language between the language of all subpermutations of <code class="code">perm1</code> and the language of superpermutations of <code class="code">perm2</code>.</p>
@@ -74,7 +74,7 @@
 
 <h5>10.1-2 InbetweenPermSet</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InbetweenPermSet</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InbetweenPermSet</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: A list which contains the permutations between <code class="code">perm1</code> and <code class="code">perm2</code> where, <code class="code">perm2</code> is the subpermutation.</p>
 
 <p>Using <code class="code">InbetweenPermAutomaton</code> we create the set of all permutations laying between the input permutations.</p>
@@ -91,7 +91,7 @@
 
 <h5>10.1-3 IsSubPerm</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubPerm</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsSubPerm</code>( <var class="Arg">perm1</var>, <var class="Arg">perm2</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="code">true</code> if <code class="code">perm2</code> is a subpermutation of <code class="code">perm1</code>.</p>
 
 <p>Creates the automaton accepting all subpermutations of <code class="code">perm1</code> of the same rank or less, and checks whether the automaton accepts the rank encoding of <code class="code">perm2</code>.</p>
@@ -112,7 +112,7 @@ false
 
 <h5>10.2-1 LoopFreeAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LoopFreeAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LoopFreeAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton without any loops of length 1.</p>
 
 <p><code class="code">LoopFreeAut</code> builds the subautomaton of <code class="code">aut</code> that does not contain any loops of length 1, except for the sink state.</p>
@@ -145,7 +145,7 @@ Accepting state: [ 2 ]
 
 <h5>10.2-2 LoopVertexFreeAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LoopVertexFreeAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; LoopVertexFreeAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: An automaton without any vertices that had loops of length 1.</p>
 
 <p><code class="code">LoopVertexFreeAut</code> builds the subautomaton that does not contain the vertices and transitions of vertices in <code class="code">aut</code> that have loops of length 1. The function minimalises and determinises the automaton before returning it, which might change the numbering on the vertices, but the returned automaton is isomorphic to the subautomaton of <code class="code">aut</code>.</p>

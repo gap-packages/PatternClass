@@ -44,7 +44,7 @@
 
 <h5>5.1-1 IsStarClosed</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStarClosed</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStarClosed</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if the start and accept states in <code class="code">aut</code> are one and the same state.</p>
 
 <p>This has the consequence that the whole rational expression accepted by <code class="code">aut</code> is always enclosed by the Kleene star.</p>
@@ -69,7 +69,7 @@ true
 
 <h5>5.1-2 Is2StarReplaceable</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Is2StarReplaceable</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; Is2StarReplaceable</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if none of the states in the automaton <code class="code">aut</code>, which are not the initial state, have a transition to the initial state labelled with the first letter of the alphabet. It also returns <code class="code">true</code> if there is at least one state <span class="SimpleMath">i ∈ Q</span> with the first two transitions from <span class="SimpleMath">i</span> being <span class="SimpleMath">f(i,1)=1</span> and <span class="SimpleMath">f(i,2)=x</span>, where <span class="SimpleMath">x ∈ Q∖{1}</span> and <span class="SimpleMath">f(x,1)=1</span>.</p>
 
 
@@ -92,7 +92,7 @@ false
 
 <h5>5.1-3 IsStratified</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStratified</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsStratified</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <code class="code">aut</code> has a specific "layered" form.</p>
 
 <p>A formal description of the most basic stratified automaton is:</p>
@@ -119,7 +119,7 @@ false
 
 <h5>5.1-4 IsPossibleGraphAut</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPossibleGraphAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IsPossibleGraphAut</code>( <var class="Arg">aut</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Returns: <code class="keyw">true</code> if <code class="code">aut</code> returns <code class="code">true</code> in <code class="code">IsStratified</code>, <code class="code">Is2StarReplaceable</code> and <code class="code">IsStarClosed</code>.</p>
 
 <p>An automaton that fulfils the three functions above has the right form to be an automaton representing rank encoded permutations, which are output from a TPN.</p>
