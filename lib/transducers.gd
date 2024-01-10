@@ -44,7 +44,7 @@ DeclareGlobalFunction( "TransposedTransducer" );
 ##
 #V  HashPair
 ##
-DeclareGlobalVariable("HashPair");
+DeclareGlobalFunction("HashPair");
 
 #############################################################################
 ##
