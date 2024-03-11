@@ -69,7 +69,7 @@ end );
 ##
 #V HashPair
 ##
-InstallValue(HashPair, s->HashKeyBag(s,57,0,12));
+InstallGlobalFunction(HashPair, s->HashKeyBag(s,57,0,12));
 
 #############################################################################
 ##
