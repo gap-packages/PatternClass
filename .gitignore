@@ -22,3 +22,7 @@ doc/*.toc
 doc/*.txt
 doc/_*.xml
 doc/title.xml
+doc/PatternClass.xml
+
+/tmp/
+/gh-pages/
