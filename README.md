@@ -14,7 +14,7 @@ patched functions are located in lib/automata.* .
 Introduction
 ------------
 
-This is version 2.4.2 of the 'PatternClass' package.
+This is version 2.4.4 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
@@ -89,6 +89,12 @@ online or within GAP help.
 
 Changes
 -------
+
+
+Changes from 2.4.4 to 2.4.2:
+- Update CI, and use latest GAP functionality.
+<<<>>><<<>>><<<>>><<<>>>
+
 Changes from 2.4 to 2.4.2:
 - Changed the name of HashSet due to clash with DataStructure Package
 - Removed TODOs from code
