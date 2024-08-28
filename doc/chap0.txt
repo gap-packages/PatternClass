@@ -6,10 +6,10 @@
                      [1X A permutation pattern class package [101X
   
   
-                                      2.3
+                                     2.4.4
   
   
-                                   05/07/2017
+                                 28 August 2024
   
   
                                  Ruth Hoffmann
@@ -23,8 +23,7 @@
   Ruth Hoffmann
       Email:    [7Xmailto:rh347@icloud.com[107X
       Homepage: [7Xhttps://rh347.host.cs.st-andrews.ac.uk/[107X
-      Address:  [33X[0;14YRuth Hoffmann[133X
-                [33X[0;14YSchool of Computer Science,[133X
+      Address:  [33X[0;14YSchool of Computer Science,[133X
                 [33X[0;14YUniversity of St. Andrews,[133X
                 [33X[0;14YNorth Haugh,[133X
                 [33X[0;14YSt. Andrews,[133X
@@ -48,7 +47,7 @@
   
   Michael Albert
       Email:    [7Xmailto:malbert@cs.otago.ac.nz[107X
-      Homepage: [7Xhttp://www.cs.otago.ac.nz/staff/michael.html[107X
+      Homepage: [7Xhttps://www.otago.ac.nz/computer-science/people/Michael_Albert.html[107X
       Address:  [33X[0;14YMichael Albert[133X
                 [33X[0;14YDepartment of Computer Science,[133X
                 [33X[0;14YUniversity of Otago,[133X
@@ -163,5 +162,3 @@
   
   
   [32X
-  [33X[0;0Y [133X
-  

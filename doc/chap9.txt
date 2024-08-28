@@ -8,7 +8,7 @@
   [1X9.1 [33X[0;0YInversions in Permutations[133X[101X
   
   [33X[0;0YAn  inversion in a permutation [22Xτ=τ_1...τ_n[122X is a pair [22X(i,j)[122X such that [22X1≤ i<j≤
-  n[122X and [22Xτ_i>τ_j[122X [5].[133X
+  n[122X and [22Xτ_i>τ_j[122X [CJS11].[133X
   
   [1X9.1-1 InversionAut[101X
   
@@ -189,7 +189,7 @@
   [33X[0;0Y[22XE(hatΩ_k)[122X is the sublanguage of [22XE(Ω_k)[122X excluding the words of length [22X≤ 1[122X.[133X
   
   [33X[0;0Y[22XE(mathcalD_P(Ω_k))[122X  is the language of all plus-decomposable permutations as
-  described in [6].[133X
+  described in [HL13].[133X
   
   [1X9.3-1 LengthBoundAut[101X
   
@@ -416,7 +416,7 @@
   
   [24X[33X[0;6Ym (2m) (m-1) (2m-1) ... 1 (m+1)[133X[124X
   
-  [33X[0;0Ywhere [22Xm ≥ 2[122X [7].[133X
+  [33X[0;0Ywhere [22Xm ≥ 2[122X [PR12].[133X
   
   [1X9.5-1 IsExceptionalPerm[101X
   

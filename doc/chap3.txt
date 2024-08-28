@@ -4,7 +4,7 @@
   [33X[0;0YA permutation [22Xπ=π_1 ... π_n[122X has rank encoding [22Xp_1 ... p_n[122X where [22Xp_i= |{j : j
   ≥  i,  π_j  ≤  π_i  }  |[122X.  In  other words the rank encoded permutation is a
   sequence of [22Xp_i[122X with [22X1≤ i≤ n[122X, where [22Xp_i[122X is the rank of [22Xπ_i[122X in [22X{π_i,π_i+1,...
-  ,π_n}[122X. [2][133X
+  ,π_n}[122X. [AAR03][133X
   
   [33X[0;0YThe encoding of the permutation 3 2 5 1 6 7 4 8 9 is done as follows:[133X
   

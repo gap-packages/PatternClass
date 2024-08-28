@@ -13,7 +13,7 @@
   [33X[0;0YThere  is  an edge from [22Xx[122X to [22Xy[122X; [22Xx[122X is the input node, and the tokens 1, 2, 3,
   ...  ,  [22Xt-1[122X have been moved, or [22Xx[122X is any other node but not the output node;
   lastly  either [22Xy[122X is the output node or [22Xy[122X is not the input node and currently
-  is not occupied by a token. [3][133X
+  is not occupied by a token. [ALTnd][133X
   
   [33X[0;0YToken  passing  networks,  or  TPNs,  are represented in [5XGAP[105X as a list. Each
   entry  of  the  list  is the index of the node within the TPN and contains a

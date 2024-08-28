@@ -8,7 +8,7 @@
   
   [33X[0;0YWith the rational language of the rank encoded class, it is also possible to
   find  the  rational  language  of the basis and vice versa. Several specific
-  kinds of transducers are used in this process. [2][133X
+  kinds of transducers are used in this process. [AAR03][133X
   
   
   [1X6.1 [33X[0;0YTransducers[133X[101X
