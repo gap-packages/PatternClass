@@ -11,7 +11,7 @@ gap> a:=Seqstacks(3,3);
 gap> aut:=GraphToAut(a,1,8);
 < epsilon automaton on 6 letters with 680 states >
 gap> a:=Parstacks(5,5);
-[ [ 2, 7 ], [ 3, 12 ], [ 2, 4 ], [ 3, 5 ], [ 4, 6 ], [ 5 ], [ 8, 12 ],
+[ [ 2, 7 ], [ 3, 12 ], [ 2, 4 ], [ 3, 5 ], [ 4, 6 ], [ 5 ], [ 8, 12 ], 
   [ 7, 9 ], [ 8, 10 ], [ 9, 11 ], [ 10 ], [  ] ]
 gap> aut:=ConstrainedGraphToAut(a,1,12,5);
 < epsilon automaton on 12 letters with 5074 states >

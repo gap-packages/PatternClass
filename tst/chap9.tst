@@ -3,11 +3,9 @@
 #A  chap9.tst            PatternClass package                 Ruth Hoffmann
 ##
 gap> START_TEST("PatternClass");
-
 gap> LoadPackage("patternclass",false);
 true
 gap> SetAssertionLevel(1);
-
 gap> a:=InversionAut(1);
 < deterministic automaton on 2 letters with 4 states >
 gap> Spectrum(a);
@@ -17,14 +15,13 @@ gap> b:=InversionAut(5);
 gap> Spectrum(b);
 [ 0, 0, 0, 3, 22, 71, 169, 343, 628, 1068, 1717, 2640, 3914, 5629, 7889 ]
 gap> InversionAutOfClass(BoundedClassAutomaton(5),4);
-< deterministic automaton on 5 letters with 20 states >
+< epsilon automaton on 6 letters with 20 states >
 gap> InversionAutOfClass(BoundedClassAutomaton(5),6);
-< deterministic automaton on 7 letters with 42 states >
+< epsilon automaton on 8 letters with 30 states >
 gap> InversionAutOfClass(BoundedClassAutomaton(5),10);
-< deterministic automaton on 11 letters with 86 states >
+< epsilon automaton on 12 letters with 50 states >
 gap> InversionAutOfClass(BoundedClassAutomaton(7),4);
-< deterministic automaton on 7 letters with 27 states >
-
+< epsilon automaton on 8 letters with 20 states >
 gap> PlusDecomposableAut(BoundedClassAutomaton(4));
 < deterministic automaton on 4 letters with 7 states >
 gap> PlusDecomposableAut(BoundedClassAutomaton(10));
@@ -41,7 +38,6 @@ gap> MinusIndecomposableAut(BoundedClassAutomaton(4));
 < deterministic automaton on 4 letters with 9 states >
 gap> MinusIndecomposableAut(BoundedClassAutomaton(8));
 < deterministic automaton on 8 letters with 31 states >
-
 gap> NonSimpleAut(5);
 < epsilon automaton on 6 letters with 187 states >
 gap> NonSimpleAut(7);
@@ -56,7 +52,6 @@ gap> SimplePermAut(5);
 < deterministic automaton on 5 letters with 77 states >
 gap> SimplePermAut(6);
 < deterministic automaton on 6 letters with 266 states >
-
 gap> IsExceptionalPerm([1,2,5,3,4]);
 false
 gap> IsExceptionalPerm([1,1,3,1,1]);
@@ -85,6 +80,4 @@ gap> ExceptionalBoundedAutomaton(15);
 < deterministic automaton on 15 letters with 104 states >
 gap> Spectrum(last);
 [ 0, 2, 0, 2, 0, 4, 0, 4, 0, 4, 0, 4, 0, 4, 0 ]
-
-
 gap> STOP_TEST( "chap9.tst", 10000 );

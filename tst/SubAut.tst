@@ -3,7 +3,6 @@
 #A  SubAut.tst            PatternClass package                 Ruth Hoffmann
 ##
 gap> START_TEST("PatternClass");
-
 gap> LoadPackage("patternclass",false);
 true
 gap> SetAssertionLevel(1);
@@ -16,11 +15,10 @@ gap> InbetweenPermAutomaton([1,2,3,4,5,6,7],[1,2,3]);
 gap> InbetweenPermAutomaton([5,4,3,2,1],[1]);
 < deterministic automaton on 5 letters with 7 states >
 gap> InbetweenPermSet([1,2,3,4,5,6,7],[1,2,3]);
-[ [ 1, 2, 3 ], [ 1, 2, 3, 4 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ],
+[ [ 1, 2, 3 ], [ 1, 2, 3, 4 ], [ 1, 2, 3, 4, 5 ], [ 1, 2, 3, 4, 5, 6 ], 
   [ 1, 2, 3, 4, 5, 6, 7 ] ]
 gap> IsSubPerm([1,2,3,4,5,6,7],[1,2,3]);
 true
 gap> IsSubPerm([1,2,3,4,7,6,5],[5,4,3,2,1]);
 false
-
 gap> STOP_TEST( "SubAut.tst", 10000 );
