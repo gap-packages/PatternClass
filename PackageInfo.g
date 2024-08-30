@@ -30,8 +30,8 @@ Persons := [
                "Fife,\n",
                "KY16 9SS,\n",
                "SCOTLAND" ),
-    Place := "Glasgow",
-    Institution := "School of Computing Science, University of Glasgow",
+    Place := "St Andrews",
+    Institution := "School of Computer Science, University of St Andrews",
   ),
   rec(
     IsAuthor := true,
