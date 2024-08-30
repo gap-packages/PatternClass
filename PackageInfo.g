@@ -20,8 +20,8 @@ Persons := [
     IsMaintainer := true,
     FirstNames := "Ruth",
     LastName := "Hoffmann",
-    WWWHome := "https://rh347.host.cs.st-andrews.ac.uk/",
-    Email := "rh347@icloud.com",
+    WWWHome := "https://www.st-andrews.ac.uk/computer-science/people/rh347/",
+    Email := "rh347@st-andrews.ac.uk",
     PostalAddress := Concatenation(
                "School of Computer Science,\n",
                "University of St. Andrews,\n",

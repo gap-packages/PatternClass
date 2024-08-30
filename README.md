@@ -7,8 +7,6 @@ The 'PatternClass' GAP 4 package
 Introduction
 ------------
 
-This is version 2.4.4 of the 'PatternClass' package.
-
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.
 Amongst other things, 'PatternClass' can compute the basis of a
