@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is an automatically generated file. -->
+<!DOCTYPE Book SYSTEM "gapdoc.dtd"
+[
+    [<#Include SYSTEM "_entities.xml">
+]
+>
+<Book Name="PatternClass">
+<#Include SYSTEM "title.xml">
+<TableOfContents/>
+<Body>
+<#Include SYSTEM "intro.xml">
+<#Include SYSTEM "tpn.xml">
+<#Include SYSTEM "encoding.xml">
+<#Include SYSTEM "tpntoaut.xml">
+<#Include SYSTEM "auttotpn.xml">
+<#Include SYSTEM "classandbase.xml">
+<#Include SYSTEM "basics.xml">
+<#Include SYSTEM "props.xml">
+<#Include SYSTEM "langs.xml">
+<#Include SYSTEM "tmp.xml">
+<#Include SYSTEM "_AutoDocMainFile.xml">
+</Body>
+<Bibliography Databases="bibliography.bib"/>
+<TheIndex/>
+</Book>

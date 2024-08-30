@@ -4,17 +4,8 @@
 The 'PatternClass' GAP 4 package
 ================================
 
-!!!!!!!!!!!!!!
-! Patch info !
-!!!!!!!!!!!!!!
-We had to patch the IntersectionAutomaton, UnionAutomata and ProductLanguage
-from the Automata pkg (version 1.13) to improve performance testing. The
-patched functions are located in lib/automata.* .
-
 Introduction
 ------------
-
-This is version 2.4.4 of the 'PatternClass' package.
 
 The 'PatternClass' package allows you to explore the permutation
 pattern classes build by token passing networks.

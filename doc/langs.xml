@@ -1,0 +1,436 @@
+<Chapter> <Heading> Regular Languages of Sets of Permutations </Heading>
+
+This chapter is dedicated to the different sets of permutations with the same properties.
+
+<Section><Heading> Inversions in Permutations </Heading>
+An inversion in a permutation <M>\tau=\tau_{1}\ldots\tau_{n}</M> is a pair <M>(i,j)</M> such that <M>1\leq i&lt;j\leq n</M> and 
+<M>\tau_{i}&gt;\tau_{j}</M> <Cite Key="UpBndStanWilf1324"/>.
+<ManSection>
+  <Func Name="InversionAut" Arg="k"/>
+  <Returns>An automaton that accepts all permutations with exactly <C>k</C> inversions.</Returns>
+  <Description>
+    The rational language of all permutations with a given number , <C>k</C>, of inversions is computed by <C>InversionAut</C>.
+<Example><![CDATA[
+gap> a:=InversionAut(1);
+< deterministic automaton on 2 letters with 4 states >
+gap> AutToRatExp(a);
+a*baa*
+gap> Spectrum(a);     
+[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+gap> b:=InversionAut(5);
+< deterministic automaton on 6 letters with 14 states >
+gap> AutToRatExp(b);
+((a*ba*bUa*c)a*bUa*ba*cUa*d)a*(ba*baa*Ucaaa*)U(a*ba*bUa*c)a*(ca*baa*Udaaaa*)U(\
+a*ba*daUa*eaa)a*baa*Ua*ba*(dbUeaa)aaa*U(a*eabUa*(ebUfaa)a)aaa*
+gap> Spectrum(b);   
+[ 0, 0, 0, 3, 22, 71, 169, 343, 628, 1068, 1717, 2640, 3914, 5629, 7889 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="InversionAutOfClass" Arg="aut,inv"/>
+  <Returns>An automaton accepting all permutations of a class with <C>inv</C> inversions.</Returns>
+  <Description>
+    <C>InversionAutOfClass</C> intersects the rational pattern class with the rational language containing all permutations
+    under the rank encoding that have exactly <C>inv</C> inversions.
+<Example><![CDATA[
+gap> a:=MinimalAutomaton(GraphToAut(Seqstacks(2,2),1,6));
+< deterministic automaton on 3 letters with 3 states >
+gap> Spectrum(a);                                        
+[ 1, 2, 6, 18, 54, 162, 486, 1458, 4374, 13122, 39366, 118098, 354294, 
+  1062882, 3188646 ]
+gap> b:=InversionAutOfClass(a,4);                        
+< deterministic automaton on 5 letters with 23 states >
+gap> Spectrum(b);                                        
+[ 0, 0, 0, 3, 13, 35, 75, 140, 238, 378, 570, 825, 1155, 1573, 2093 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+</Section>
+
+
+
+
+<Section> <Heading> Plus- and Minus-(In)Decomposablilty </Heading>
+
+<ManSection>
+  <Func Name="PlusDecomposableAut" Arg="aut"/>
+  <Returns>An automaton that accepts the subset of the class <C>aut</C> containing the
+  plus-decomposable permutations of <C>aut</C>.</Returns>
+  <Description>
+    The <C>PlusDecomposableAut</C> automaton accepts the language of all 
+    plus-decomposable permutations of the encoded class accepted by <C>aut</C>.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> xa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));
+< deterministic automaton on 4 letters with 9 states >
+gap> Spectrum(xa);
+[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, 
+  17633432, 68368135 ]
+gap> a:=PlusDecomposableAut(xa);
+< deterministic automaton on 4 letters with 16 states >
+gap> Spectrum(a);
+[ 0, 1, 3, 11, 47, 196, 808, 3306, 13433, 54265, 218145, 873303, 3483654, 
+  13853682, 54945158 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="PlusIndecomposableAut" Arg="aut"/>
+  <Returns>An automaton that accepts all permutations of <C>aut</C> that are not 
+  plus-decomposable.</Returns>
+  <Description>
+    The <C>PlusIndecomposableAutomaton</C> automaton accepts the language of all 
+    plus-indecomposable permutations of the encoded class accepted by aut, by rejecting
+    every rank encoding that in the original automaton would have entered and left
+    the accept state before the last letter in the rank encodedpermutation.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> xa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));
+< deterministic automaton on 4 letters with 9 states >
+gap> Spectrum(xa);
+[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, 
+  17633432, 68368135 ]
+gap> a:=PlusIndecomposableAut(xa);
+< deterministic automaton on 4 letters with 11 states >
+gap> Spectrum(a);
+[ 1, 1, 3, 12, 42, 149, 530, 1883, 6689, 23759, 84384, 299690, 1064319, 
+  3779750, 13422977 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="MinusDecomposableAut" Arg="aut"/>
+  <Returns>An automaton that accepts the subset of the class <C>aut</C> containing the
+  minus-decomposable permutations of <C>aut</C>.</Returns>
+  <Description>
+    The <C>MinusDecomposableAut</C> automaton accepts the language of all 
+    minus-decomposable permutations of the rank encoded class accepted by <C>aut</C>.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> xa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));
+< deterministic automaton on 4 letters with 9 states >
+gap> Spectrum(xa);
+[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, 
+  17633432, 68368135 ]
+gap> a:=MinusDecomposableAut(xa);                         
+< deterministic automaton on 4 letters with 12 states >
+gap> Spectrum(a);                                         
+[ 0, 1, 3, 10, 24, 64, 180, 520, 1524, 4504, 13380, 39880, 119124, 356344, 
+  1066980 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="MinusIndecomposableAut" Arg="aut"/>
+  <Returns>An automaton that accepts all permutations of <C>aut</C> that are not 
+  minus-decomposable.</Returns>
+  <Description>
+    The <C>MinusIndecomposableAut</C> automaton accepts the language of all 
+    minus-indecomposable permutations of the encoded class accepted by aut, 
+    which is the complement set of the set of minus-decomposable permutations
+    within the class.
+<!-- EXAMPLE !!!!!!!! -->
+<Example><![CDATA[
+gap> xa:=MinimalAutomaton(GraphToAut(Parstacks(2,2),1,6));
+< deterministic automaton on 4 letters with 9 states >
+gap> Spectrum(xa);
+[ 1, 2, 6, 23, 89, 345, 1338, 5189, 20122, 78024, 302529, 1172993, 4547973, 
+  17633432, 68368135 ]
+gap> a:=MinusIndecomposableAut(xa);
+< deterministic automaton on 4 letters with 17 states >
+gap> Spectrum(a);
+[ 1, 1, 3, 13, 65, 281, 1158, 4669, 18598, 73520, 289149, 1133113, 4428849, 
+  17277088, 67301155 ]
+gap> ]]></Example>
+
+  </Description>
+</ManSection>
+
+</Section>
+
+
+<Section> <Heading> Language of all non-simple permutations </Heading>
+The regular language of all non-simple rank encoded permutations with highest rank <M>k</M> is
+described by the following equation,
+<Display Mode="M">
+    E(NS_{k}) = E(\Omega_{k})
+		\cap ( \bigcup_{l=1}^{k-1} P_{l} \bigcup_{m=l}^{k-1} E(\hat{\Omega}_{k-m})^{+m} 
+		\cup 
+		\bigcup_{j=1}^{k-1} E(\hat{\Omega}_{k-j})^{+j}
+		\cup 
+</Display>
+<Display Mode="M"> 
+		\cup
+		\bigcup_{a=2}^{k-1} \bigcup_{b=0}^{k-1-a} Q_{a,b} \bigcup_{i=0}^{a-2} (E(\hat{\Omega}_{k-(b+i)})^{+b+i})^{(a-i)} ) \Sigma^{*} 
+		\cup 
+		E(\mathcal{D}_{P}(\Omega_{k}))
+</Display>
+where 
+<M>\Sigma</M> is the alphabet <M>\{1,\ldots,k\}</M>, <M>k\in\mathbb{N}</M>, <M>k \geq 3</M>.<P/>
+<M>P_{l}</M> is the language of prefixes of rank encoded permutations, where the prefix ends with the total sum of gap sizes to be equal to <M>l</M>. <P/>
+<M>Q_{i,j}</M> is the language of prefixes of rank encoded permutations, where the prefix ends with a gap of size <M>i</M> and the sum of the sizes of gaps below equals to <M>j</M>. <P/>
+<M>E(\Omega_{k-i})^{+i}</M> is the language of <M>E(\Omega_{k-i})</M> <M>i \in \mathbb{N}</M>, with the alphabet shifted upwards by <M>i</M>.<P/>
+<M>E(\Omega_{k})^{(i)}</M> is the sublanguage of <M>E(\Omega_{k})</M> containing the words of length <M>\leq i</M>, <M>i \in \mathbb{N}</M>.<P/>
+<M>E(\hat{\Omega}_{k})</M> is the sublanguage of <M>E(\Omega_{k})</M> excluding the words of length <M>\leq 1</M>.<P/>
+<M>E(\mathcal{D}_{P}(\Omega_{k}))</M> is the language of all plus-decomposable permutations as described in <Cite Key="RegLangPlusMinPerms"/>.
+
+
+<ManSection>
+  <Func Name="LengthBoundAut" Arg="aut,min,i,k"/>
+  <Returns>The subautomaton of <C>aut</C> that accepts words between (and including) the lengths <C>min</C> and <C>i</C>.</Returns>
+  <Description>
+    We are taking the automaton <C>aut</C> and it's alphabet <C>k</C>, and find the automaton that accepts all words of <C>aut</C> of length between (and including) <C>min</C> and <C>i</C>.
+<Example><![CDATA[
+gap> a:=BoundedClassAutomaton(4); 
+< deterministic automaton on 4 letters with 4 states >
+gap> Spectrum(a);
+[ 1, 2, 6, 24, 96, 384, 1536, 6144, 24576, 98304, 393216, 1572864, 6291456, 
+  25165824, 100663296 ]
+gap> LengthBoundAut(a,4,8,4);
+< deterministic automaton on 4 letters with 22 states >
+gap> Spectrum(last);
+[ 0, 0, 0, 24, 96, 384, 1536, 6144, 0, 0, 0, 0, 0, 0, 0 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="ShiftAut" Arg="i,k"/>
+  <Returns>The automaton <M>\Omega_{k-i}^{+i}</M>.</Returns>
+  <Description>
+  	We are shifting the alphabet of <M>\Omega_{k-i}</M> in their values by <M>i</M> to expand to the alphabet <M>\{1,\ldots,k\}</M>, but keeping the automaton structure of <M>\Omega_{k-i}</M>.
+<Example><![CDATA[
+gap> ShiftAut(2,4);
+< non deterministic automaton on 4 letters with 4 states >
+gap> Display(last);
+   |  1       2       3       4
+-----------------------------------
+ a |                                 
+ b |                                 
+ c | [ 2 ]   [ 4 ]   [ 4 ]   [ 4 ]   
+ d | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   
+Initial state:   [ 1 ]
+Accepting state: [ 4 ]
+gap> ShiftAut(1,4);
+< non deterministic automaton on 4 letters with 5 states >
+gap> Display(last);
+   |  1       2       3       4       5
+-------------------------------------------
+ a |                                         
+ b | [ 2 ]   [ 5 ]   [ 5 ]   [ 3 ]   [ 5 ]   
+ c | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   
+ d | [ 4 ]   [ 4 ]   [ 4 ]   [ 4 ]   [ 4 ]   
+Initial state:   [ 1 ]
+Accepting state: [ 5 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+<ManSection>
+  <Func Name="NextGap" Arg="gap,rank"/>
+  <Returns>A list of gap sizes.</Returns>
+  <Description>
+  	Knowing the current available gap sizes <C>gap</C>, which are the number of available spaces in a permutation plot. These gaps are separated by blocks where there are already points inserted. We determine where the next point (known to us as its <C>rank</C>) is being placed and what the next gap sizes are.
+<Example><![CDATA[
+gap> NextGap([1,1],2);
+[ 1 ]
+gap> NextGap([1],3);
+[ 1, 1 ]
+gap> NextGap([2,1],4);
+[ 2, 1 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="GapAut" Arg="k"/>
+  <Returns>The non-deterministic automaton accepting the rank encoded language of <M>\Omega_{k}</M> and the list of all possible gap sizes.</Returns>
+  <Description>
+  	The automaton accepts the rank encoded permutations of <M>\Omega_{k}</M>, but the automaton is slightly extended through having each state corresponding to a gap size and the start state being the emptyset of gap sizes. The transitions of the automaton are determined through the knowledge of the available spaces and the rank. This is calculated in <C>NextGap</C>.
+  	Please note that the index of the gap sizes in the list corresponds to the state of the automaton.
+<Example><![CDATA[
+gap> GapAut(3);
+[ < non deterministic automaton on 3 letters with 5 states >, 
+  [ [  ], [ 0 ], [ 1 ], [ 2 ], [ 1, 1 ] ] ]
+gap> Display(last[1]);
+   |  1       2       3       4       5
+-------------------------------------------
+ a | [ 2 ]   [ 2 ]   [ 2 ]   [ 3 ]   [ 3 ]   
+ b | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   
+ c | [ 4 ]   [ 4 ]   [ 5 ]   [ 4 ]   [ 5 ]   
+Initial state:    [ 1 ]
+Accepting states: [ 1, 2 ]
+gap>  ]]></Example>
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="SumAut" Arg="sum,k"/>
+  <Returns>The automaton accepting the language <M>P_{sum}</M>.</Returns>
+  <Description>
+  	This automaton is based on the <C>GapAut</C> where the accept states are chosen by their gap sizes, namely if the total sum of gap sizes equal to <C>sum</C>.
+    
+<Example><![CDATA[
+gap> SumAut(2,3);
+< non deterministic automaton on 3 letters with 5 states >
+gap> Display(last);
+   |  1       2       3       4       5
+-------------------------------------------
+ a | [ 2 ]   [ 2 ]   [ 2 ]   [ 3 ]   [ 3 ]   
+ b | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   
+ c | [ 4 ]   [ 4 ]   [ 5 ]   [ 4 ]   [ 5 ]   
+Initial state:    [ 1 ]
+Accepting states: [ 4, 5 ]
+gap>  ]]></Example>
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="GapSumAut" Arg="gap,sum,k"/>
+  <Returns>The automaton accepting the language <M>Q_{gap,sum}</M>.</Returns>
+  <Description>
+  	This automaton is based on the <C>GapAut</C> where the accept states are chosen by their gap sizes, namely if there is a gap size <C>gap</C> and the gap sizes before have a total sum of <C>sum</C>.
+    
+<Example><![CDATA[
+gap> GapSumAut(1,0,3);
+< non deterministic automaton on 3 letters with 5 states >
+gap> Display(last);   
+   |  1       2       3       4       5
+-------------------------------------------
+ a | [ 2 ]   [ 2 ]   [ 2 ]   [ 3 ]   [ 3 ]   
+ b | [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   [ 3 ]   
+ c | [ 4 ]   [ 4 ]   [ 5 ]   [ 4 ]   [ 5 ]   
+Initial state:    [ 1 ]
+Accepting states: [ 3, 5 ]
+gap>  ]]></Example>
+  </Description>
+</ManSection>
+
+
+<ManSection>
+  <Func Name="NonSimpleAut" Arg="k"/>
+  <Returns>The automaton accepting all rank encoded non-simple permutations with rank encoding <C>k</C>.</Returns>
+  <Description>
+    We find the language of all non-simple permutations of the set of all <M>k</M> rank encoded permutations <M>\Omega_{k}</M> using the above equation.
+    
+<Example><![CDATA[
+gap> a:=NonSimpleAut(3);
+< deterministic automaton on 3 letters with 9 states >
+gap> Display(a);
+   |  1  2  3  4  5  6  7  8  9  
+--------------------------------
+ a |  1  3  1  5  3  1  6  3  3  
+ b |  3  3  3  3  9  9  3  9  3  
+ c |  2  2  2  2  4  4  2  7  4  
+Initial state:   [ 8 ]
+Accepting state: [ 1 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+</Section>
+
+
+<Section> <Heading> Simplicity </Heading>
+The set of simple permutations of a class is the complement set of the class with the non-simple permutations. We are working in the rank encoding and so in language terms our set of simple permutations <M>S_{k}</M> will be the subset of <M>\Omega_{k}</M> 
+<Display Mode="M">
+E(S_{k}) = E(\Omega_{k}\setminus NS_{k}) = E(\Omega_{k}) \setminus E(NS_{k}) = E(\Omega_{k}) \cap E(NS_{k})^{C}
+</Display>
+<ManSection>
+  <Func Name="SimplePermAut" Arg="k"/>
+  <Returns>The automaton accepting all rank encoded simple permutations with highest rank encoding <C>k</C>.</Returns>
+  <Description>
+    We find the language of all simple permutations of the set of all <M>k</M> rank encoded permutations <M>\Omega_{k}</M> using the above equation.
+    
+<Example><![CDATA[
+gap> SimplePermAut(3);
+< deterministic automaton on 3 letters with 8 states >
+gap> Display(last);
+   |  1  2  3  4  5  6  7  8  
+-----------------------------
+ a |  2  2  1  1  7  2  1  6  
+ b |  2  2  4  2  2  4  4  2  
+ c |  2  2  8  5  2  5  5  2  
+Initial state:    [ 3 ]
+Accepting states: [ 1, 3 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+</Section>
+
+
+
+<Section><Heading>Exceptionality</Heading>
+A permutation is said to be exceptional if it is of one of the following forms, 
+<Display Mode="M">
+2 4 6 \ldots (2m) 1 3 5 \ldots (2m-1) 
+</Display>
+<Display Mode="M">
+(2m-1) (2m-3) \ldots 1 (2m) (2m-2) \ldots 2
+</Display>
+<Display Mode="M">
+(m+1) 1 (m+2) 2 (m+3) 3 \ldots (2m) m
+</Display>
+<Display Mode="M">
+m (2m) (m-1) (2m-1) \ldots 1 (m+1)
+</Display>
+where <M>m \geq 2</M> <Cite Key="SimpPermsPoset"/>.
+
+
+<ManSection>
+  <Func Name="IsExceptionalPerm" Arg="perm"/>
+  <Returns><C>True</C> if <C>perm</C> is exceptional, <C>False</C> otherwise.</Returns>
+  <Description>
+    The functions checks whether <C>perm</C> is one of the 4 types of exceptional permutations, that are described above.
+<Example><![CDATA[
+gap> IsExceptionalPerm([1,2,5,3,4]);
+false
+gap> IsExceptionalPerm([1,1,3,1,1]);
+false
+gap> IsExceptionalPerm([2,4,6,1,3,5]);
+true
+gap> IsExceptionalPerm([2,3,4,1,1,1]);
+true
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+
+
+<ManSection>
+  <Func Name="ExceptionalBoundedAutomaton" Arg="k"/>
+  <Returns>The automaton which accepts all exceptional permutations with highest rank encoding <C>k</C>.</Returns>
+  <Description>
+    The language of <C>k</C> rank encoded exceptional permutations will be finite, and so it regular.
+<Example><![CDATA[
+gap> ExceptionalBoundedAutomaton(8); 
+< deterministic automaton on 8 letters with 41 states >
+gap> Spectrum(last,20);             
+[ 0, 2, 0, 2, 0, 4, 0, 4, 0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0 ]
+gap> ExceptionalBoundedAutomaton(5);
+< deterministic automaton on 5 letters with 21 states >
+gap> Spectrum(last);
+[ 0, 2, 0, 2, 0, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0 ]
+gap> ]]></Example>
+  </Description>
+</ManSection>
+
+</Section>
+</Chapter>

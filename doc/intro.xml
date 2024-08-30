@@ -1,0 +1,29 @@
+<Chapter><Heading>Introduction</Heading> 
+
+Token passing networks (TPNs) are directed graphs with nodes that can hold at most one token. Also 
+each graph has a designated input node, which generates an ordered sequence of numbered tokens and
+a designated output node that collects the tokens in the order they arrive at it. The input node
+has no incoming edges, whereas the output node has no outgoing edges. A token <M>t</M> travels through the
+graph, from node to node, if there is an edge connecting the nodes, if the node the token is moving
+from is either the input node and the tokens <M>1, \ldots, t-1</M> have been released or the node is not
+the output node, and lastly if the destination node contains no token or it is the output node. <Cite Key="PermGenTPGraph" /> <P/>
+The set of permutations resulting from a TPN is closed under the property of containment. A permutation
+<M>a</M> contains a permutation <M>b</M> of shorter length if in <M>a</M> there is a subsequence
+that is isomorphic to <M>b</M>. This class of permutations can be represented by its anti-chain, which
+in this context is called the basis. <Cite Key="RegCloSetPerms"/> <P/>
+To enhance the computability of permutation pattern classes, each permutation can be encoded, using the
+so called rank encoding. For a permutation <M>p_{1} \ldots p_{n}</M>, it is the sequence 
+<M>e_{1}\ldots e_{n}</M> where <M>e_{i}</M> is the rank of <M>p_{i}</M> among <M>\{p_{i},p_{i+1},\ldots,p_{n}\}</M>.
+It can be shown that the sets of encoded permutations of the class and the basis, both are a rational languages.
+Rational languages can be represented by automata. <Cite Key="RegCloSetPerms"/> <P/>
+There is another approach to get from TPNs to their corresponding automata. Namely building equivalence classes from
+TPNs using the different dispositions of tokens within them. These equivalence classes of dispositions 
+and the rank encoding of the permutations allow to build the same rational language as from the process above.
+<Cite Key="PermGenTPGraph" />
+
+
+
+
+
+</Chapter>
+

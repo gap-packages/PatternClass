@@ -6,10 +6,10 @@
                      [1X A permutation pattern class package [101X
   
   
-                                     2.4.4
+                                     2.4.5
   
   
-                                 28 August 2024
+                                 30 August 2024
   
   
                                  Ruth Hoffmann
@@ -21,8 +21,8 @@
   
   
   Ruth Hoffmann
-      Email:    [7Xmailto:rh347@icloud.com[107X
-      Homepage: [7Xhttps://rh347.host.cs.st-andrews.ac.uk/[107X
+      Email:    [7Xmailto:rh347@st-andrews.ac.uk[107X
+      Homepage: [7Xhttps://www.st-andrews.ac.uk/computer-science/people/rh347/[107X
       Address:  [33X[0;14YSchool of Computer Science,[133X
                 [33X[0;14YUniversity of St. Andrews,[133X
                 [33X[0;14YNorth Haugh,[133X

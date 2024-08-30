@@ -1,0 +1,149 @@
+<Chapter><Heading>Token Passing Networks</Heading>
+<Label Name="tpn"/>
+A token passing network is a directed graph with a designated input node and a designated output node.
+The input node has no incoming edges whereas the output node has no outgoing edges. Also the input
+node generates a sequence of tokens, labelled 1, 2, 3, ... . These tokens are passed on to 
+the nodes within the graph, where each node, apart from the input and output node, can hold at most
+one token at any time.
+The edges do not hold tokens but are there to pass them on. The following must hold if a token <M>t</M>
+moves from the node <M>x</M> to the node <M>y</M>. <P/>
+There is an edge from <M>x</M> to <M>y</M>; <M>x</M> is the input node, and the tokens 1, 2, 3, ... , <M>t-1</M>
+have been moved, or <M>x</M> is any other node but not the output node; lastly either <M>y</M> is the output
+node or <M>y</M> is not the input node and currently is not occupied by a token. <Cite Key="PermGenTPGraph" /> <P/>
+Token passing networks, or TPNs, are represented in &GAP; as a list. Each entry of the list is 
+the index of the node within the TPN and contains a list of the "destinations", i.e. the end of the edge or arrow where
+it is directed to. <P/>
+Here is an example how the input of such a TPN looks in &GAP;:
+<Example><![CDATA[  
+gap> hex:=[[2,3],[4],[5],[3,6],[6],[]];
+[ [ 2, 3 ], [ 4 ], [ 5 ], [ 3, 6 ], [ 6 ], [  ] ]
+gap> ]]></Example>
+
+<Alt Only="LaTeX">
+  This list represents the following directed graph:
+  \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/hex.jpg} \end{center} \end{figure}
+</Alt>
+<Alt Only="HTML">
+  This list represents the following directed graph:
+  &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/hex.jpg&#34; WIDTH=243 HEIGHT=98 &#62;&#60;/center&#62;&#60;br&#62;
+</Alt>
+From this it is visible that the input node is 1, as it has no other node pointing any arrows towards it, and the output
+node is 6, as it has no destinations (hence the empty list).
+
+
+
+
+<Section><Heading> Specific TPN </Heading>
+In <C>PatternClass</C> there are several functions that define different kinds of specific token passing networks.
+<ManSection>
+  <Func Name="Parstacks" Arg="m,n"/>
+  <Returns>A list that represents the directed edges of a token passing network.</Returns>
+  <Description>
+    <C>Parstacks</C> constructs a token passing network with 2 different sized stacks <C>m,n</C> positioned in parallel.
+<Example><![CDATA[  
+gap> Parstacks(2,2);
+[ [ 2, 4 ], [ 3, 6 ], [ 2 ], [ 5, 6 ], [ 4 ], [  ] ]
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      <C>Parstacks(2,2)</C> can be visualised as the following directed graph:
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/ps22.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      <C>Parstacks(2,2)</C> can be visualised as the following directed graph:
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/ps22.jpg&#34; WIDTH=244 HEIGHT=282 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+
+<Example><![CDATA[  
+gap> Parstacks(4,3);
+[ [ 2, 6 ], [ 3, 9 ], [ 2, 4 ], [ 3, 5 ], [ 4 ], [ 7, 9 ], [ 6, 8 ], [ 7 ],
+  [  ] ]
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      The token passing network below represents the list that was output by <C>Parstacks(4,3)</C>.
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/ps43.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      The token passing network below represents the list that was output by <C>Parstacks(4,3)</C>.
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/ps43.jpg&#34; WIDTH=242 HEIGHT=458 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+
+<ManSection>
+  <Func Name="Seqstacks" Arg="n[,m[,o[,p[,...]]]]"/>
+  <Returns>A list that represents the directed edges of a token passing network.</Returns>
+  <Description>
+    The token passing network build by <C>Seqstacks</C> contains a series of stacks (as many as you have integers in the 
+    arguments list) each of different length (each integer in the argument list).
+<Example><![CDATA[  
+gap> Seqstacks(2,2);
+[ [ 2 ], [ 3, 4 ], [ 2 ], [ 5, 6 ], [ 4 ], [  ] ]
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      <C>Seqstacks(2,2)</C> can be visualised as the following directed graph:
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/ss22.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+       <C>Seqstacks(2,2)</C> can be visualised as the following directed graph:
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/ss22.jpg&#34; WIDTH=281 HEIGHT=130 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+<Example><![CDATA[
+gap> Seqstacks(3,1,4);
+[ [ 2 ], [ 3, 5 ], [ 2, 4 ], [ 3 ], [ 4 ], [ 7, 10 ], [ 6, 8 ], [ 7, 9 ], 
+  [ 8 ], [  ] ]
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      The token passing network containing a series of stacks of length 3, 1 and 4 looks as follows:
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/ss314.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      The token passing network containing a series of stacks of length 3, 1 and 4 looks as follows:
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/ss314.jpg&#34; WIDTH=321 HEIGHT=234 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+
+
+<ManSection>
+  <Func Name="BufferAndStack" Arg="m,n"/>
+  <Returns>A list that represents the directed edges of a token passing network.</Returns>
+  <Description>
+    <C>BufferAndStack</C> is a token passing network that consists of a buffer of size <C>m</C> which is followed by a single stack of
+    size <C>n</C>.
+<Example><![CDATA[  
+gap> BufferAndStack(2,2);
+[ [ 2, 3 ], [ 4 ], [ 4 ], [ 5, 6 ], [ 4 ], [  ] ]
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      <C>BufferAndStack(2,2)</C> is the following directed graph:
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/bs22.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      <C>BufferAndStack(2,2)</C> is the following directed graph:
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/bs22.jpg&#34; WIDTH=308 HEIGHT=132 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+<Example><![CDATA[
+gap> BufferAndStack(4,3);
+[ [ 2 .. 5 ], [ 6 ], [ 6 ], [ 6 ], [ 6 ], [ 7, 9 ], [ 6, 8 ], [ 7 ], [  ] ]
+gap> ]]></Example>
+    <Alt Only="LaTeX">
+      The token passing network correlating to the list output by <C>BufferAndStack(4,3)</C> is:
+      \begin{figure}[H] \begin{center} \leavevmode \includegraphics[scale=0.75]{img/bs43.jpg} \end{center} \end{figure}
+    </Alt>
+    <Alt Only="HTML">
+      The token passing network correlating to the list output by <C>BufferAndStack(4,3)</C> is:
+      &#60;br&#62;&#60;center&#62;&#60;img src=&#34;img/bs43.jpg&#34; WIDTH=303 HEIGHT=253 &#62;&#60;/center&#62;&#60;br&#62;
+    </Alt>
+  </Description>
+</ManSection>
+
+
+
+</Section>
+</Chapter>

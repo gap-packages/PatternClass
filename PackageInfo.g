@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "PatternClass",
 Subtitle := "A permutation pattern class package",
-Version := "2.4.4",
-Date := "28/08/2024", # dd/mm/yyyy format
+Version := "2.4.5",
+Date := "30/08/2024", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -20,8 +20,8 @@ Persons := [
     IsMaintainer := true,
     FirstNames := "Ruth",
     LastName := "Hoffmann",
-    WWWHome := "https://rh347.host.cs.st-andrews.ac.uk/",
-    Email := "rh347@icloud.com",
+    WWWHome := "https://www.st-andrews.ac.uk/computer-science/people/rh347/",
+    Email := "rh347@st-andrews.ac.uk",
     PostalAddress := Concatenation(
                "School of Computer Science,\n",
                "University of St. Andrews,\n",
@@ -30,8 +30,8 @@ Persons := [
                "Fife,\n",
                "KY16 9SS,\n",
                "SCOTLAND" ),
-    Place := "Glasgow",
-    Institution := "School of Computing Science, University of Glasgow",
+    Place := "St Andrews",
+    Institution := "School of Computer Science, University of St Andrews",
   ),
   rec(
     IsAuthor := true,

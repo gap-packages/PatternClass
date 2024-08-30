@@ -1,12 +1,12 @@
 name: PatternClass
-version: 2.4.4
-date: 2024-08-28
+version: 2.4.5
+date: 2024-08-30
 description: |
     A permutation pattern class package
 
 authors:
     - name: Ruth Hoffmann
-      url: https://rh347.host.cs.st-andrews.ac.uk/
+      url: https://www.st-andrews.ac.uk/computer-science/people/rh347/
     - name: Steve Linton
       url: http://sal.host.cs.st-andrews.ac.uk/
     - name: Michael Albert
@@ -14,7 +14,7 @@ authors:
 
 maintainers:
     - name: Ruth Hoffmann
-      url: https://rh347.host.cs.st-andrews.ac.uk/
+      url: https://www.st-andrews.ac.uk/computer-science/people/rh347/
 
 GAP: ">= 4.8"
 
@@ -32,7 +32,7 @@ packageinfo: https://gap-packages.github.io/PatternClass/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/PatternClass/releases/download/v2.4.4/PatternClass-2.4.4.tar.gz
+      url: https://github.com/gap-packages/PatternClass/releases/download/v2.4.5/PatternClass-2.4.5.tar.gz
 
 abstract: |
     The PatternClass package is build on the idea of token passing networks building permutation pattern classes. Those classes are best determined by their basis. Both sets can be encoded by rank encoding their permutations. Each, the class and its basis, in their encoded form build a rational language. Rational languages can be easily computed by using automata, which also can be build directly from the token passing networks. Both ways will build the same language, i.e. the same automaton.
