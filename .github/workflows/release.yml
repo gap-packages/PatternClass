@@ -1,113 +1,37 @@
----
+name: Release
 
-name: release
-run-name: release-${{ github.ref_name }}
 on:
-  workflow_dispatch: 
-  release:
-    types:
-      - published
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Set to true to create an archive containing the release instead of publishing it on GitHub"
+        type: boolean
+        required: false
+        default: false
+      force:
+        description: "Set to true to allow this action to overwrite an existing release, and to make a release with an incorrect date"
+        type: boolean
+        required: false
+        default: false
 
-env:
-  gap-branch: stable-4.13
-  revision: ${{ github.event.repository.name }}-${{ github.ref_name }}
-  archive-file:  ${{ github.event.repository.name }}-${{ github.ref_name }}.tar.gz
+permissions: write-all
 
 jobs:
-  assets-build:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    steps:
-      - name: git -- checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
+  release:
+    name: "Release the GAP package"
+    runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v5
       - uses: gap-actions/setup-gap@v2
         with:
-          GAPBRANCH: ${{ env.gap-branch }}
-
-      - name: gap -- build docs
-        uses: gap-actions/build-pkg-docs@v1
+          GAP_PKGS_TO_BUILD: json
+      - uses: gap-actions/build-pkg-docs@v1
         with:
-          use-latex: 'true'
-
-      - name: github -- run clean up for tarball
-        run: |
-          echo "::group:: cleanup version control metadata"
-          rm -rvf .git
-          rm -rvf .svn
-
-          echo "::group:: cleanup deployment metadata"
-          rm -rvf .github
-          rm -fv .codecov.yaml
-          rm -fv .codecov.yml
-          rm -fv .gaplint.yml
-          rm -fv requirements.txt
-
-          echo "::group:: cleanup macos metadata"
-          find . -name .DS_Store -exec rm -f {} +
-
-          echo "::group:: remove tex aux files"
-          find doc \( -name '*.aux' -o -name '*.bbl' -o -name '*.blg' -o -name '*.brf' -o -name '*.idx' -o -name '*.ilg' -o -name '*.ind' -o -name '*.log' -o -name '*.out' -o -name '*.pnr' -o -name '*.toc' -o -name '*.tst' \) -exec rm -f {} +
-
-      - name: pkg -- build an archive
-        run: |
-          touch ${{ env.archive-file }}
-          tar -czf ${{ env.archive-file }} --exclude=${{ env.archive-file }} --transform 's,^\.,${{ env.revision }},' .
-
-      - name: github -- upload artifacts
-        uses: softprops/action-gh-release@v2
+          use-latex: true
+      - uses: gap-actions/release-pkg@v1
         with:
-          files: |
-            ${{ env.archive-file }}
-            doc/manual.pdf
-
-
-  update-website:
-    runs-on: ubuntu-22.04
-    needs: assets-build
-    permissions:
-      contents: write
-    steps:
-      - uses: gap-actions/setup-gap@v2
-        with:
-          GAPBRANCH: ${{ env.gap-branch }}
-
-      - name: git -- checkout page
-        uses: actions/checkout@v4
-        with:
-          path: gh-pages
-          ref: gh-pages
-
-      - name: website -- download asset to be deployed
-        uses: robinraju/release-downloader@v1
-        with:
-          tag: ${{ github.ref_name }}
-          fileName: ${{ env.archive-file }}
-      
-      - name: website -- extract the archive
-        run: |
-          tar -xvf ${{ env.archive-file }}
-
-      - name: metadata -- copy metada to update page
-        run: |
-          rm -rf ./gh-pages/doc
-          cp -r ${{ env.revision }}/doc/ ./gh-pages/doc/
-          cp ${{ env.revision }}/PackageInfo.g ./gh-pages/PackageInfo.g
-          cp ${{ env.revision }}/README.md ./gh-pages/README.md
-          rm -fv ./gh-pages/doc/.gitignore
-
-      - name: gap -- run update.g
-        working-directory: ./gh-pages
-        run: |
-          gap update.g
-
-      - name: git -- commit the update
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: '[${{ github.ref_name }}] - website update'
-          repository: gh-pages
-          branch: gh-pages
-          push_options: '--force'
+          dry-run: ${{ inputs.dry-run }}
+          force: ${{ inputs.force }}
+      - uses: gap-actions/update-gh-pages@v1
+        if: ${{ !inputs.dry-run }}
