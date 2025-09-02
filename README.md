@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/gap-packages/PatternClass/workflows/CI/badge.svg?branch=master)](https://github.com/gap-packages/PatternClass/actions?query=workflow%3ACI+branch%3Amaster)
+[![CI](https://github.com/gap-packages/PatternClass/actions/workflows/CI.yml/badge.svg)](https://github.com/gap-packages/PatternClass/actions/workflows/CI.yml)
 [![Code Coverage](https://codecov.io/github/gap-packages/PatternClass/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/PatternClass)
 
 The 'PatternClass' GAP 4 package
