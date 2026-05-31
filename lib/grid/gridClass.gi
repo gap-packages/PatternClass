@@ -82,7 +82,7 @@ local row, col, first, i, j, res;
 row:=ListWithIdenticalEntries(Length(mat),0);
 col:=ListWithIdenticalEntries(Length(mat[1]),0);
 
-first:=PositionNot(mat[1],0);
+first:=PositionNonZero(mat[1]);
 
 if mat[1][first] = 1 then
     col[first]:=1;
@@ -103,9 +103,9 @@ for i in [1..Length(mat)] do
                         row[i]:=1;
                         col[j]:=1;
                     elif not(mat[i]{[j+1..Length(mat[1])]} = ListWithIdenticalEntries(Length(mat[1])-j,0)) then
-                        first:=PositionNot(col,0);
+                        first:=PositionNonZero(col);
                         while first < Length(col) and mat[i][first] = 0 do
-                            first:=PositionNot(col{[first+1..Length(col)]},0)+first;
+                            first:=PositionNonZero(col{[first+1..Length(col)]})+first;
                         od;
                         if first <= Length(col) and mat[i][first] = 1 then
                             row[i]:=col[first];
@@ -118,9 +118,9 @@ for i in [1..Length(mat)] do
                             col[j]:=1;
                         fi;
                     elif not(Flat(mat{[i+1..Length(mat)]}[j]) = ListWithIdenticalEntries(Length(mat)-i,0)) then
-                        first:=PositionNot(row,0);
+                        first:=PositionNonZero(row);
                         while first < Length(row) and mat[first][j] = 0 do
-                            first:=PositionNot(row{[first+1..Length(row)]},0)+first;
+                            first:=PositionNonZero(row{[first+1..Length(row)]})+first;
                         od;
                         if first <= Length(row) and mat[first][j] = 1 then
                             row[i]:=row[first];
@@ -150,9 +150,9 @@ for i in [1..Length(mat)] do
                         row[i]:=1;
                         col[j]:=-1;
                     elif not(mat[i]{[j+1..Length(mat[1])]} = ListWithIdenticalEntries(Length(mat[1])-j,0)) then
-                        first:=PositionNot(col,0);
+                        first:=PositionNonZero(col);
                         while first < Length(col) and mat[i][first] = 0 do
-                            first:=PositionNot(col{[first+1..Length(col)]},0)+first;
+                            first:=PositionNonZero(col{[first+1..Length(col)]})+first;
                         od;
                         if first <= Length(col) and mat[i][first] = 1 then
                             row[i]:=col[first];
@@ -165,9 +165,9 @@ for i in [1..Length(mat)] do
                             col[j]:=1;
                         fi;
                     elif not(Flat(mat{[i+1..Length(mat)]}[j]) = ListWithIdenticalEntries(Length(mat)-i,0)) then
-                        first:=PositionNot(row,0);
+                        first:=PositionNonZero(row);
                         while first < Length(row) and mat[first][j] = 0 do
-                            first:=PositionNot(row{[first+1..Length(row)]},0)+first;
+                            first:=PositionNonZero(row{[first+1..Length(row)]})+first;
                         od;
                         if first <= Length(col) and mat[first][j] = 1 then
                             row[i]:=row[first];
