@@ -107,8 +107,8 @@ PackageDoc := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">= 4.8",
-  NeededOtherPackages := [ ["Automata", ">=1.13"], [ "GAPDoc", ">= 1.5" ] ],
+  GAP := ">= 4.16",
+  NeededOtherPackages := [ ["Automata", ">=1.13"], [ "GAPDoc", ">= 1.5" ], ["GraphvizForGAP", ">=0"] ],
   SuggestedOtherPackages := [ ],
   ExternalConditions := [ ],
 ),

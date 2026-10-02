@@ -1,9 +1,25 @@
-LoadPackage("graphvizforgap");
+#############################################################################
+##
+##
+#W  visualisation.gi			    Ruth Hoffmann
+##
+#Y  Copyright (C) 2026      School of Computer Science, 
+#Y                          University of St. Andrews, North Haugh,
+#Y                          St. Andrews, Fife KY16 9SS, Scotland
+##
 
-tpn2dot := function( tpn, name )
-local f, innode, outnode, nodes, isin, n, m,i;
+
+#############################################################################
+##
+#F  TPN2dot( tpn, name )
+##
+##  Returns a String containing dot syntax for the visualisation of the 
+##  Token Passing Network visualised, and named name.
+##
+InstallGlobalFunction(TPN2dot, function( tpn, name )
+    local f, innode, outnode, nodes, isin, n, m,i;
     f := GraphvizDigraph(name);
-    GraphvizSetAttrs(f, rec(rankdir:="LR", size:="\"8,5\"", layout:="neato"));
+    GraphvizSetAttrs(f, rec(rankdir:="LR", layout:="neato"));
     GraphvizSetAttr(f, "node [shape = circle]");
 
     innode := GraphvizAddNode(f, "in");
@@ -32,20 +48,19 @@ local f, innode, outnode, nodes, isin, n, m,i;
         GraphvizAddEdge(f, "in", String(i));
     od;
     return AsString(f);
+end);
 
-end;
-hex:=[[2,3],[4],[5],[3,6],[6],[]];
-hex2:=[ [ 2, 6 ], [ 3, 9 ], [ 2, 4 ], [ 3, 5 ], [ 4 ], [ 7, 9 ], [ 6, 8 ], [ 7 ], [  ] ];
-tpn := tpn2dot(hex,"Network");
-tpn2 := tpn2dot(hex2,"Network2");
-
-Splash(tpn);
-Splash(tpn2);
-
-transducer2dot := function(transducer, name)
+#############################################################################
+##
+#F  Transducer2dot( Transducer, name )
+##
+##  Returns a String containing dot syntax for the visualisation of the 
+##  transducer, and named name.
+##
+InstallGlobalFunction(Transducer2dot, function(transducer, name)
     local f, accept, i, start, innode, startnode;
     f := GraphvizDigraph(name);
-    GraphvizSetAttrs(f, rec(rankdir:="LR", size:="\"8,5\"", layout:="dot"));
+    GraphvizSetAttrs(f, rec(rankdir:="LR", layout:="dot"));
     GraphvizSetAttr(f, "node [shape = circle]");
 
     accept := GraphvizAddContext(f, "accept");
@@ -66,20 +81,4 @@ transducer2dot := function(transducer, name)
         GraphvizSetAttr(GraphvizAddEdge(f, String(i[3]), String(i[4])), "label", Concatenation("\"", String(i[1]), "|", String(i[2]), "\""));
     od;
     return AsString(f);
-end;
-
-trans := rec( accepting := [ 2 ], initial := 1, states := 3, 
-  transitions := [ [ 1, 2, 1, 2 ], [ 1, 2, 2, 2 ], [ 2, 2, 1, 3 ], 
-      [ 2, 2, 2, 3 ], [ 1, 1, 3, 3 ], [ 2, 2, 3, 3 ] ] );
-
-
-trans2 := rec( accepting := [ 1 .. 3 ], initial := 4, states := 4, 
-  transitions := [ [ 1, 1, 4, 4 ], [ 0, 1, 4, 1 ], [ 1, 2, 1, 1 ], 
-      [ 1, 1, 1, 2 ], [ 2, 3, 1, 1 ], [ 1, 1, 2, 3 ], [ 1, 1, 3, 3 ], 
-      [ 2, 2, 4, 4 ], [ 0, 2, 4, 2 ], [ 2, 3, 2, 2 ], [ 2, 2, 2, 3 ], 
-      [ 2, 2, 3, 3 ], [ 3, 3, 4, 4 ], [ 0, 3, 4, 3 ], [ 3, 3, 3, 3 ] ] );
-
-vist := transducer2dot(trans,"trans");
-vist2 := transducer2dot(trans2,"trans2");
-Splash(vist);
-Splash(vist2);#,rec(filename:="test", path:="./", directory:="./"));
+end);
