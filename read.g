@@ -20,6 +20,7 @@ ReadPackage( "patternclass", "lib/inversion.gi" );
 ReadPackage( "patternclass", "lib/simpleChains.gi" );
 ReadPackage( "patternclass", "lib/simpleAuts.gi" );
 ReadPackage( "patternclass", "lib/SubAut.gi" );
+ReadPackage( "patternclass", "lib/visualisation.gi" );
 
 ## This is highly experimental code on grid classes and not automatically loaded
 ## if you choose to load it, you are doing it so at your own risk.
