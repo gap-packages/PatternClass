@@ -14,17 +14,8 @@ local f, innode, outnode, nodes, isin, n, m,i;
     GraphvizSetAttr(outnode, "shape", "none");
     GraphvizSetAttr(outnode, "label", "\"\"");
 
-    # nodes := GraphvizAddContext(f, "nodes");
-    # GraphvizSetAttr(nodes, "node [shape=circle]");
-
-# THIS IS SUPER INEFFICIENT and only here because adding nodes after edges currently doesn't work
-    # for i in [1 .. Size(tpn)] do
-    #     GraphvizAddNode(f,String(i));
-    # od;
-
     isin := [1 .. Size(tpn)];
     for n in [1 .. Size(tpn)] do
-# Add this back in once issue has been resolved
         GraphvizSetAttr(GraphvizAddNode(f, String(n)), "shape", "circle") ;
         if IsEmpty(tpn[n]) then
             GraphvizAddEdge(f, String(n), "out");
@@ -43,10 +34,10 @@ local f, innode, outnode, nodes, isin, n, m,i;
     return AsString(f);
 
 end;
-hex:=[[2,3],[4],[5],[3,6],[6],[]];
-hex2:=[ [ 2, 6 ], [ 3, 9 ], [ 2, 4 ], [ 3, 5 ], [ 4 ], [ 7, 9 ], [ 6, 8 ], [ 7 ], [  ] ];
-tpn := tpn2dot(hex,"Network");
-tpn2 := tpn2dot(hex2,"Network2");
+# hex:=[[2,3],[4],[5],[3,6],[6],[]];
+# hex2:=[ [ 2, 6 ], [ 3, 9 ], [ 2, 4 ], [ 3, 5 ], [ 4 ], [ 7, 9 ], [ 6, 8 ], [ 7 ], [  ] ];
+# tpn := tpn2dot(hex,"Network");
+# tpn2 := tpn2dot(hex2,"Network2");
 
 # Splash(tpn);
 # Splash(tpn2);
@@ -77,18 +68,18 @@ transducer2dot := function(transducer, name)
     return AsString(f);
 end;
 
-trans := rec( accepting := [ 2 ], initial := 1, states := 3, 
-  transitions := [ [ 1, 2, 1, 2 ], [ 1, 2, 2, 2 ], [ 2, 2, 1, 3 ], 
-      [ 2, 2, 2, 3 ], [ 1, 1, 3, 3 ], [ 2, 2, 3, 3 ] ] );
+# trans := rec( accepting := [ 2 ], initial := 1, states := 3, 
+#   transitions := [ [ 1, 2, 1, 2 ], [ 1, 2, 2, 2 ], [ 2, 2, 1, 3 ], 
+#       [ 2, 2, 2, 3 ], [ 1, 1, 3, 3 ], [ 2, 2, 3, 3 ] ] );
 
 
-trans2 := rec( accepting := [ 1 .. 3 ], initial := 4, states := 4, 
-  transitions := [ [ 1, 1, 4, 4 ], [ 0, 1, 4, 1 ], [ 1, 2, 1, 1 ], 
-      [ 1, 1, 1, 2 ], [ 2, 3, 1, 1 ], [ 1, 1, 2, 3 ], [ 1, 1, 3, 3 ], 
-      [ 2, 2, 4, 4 ], [ 0, 2, 4, 2 ], [ 2, 3, 2, 2 ], [ 2, 2, 2, 3 ], 
-      [ 2, 2, 3, 3 ], [ 3, 3, 4, 4 ], [ 0, 3, 4, 3 ], [ 3, 3, 3, 3 ] ] );
+# trans2 := rec( accepting := [ 1 .. 3 ], initial := 4, states := 4, 
+#   transitions := [ [ 1, 1, 4, 4 ], [ 0, 1, 4, 1 ], [ 1, 2, 1, 1 ], 
+#       [ 1, 1, 1, 2 ], [ 2, 3, 1, 1 ], [ 1, 1, 2, 3 ], [ 1, 1, 3, 3 ], 
+#       [ 2, 2, 4, 4 ], [ 0, 2, 4, 2 ], [ 2, 3, 2, 2 ], [ 2, 2, 2, 3 ], 
+#       [ 2, 2, 3, 3 ], [ 3, 3, 4, 4 ], [ 0, 3, 4, 3 ], [ 3, 3, 3, 3 ] ] );
 
-vist := transducer2dot(trans,"trans");
-vist2 := transducer2dot(trans2,"trans2");
-#Splash(vist);
-Splash(vist2,rec(filename:="test", path:="./", directory:="./"));
+# vist := transducer2dot(trans,"trans");
+# vist2 := transducer2dot(trans2,"trans2");
+# #Splash(vist);
+# Splash(vist2,rec(filename:="test", path:="./", directory:="./"));
